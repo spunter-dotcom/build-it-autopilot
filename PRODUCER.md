@@ -81,7 +81,8 @@ Write `engine/topics/$ID.js`. Copy the structure of `engine/topics/well.js`:
    - privacy public, comments on
    - the AI-generated content label on (`isAigc: true`). Keep it on; the video carries no on-screen tag
    - the next slot from `getBestTimeToPostByNetwork`, otherwise 18:30 America/New_York
-4. If Metricool rejects the media URL, try once with `https://github.com/spunter-dotcom/build-it-autopilot/raw/media/$ID.mp4`. If that fails too, skip and record the error.
+4. YouTube Shorts: call `getBrandSettings` first. If the brand's `networksData` includes a YouTube channel, add `{"network": "youtube"}` to the same post's `providers` with `youtubeData: {"title": <script title, under 100 chars, plus " #shorts">, "type": "short", "privacy": "public", "madeForKids": false, "category": "EDUCATION", "isAiGeneratedContent": true}`. The same caption is used as the description. If YouTube isn't connected, post to TikTok only. Never let a YouTube error block the TikTok post: if the combined post fails, retry with TikTok alone.
+5. If Metricool rejects the media URL, try once with `https://github.com/spunter-dotcom/build-it-autopilot/raw/media/$ID.mp4`. If that fails too, skip and record the error.
 
 ## 11. Log and save
 - Append a row to `log.csv`.
