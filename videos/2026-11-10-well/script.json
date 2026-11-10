@@ -1,0 +1,21 @@
+{"title": "You built a well", "topic": "/topics/well.js",
+ "lines": [
+  {"id":"intro","text":"Your village needs water, but the river is a two hour walk away."},
+  {"id":"dig","text":"So you dig. Straight down, until the dirt turns dark and wet."},
+  {"id":"cave","text":"But the soft walls keep caving in."},
+  {"id":"stones","text":"So you line the hole with stones, stacked in a ring, each one wedged against the next."},
+  {"id":"seep","text":"Water seeps in through the gaps, but the walls hold. This is a well.","label":{"word":"well","text":"WELL"}},
+  {"id":"deep","text":"But the water sits thirty feet below you."},
+  {"id":"haul","text":"You tie a rope to a bucket and pull it up hand over hand, and by noon your palms are raw."},
+  {"id":"log","text":"So you lay a log across the top and wind the rope around it."},
+  {"id":"crank","text":"Add a crank to one end, and every turn lifts the bucket a little higher. This is a windlass.","label":{"word":"windlass","text":"WINDLASS"}},
+  {"id":"drop","text":"But a full bucket is heavy. Let go of the crank for one second, and it spins backward and the bucket crashes down."},
+  {"id":"teeth","text":"So you cut teeth into a wheel on the axle and add a wooden peg that drops between them."},
+  {"id":"click","text":"It clicks with every turn and catches the axle the moment you let go. This is a ratchet.","label":{"word":"ratchet","text":"RATCHET"}},
+  {"id":"frog","text":"But leaves, dirt and the occasional frog keep falling in."},
+  {"id":"roof","text":"So you raise a little roof over it and lay a lid across the mouth."},
+  {"id":"mud","text":"But the first bucket of every morning tastes like mud."},
+  {"id":"gravel","text":"So you pour a layer of gravel into the bottom, and the bucket stops stirring up mud."},
+  {"id":"village","text":"Now anyone can draw clean water, right in the middle of the village."},
+  {"id":"end","text":"Congratulations. You have built a well."}
+ ]}

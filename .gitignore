@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+engine/.models/
+engine/v_*
+*.wav
+*.mp4
+videos/*/qc/seq/

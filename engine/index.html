@@ -1,0 +1,20 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head><body><canvas id="gl"></canvas>
+<script type="module">
+import * as K from '/kit.js';
+const q = new URLSearchParams(location.search);
+const spec = await (await fetch(q.get('spec'))).json();
+const font = new FontFace('Cap', 'url(/fonts/Nunito-900.woff2)', { weight: '900' }); await font.load(); document.fonts.add(font);
+const gl = document.getElementById('gl');
+const topic = await import(spec.topic);
+const ctx = await topic.build(K, gl, spec);
+const ov = new K.Overlay(spec.w, spec.h);
+window.renderFrame = (f, q = 0.92) => {
+  const t = f / spec.fps; ctx.update(t); ctx.world.render(t);
+  const out = ov.compose(gl, t, spec.words || [], spec.labels || [], { aiTag: spec.aiTag });
+  return out.toDataURL('image/jpeg', q);
+};
+window.ready = true;
+</script></body></html>
