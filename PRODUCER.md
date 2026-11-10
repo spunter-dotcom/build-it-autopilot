@@ -64,12 +64,22 @@ Write `engine/topics/$ID.js`. Copy the structure of `engine/topics/well.js`:
 - Check that `final.mp4` is 720x1280, has an audio stream and runs at least 61 s.
 
 ## 10. Publish
-1. Host the file. Commit `final.mp4` as `$ID.mp4` to the branch `media` (fetch it first; keep only the newest 10 videos there). The public URL is `https://raw.githubusercontent.com/spunter-dotcom/build-it-autopilot/media/$ID.mp4`. This workspace can't open raw.githubusercontent.com itself, so confirm the push with `git ls-tree -r --name-only origin/media` instead.
+1. Host the file on the `media` branch. It holds the 3 newest videos in a single commit, so the repo stays small: only the new file is uploaded and old ones drop out. Run from the repo root:
+   ```bash
+   git fetch --depth 1 origin media && git worktree add --detach ../media-wt FETCH_HEAD && cd ../media-wt
+   git checkout -q --orphan media-new && git rm -rfq --cached .
+   ls *.mp4 | sort | head -n -2 | xargs -r rm -f          # keep the 2 newest old videos
+   cp ../build-it-autopilot/videos/$ID/final.mp4 $ID.mp4
+   git add -f *.mp4 README.md && git commit -qm "media: $ID" && git push -qf origin HEAD:media
+   git ls-remote origin media && git ls-tree -r --name-only HEAD   # must list $ID.mp4
+   cd ../build-it-autopilot && git worktree remove --force ../media-wt
+   ```
+   The public URL is `https://raw.githubusercontent.com/spunter-dotcom/build-it-autopilot/media/$ID.mp4`. This workspace can't open raw.githubusercontent.com itself, so trust the `ls-tree` check above.
 2. Write the caption:
    - one curiosity line (no clickbait lies)
    - 3–5 hashtags from `playbook.md`
    - `AI-generated animation and voice.`
-3. Post with Metricool `createScheduledPost` for TikTok. The brand is `blogId` 8019616 ("how_it_happened0"), timezone America/New_York. Use `autoPublish: true`, `providers: [{"network": "tiktok"}]`, the video URL in `media`, and `tiktokData` with `privacyOption: "PUBLIC_TO_EVERYONE"` and `isAigc: true`:
+3. Post with Metricool `createScheduledPost` for TikTok. The brand is `blogId` 8019616 ("how_it_happened0"), timezone America/New_York. Use `autoPublish: true`, `providers: [{"network": "tiktok"}]`, the video URL in `media`, and `tiktokData` with `privacyOption: "PUBLIC_TO_EVERYONE"`, `isAigc: true` and a non-empty `title` (required; use the script title). Metricool copies the video to its own storage when you schedule, so a success response means the file was fetched:
    - the video URL
    - privacy public, comments on
    - the AI-generated content label on (`isAigc: true`); the video also carries an on-screen "AI-generated" tag
