@@ -75,14 +75,11 @@ Write `engine/topics/$ID.js`. Copy the structure of `engine/topics/well.js`:
    cd ../build-it-autopilot && git worktree remove --force ../media-wt
    ```
    The public URL is `https://raw.githubusercontent.com/spunter-dotcom/build-it-autopilot/media/$ID.mp4`. This workspace can't open raw.githubusercontent.com itself, so trust the `ls-tree` check above.
-2. Write the caption:
-   - one curiosity line (no clickbait lies)
-   - 3–5 hashtags from `playbook.md`
-   - `AI-generated animation and voice.`
+2. Write the caption exactly as `playbook.md` rule 9 describes. Don't add an AI mention to the caption; the platform label covers it.
 3. Post with Metricool `createScheduledPost` for TikTok. The brand is `blogId` 8019616 ("how_it_happened0"), timezone America/New_York. Use `autoPublish: true`, `providers: [{"network": "tiktok"}]`, the video URL in `media`, and `tiktokData` with `privacyOption: "PUBLIC_TO_EVERYONE"`, `isAigc: true` and a non-empty `title` (required; use the script title). Metricool copies the video to its own storage when you schedule, so a success response means the file was fetched:
    - the video URL
    - privacy public, comments on
-   - the AI-generated content label on (`isAigc: true`); the video also carries an on-screen "AI-generated" tag
+   - the AI-generated content label on (`isAigc: true`). Keep it on; the video carries no on-screen tag
    - the next slot from `getBestTimeToPostByNetwork`, otherwise 18:30 America/New_York
 4. If Metricool rejects the media URL, try once with `https://github.com/spunter-dotcom/build-it-autopilot/raw/media/$ID.mp4`. If that fails too, skip and record the error.
 

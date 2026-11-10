@@ -1,7 +1,7 @@
 """make_spec.py — merge script.json + timing.json into the render spec, and list QC moments (2 per line + label pops)."""
 import json, sys, os
 V = sys.argv[1]; s = json.load(open(os.path.join(V, 'script.json'))); t = json.load(open(os.path.join(V, 'timing.json')))
-spec = {"topic": s["topic"], "w": 720, "h": 1280, "fps": 30, "duration": t["duration"], "words": t["words"], "labels": t["labels"], "lines": t["lines"], "aiTag": True}
+spec = {"topic": s["topic"], "w": 720, "h": 1280, "fps": 30, "duration": t["duration"], "words": t["words"], "labels": t["labels"], "lines": t["lines"], "aiTag": False}
 json.dump(spec, open(os.path.join(V, 'spec.json'), 'w'))
 qc = []
 for L in t["lines"].values():
