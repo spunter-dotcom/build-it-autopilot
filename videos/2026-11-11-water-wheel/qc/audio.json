@@ -1,0 +1,9 @@
+{"wer": 0.055, "ref_words": 273, "hyp_words": 268, "pass": true}
+  expected "rest it" heard "rested"
+  expected "sixty five percent" heard "65"
+  expected "toothed" heard "tooth"
+  expected "drum's" heard "drum"
+  expected "fixed" heard "thick"
+  expected "flour" heard "flower"
+  expected "ten eighty six" heard "1086"
+  expected "six thousand mills" heard "6 000 mils"

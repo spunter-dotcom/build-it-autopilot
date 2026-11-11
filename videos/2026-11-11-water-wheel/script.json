@@ -1,0 +1,90 @@
+{
+ "title": "You built a water mill",
+ "topic": "/topics/2026-11-11-water-wheel.js",
+ "lines": [
+  {
+   "id": "intro",
+   "text": "Your family needs bread, but grinding grain by hand takes hours every day."
+  },
+  {
+   "id": "quern",
+   "text": "So you crush grain between two flat stones, back and forth, until your arms ache."
+  },
+  {
+   "id": "tired",
+   "text": "But by evening, you've made barely enough flour for one loaf."
+  },
+  {
+   "id": "stream",
+   "text": "Then you notice the stream rushing past your house, shoving hard at every rock."
+  },
+  {
+   "id": "wheel",
+   "text": "So you cut planks and build a big wooden wheel with flat paddles around the rim."
+  },
+  {
+   "id": "axle",
+   "text": "You push a thick log through the middle as an axle and rest it on two posts."
+  },
+  {
+   "id": "turns",
+   "text": "The current pushes the bottom paddles, and the wheel starts to turn."
+  },
+  {
+   "id": "weak",
+   "text": "But only the push helps, and most of the stream's power slips away."
+  },
+  {
+   "id": "race",
+   "text": "So you dig a channel upstream and build a wooden trough that pours water over the top of the wheel."
+  },
+  {
+   "id": "buckets",
+   "text": "You swap the paddles for buckets. Falling water fills them, and its weight drags the wheel around. This is an overshot wheel.",
+   "label": {
+    "word": "overshot",
+    "text": "OVERSHOT WHEEL"
+   }
+  },
+  {
+   "id": "better",
+   "text": "Engineers later measured wheels like this at about sixty five percent efficient, over twice the old kind."
+  },
+  {
+   "id": "flat",
+   "text": "But your wheel spins upright, and a millstone has to spin flat."
+  },
+  {
+   "id": "gears",
+   "text": "So you fix a toothed wheel to the axle, and its teeth drive a small flat toothed drum. These are gears.",
+   "label": {
+    "word": "gears",
+    "text": "GEARS"
+   }
+  },
+  {
+   "id": "stones",
+   "text": "On the drum's shaft, you set a heavy round millstone above a fixed stone."
+  },
+  {
+   "id": "hopper",
+   "text": "You hang a wooden hopper over it, and grain trickles into the hole in the middle."
+  },
+  {
+   "id": "grind",
+   "text": "The stream turns the wheel, the gears turn the stone, and flour spills out the edge. This is a water mill.",
+   "label": {
+    "word": "mill",
+    "text": "WATER MILL"
+   }
+  },
+  {
+   "id": "spread",
+   "text": "By ten eighty six, one English survey counted over six thousand mills."
+  },
+  {
+   "id": "end",
+   "text": "Congratulations. You have built a water mill."
+  }
+ ]
+}
