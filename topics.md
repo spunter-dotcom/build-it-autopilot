@@ -3,7 +3,6 @@
 ## Next (the producer takes the first unchecked one)
 - [ ] Water wheel that grinds grain
 - [ ] Trebuchet
-- [ ] Treadwheel crane (lifting cathedral stones)
 - [ ] Shaduf (counterweight water lift)
 - [ ] Log cabin
 - [ ] Stone arch bridge
@@ -16,3 +15,4 @@ Roman aqueduct · lime kiln · charcoal clamp · blacksmith forge with bellows �
 - [x] 2026-11-10 Roman apartment building (insula) (owner-assigned topic)
 - [x] 2026-11-11 Archimedes screw
 - [x] 2026-11-11 Siracusia, Archimedes' giant ship for Hiero II (owner-assigned topic)
+- [x] 2026-11-11 Treadwheel crane (lifting cathedral stones) (owner-assigned topic; posted by hand)

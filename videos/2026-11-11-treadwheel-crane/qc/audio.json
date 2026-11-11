@@ -1,0 +1,10 @@
+{"wer": 0.038, "ref_words": 287, "hyp_words": 289, "pass": true}
+  expected "" heard "buzzer"
+  expected "winds" heard "wins"
+  expected "treadwheel" heard "tread wheel"
+  expected "walkers" heard "walker"
+  expected "brake" heard "break"
+  expected "wheel's" heard "wheels"
+  expected "a" heard "the"
+  expected "" heard "the"
+  expected "nineteen seventies" heard "1970s"

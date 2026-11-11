@@ -1,0 +1,22 @@
+{"title": "You built a treadwheel crane", "topic": "/topics/2026-11-11-treadwheel-crane.js",
+ "lines": [
+  {"id":"intro","text":"Your town is building a cathedral, and its walls must rise higher than the tallest trees."},
+  {"id":"stones","text":"So you carve your stones, but each block is far too heavy to carry up a ladder."},
+  {"id":"frame","text":"So you raise a timber frame beside the wall, with a long arm reaching out over it."},
+  {"id":"rope","text":"You hang a pulley from the tip and run a rope down to the stone."},
+  {"id":"pull","text":"But when you pull, the block barely moves, and your arms give out."},
+  {"id":"axle","text":"So you wind the rope around a wooden axle instead."},
+  {"id":"wheel","text":"Then you fix a giant wheel to that axle, wide enough for two workers to walk inside, side by side."},
+  {"id":"walk","text":"They walk, like hamsters in a wheel, and the axle slowly winds the rope. This is a treadwheel.","label":{"word":"treadwheel","text":"TREADWHEEL"}},
+  {"id":"lift","text":"Because the wheel is so much wider than the axle, a few steps lift a stone no crew could carry."},
+  {"id":"grip","text":"But how do you grab a smooth stone block?"},
+  {"id":"lewis","text":"You cut a dovetail hole in its top and slot in three iron legs that wedge tight. This is a lewis.","label":{"word":"lewis","text":"LEWIS"}},
+  {"id":"brake","text":"But if the walkers stop, won't the stone come crashing down?"},
+  {"id":"friction","text":"Usually not. Most cranes had no brake at all, because the heavy wheel's friction held it still."},
+  {"id":"swing","text":"A crane master steers the hanging block into place with a small side rope."},
+  {"id":"higher","text":"But the walls keep rising, higher than your crane can reach."},
+  {"id":"climb","text":"So you rebuild it on top of the walls, and it climbs as the building grows. This is a treadwheel crane.","label":{"word":"crane","text":"TREADWHEEL CRANE"}},
+  {"id":"roof","text":"When the vault is finished, you leave it in the tower, tucked under the roof."},
+  {"id":"canterbury","text":"At Canterbury Cathedral, a wheel like this was still in use until the nineteen seventies."},
+  {"id":"end","text":"Congratulations. You have built a treadwheel crane."}
+ ]}
