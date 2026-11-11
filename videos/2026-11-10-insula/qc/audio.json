@@ -1,0 +1,9 @@
+{"wer": 0.051, "ref_words": 257, "hyp_words": 256, "pass": true}
+  expected "mudbrick" heard "mud brick"
+  expected "sixty four" heard "'64"
+  expected "seventy" heard "70"
+  expected "twenty one" heard "21"
+  expected "trajan" heard "tragen"
+  expected "sixty" heard "60"
+  expected "forty thousand" heard "40 000"
+  expected "two thousand" heard "2 000"

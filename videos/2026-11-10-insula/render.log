@@ -1,0 +1,46 @@
+[page] [.WebGL-0x234400189600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+frame 0/2369  2207 ms/frame
+[page] [.WebGL-0x234400189600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[page] [.WebGL-0x234400189600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[page] [.WebGL-0x234400189600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+frame 60/2369  1259 ms/frame
+frame 120/2369  1255 ms/frame
+frame 180/2369  1319 ms/frame
+frame 240/2369  1381 ms/frame
+frame 300/2369  1417 ms/frame
+frame 360/2369  1445 ms/frame
+frame 420/2369  1470 ms/frame
+frame 480/2369  1505 ms/frame
+frame 540/2369  1523 ms/frame
+frame 600/2369  1557 ms/frame
+frame 660/2369  1655 ms/frame
+frame 720/2369  1751 ms/frame
+frame 780/2369  1768 ms/frame
+frame 840/2369  1774 ms/frame
+frame 900/2369  1789 ms/frame
+frame 960/2369  1809 ms/frame
+frame 1020/2369  1835 ms/frame
+frame 1080/2369  1853 ms/frame
+frame 1140/2369  1852 ms/frame
+frame 1200/2369  1859 ms/frame
+frame 1260/2369  1857 ms/frame
+frame 1320/2369  1848 ms/frame
+frame 1380/2369  1856 ms/frame
+frame 1440/2369  1872 ms/frame
+frame 1500/2369  1880 ms/frame
+frame 1560/2369  1871 ms/frame
+frame 1620/2369  1868 ms/frame
+frame 1680/2369  1871 ms/frame
+frame 1740/2369  1874 ms/frame
+frame 1800/2369  1875 ms/frame
+frame 1860/2369  1876 ms/frame
+frame 1920/2369  1880 ms/frame
+frame 1980/2369  1884 ms/frame
+frame 2040/2369  1890 ms/frame
+frame 2100/2369  1903 ms/frame
+frame 2160/2369  1915 ms/frame
+frame 2220/2369  1926 ms/frame
+frame 2280/2369  1937 ms/frame
+frame 2340/2369  1947 ms/frame
+ffmpeg exit 0
+done 2369 frames in 4621.4s
