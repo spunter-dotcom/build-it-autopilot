@@ -25,7 +25,7 @@ if (a === '--frames') { // QC mode: node render.mjs spec.json outprefix.mp4 --fr
   await browser.close(); srv.close(); process.exit(0); }
 const n0 = +(a ?? 0), n1 = +(b ?? Math.round(spec.duration * spec.fps));
 const tmp = out.replace(/\.mp4$/, '.part.mp4');
-const ff = spawn('ffmpeg', ['-y', '-v', 'error', '-f', 'image2pipe', '-framerate', String(spec.fps), '-c:v', 'mjpeg', '-i', '-', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '19', '-pix_fmt', 'yuv420p', '-r', String(spec.fps), tmp], { stdio: ['pipe', 'inherit', 'inherit'] });
+const ff = spawn('ffmpeg', ['-y', '-v', 'error', '-f', 'image2pipe', '-framerate', String(spec.fps), '-c:v', 'mjpeg', '-i', '-', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', '-pix_fmt', 'yuv420p', '-r', String(spec.fps), tmp], { stdio: ['pipe', 'inherit', 'inherit'] });
 const T = Date.now();
 for (let f = n0; f < n1; f++) {
   const url = await page.evaluate(f => window.renderFrame(f), f);

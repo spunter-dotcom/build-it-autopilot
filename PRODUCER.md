@@ -64,13 +64,13 @@ Write `engine/topics/$ID.js`. Copy the structure of `engine/topics/well.js`:
 - Check that `final.mp4` is 720x1280, has an audio stream and runs at least 61 s.
 
 ## 10. Publish
-1. Host the file on the `media` branch. It holds the 3 newest videos in a single commit, so the repo stays small: only the new file is uploaded and old ones drop out. Run from the repo root:
+1. Host the file on the `media` branch. It keeps the 3 newest videos (Metricool copies each file when you schedule, so older ones aren't needed). Run from the repo root:
    ```bash
    git fetch --depth 1 origin media && git worktree add --detach ../media-wt FETCH_HEAD && cd ../media-wt
-   git checkout -q --orphan media-new && git rm -rfq --cached .
-   ls *.mp4 | sort | head -n -2 | xargs -r rm -f          # keep the 2 newest old videos
+   git checkout -q -B media-new
+   ls *.mp4 | sort | head -n -2 | xargs -r git rm -q       # keep the 2 newest old videos
    cp ../build-it-autopilot/videos/$ID/final.mp4 $ID.mp4
-   git add -f *.mp4 README.md && git commit -qm "media: $ID" && git push -qf origin HEAD:media
+   git add -f *.mp4 README.md && git commit -qm "media: $ID" && git push -q origin HEAD:media      # normal push; force-push is blocked by the git proxy
    git ls-remote origin media && git ls-tree -r --name-only HEAD   # must list $ID.mp4
    cd ../build-it-autopilot && git worktree remove --force ../media-wt
    ```
