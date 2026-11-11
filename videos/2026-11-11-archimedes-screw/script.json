@@ -1,0 +1,22 @@
+{"title": "You built an Archimedes screw", "topic": "/topics/2026-11-11-archimedes-screw.js",
+ "lines": [
+  {"id":"intro","text":"Your crops are dying, but the river runs below your fields."},
+  {"id":"carry","text":"So you haul water up the bank in buckets, one heavy trip at a time."},
+  {"id":"slow","text":"But by sunset, you've barely watered a single row."},
+  {"id":"log","text":"So you cut a long log, round it smooth, and mark each end into eight equal parts."},
+  {"id":"strips","text":"You soak thin willow strips in pitch and wind them around the log in a slanted spiral."},
+  {"id":"blades","text":"Layer after layer, they build up into eight twisting blades. This is a helix.","label":{"word":"helix","text":"HELIX"}},
+  {"id":"spill","text":"But water just slides right off the open blades."},
+  {"id":"planks","text":"So you wrap it in planks, seal the seams with pitch, and bind it with iron hoops."},
+  {"id":"tube","text":"Now it's a closed wooden tube with a spiral inside."},
+  {"id":"tilt","text":"You set the bottom in the river and tip it up, three feet high for every five feet long."},
+  {"id":"stuck","text":"But it just sits there, and nothing moves."},
+  {"id":"crank","text":"So you put an iron pin in each end, rest them on a frame, and fix a handle to the top. This is a crank.","label":{"word":"crank","text":"CRANK"}},
+  {"id":"turn","text":"You turn it, and the low end scoops up water, trapping a pocket between the blades."},
+  {"id":"climb","text":"With every turn, the pockets climb the spiral, and water pours out the top. This is an Archimedes screw.","label":{"word":"screw","text":"ARCHIMEDES SCREW"}},
+  {"id":"leak","text":"But some water leaks back down past the blades."},
+  {"id":"catch","text":"That's fine. The pocket below catches it and carries it up again."},
+  {"id":"ditch","text":"So you dig a channel from the top of the screw out to your fields."},
+  {"id":"green","text":"Now the river flows uphill, and people will use this trick for over two thousand years."},
+  {"id":"end","text":"Congratulations. You have built an Archimedes screw."}
+ ]}

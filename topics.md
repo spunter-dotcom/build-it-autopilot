@@ -4,7 +4,6 @@
 - [ ] Water wheel that grinds grain
 - [ ] Trebuchet
 - [ ] Treadwheel crane (lifting cathedral stones)
-- [ ] Archimedes screw
 - [ ] Shaduf (counterweight water lift)
 - [ ] Log cabin
 - [ ] Stone arch bridge
@@ -15,3 +14,4 @@ Roman aqueduct · lime kiln · charcoal clamp · blacksmith forge with bellows �
 ## Done
 - [x] 2026-11-10 Stone well with windlass and ratchet (test video)
 - [x] 2026-11-10 Roman apartment building (insula) (owner-assigned topic)
+- [x] 2026-11-11 Archimedes screw

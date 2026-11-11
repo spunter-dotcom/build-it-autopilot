@@ -1,0 +1,6 @@
+{"wer": 0.023, "ref_words": 265, "hyp_words": 266, "pass": true}
+  expected "" heard "up"
+  expected "but" heard "the"
+  expected "" heard "the"
+  expected "so" heard "though"
+  expected "two thousand" heard "2000"
