@@ -1,0 +1,82 @@
+{
+ "title": "You built a Roman apartment block",
+ "topic": "/topics/2026-11-10-insula.js",
+ "lines": [
+  {
+   "id": "intro",
+   "text": "Your city is packed with people, and there's no land left to build on."
+  },
+  {
+   "id": "up",
+   "text": "So you build up, starting with a ground floor of brick-faced concrete."
+  },
+  {
+   "id": "shop",
+   "text": "You open every front room onto the street and rent it to a baker or a cobbler. This is a taberna.",
+   "label": {
+    "word": "taberna",
+    "text": "TABERNA"
+   }
+  },
+  {
+   "id": "workers",
+   "text": "But a row of shops won't house all the workers pouring into the city."
+  },
+  {
+   "id": "stack",
+   "text": "So you stack apartments on top, with thick brick walls on the lower floors."
+  },
+  {
+   "id": "rich",
+   "text": "The wealthiest tenants take the lower floors, steadier and closest to the street."
+  },
+  {
+   "id": "cost",
+   "text": "But brick and concrete are expensive, and you want more floors, fast."
+  },
+  {
+   "id": "timber",
+   "text": "So the upper floors go up in cheap timber and mudbrick."
+  },
+  {
+   "id": "water",
+   "text": "Up here there is no kitchen and no plumbing. Tenants haul water from the public fountain and buy dinner from street stalls."
+  },
+  {
+   "id": "roof",
+   "text": "The higher you climb, the smaller and cheaper the rooms, until the poorest families are crammed under the roof. This is an insula.",
+   "label": {
+    "word": "insula",
+    "text": "INSULA"
+   }
+  },
+  {
+   "id": "flimsy",
+   "text": "But one Roman poet complained that most buildings were held up by flimsy bits of wood."
+  },
+  {
+   "id": "collapse",
+   "text": "Even Cicero admitted some of his rental buildings were falling down."
+  },
+  {
+   "id": "fire",
+   "text": "And timber burns. In the Great Fire of sixty four, flames swept through entire districts of these blocks."
+  },
+  {
+   "id": "limit",
+   "text": "So the law steps in. No new building may rise higher than seventy Roman feet, about twenty one meters."
+  },
+  {
+   "id": "trajan",
+   "text": "Later, Emperor Trajan cuts the limit again, to sixty feet."
+  },
+  {
+   "id": "city",
+   "text": "Even so, ancient lists count over forty thousand of these blocks in Rome, and fewer than two thousand private houses."
+  },
+  {
+   "id": "end",
+   "text": "Congratulations. You have built an insula."
+  }
+ ]
+}
