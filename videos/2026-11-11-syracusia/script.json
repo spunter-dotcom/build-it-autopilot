@@ -1,0 +1,94 @@
+{
+ "title": "You built Archimedes' giant ship",
+ "topic": "/topics/2026-11-11-syracusia.js",
+ "lines": [
+  {
+   "id": "intro",
+   "text": "Your king wants the biggest ship the world has ever seen."
+  },
+  {
+   "id": "timber",
+   "text": "So you haul timber from Mount Etna, enough, ancient writers say, for sixty warships."
+  },
+  {
+   "id": "frame",
+   "text": "Three hundred craftsmen raise the ribs, and in six months half the hull is done."
+  },
+  {
+   "id": "decks",
+   "text": "Inside, you stack three gangways: cargo, thirty cabins, and soldiers on top."
+  },
+  {
+   "id": "seas",
+   "text": "But a hull this huge must hold together at sea."
+  },
+  {
+   "id": "rivets",
+   "text": "So you pin it with bronze rivets, many weighing ten pounds."
+  },
+  {
+   "id": "lead",
+   "text": "Then you wrap it in tarred linen and sheets of lead."
+  },
+  {
+   "id": "land",
+   "text": "But the giant is stuck on land, and no crew can push it."
+  },
+  {
+   "id": "launch",
+   "text": "So Archimedes rigs a windlass, and it slides into the sea. This is the Syracusia.",
+   "label": {
+    "word": "syracusia",
+    "text": "SYRACUSIA"
+   }
+  },
+  {
+   "id": "top",
+   "text": "On top, ancient writers say, you add a gymnasium, gardens, and grapevines growing in casks of earth."
+  },
+  {
+   "id": "shrine",
+   "text": "A shrine to Aphrodite with an agate floor, a library, and a bath with three bronze tubs."
+  },
+  {
+   "id": "stalls",
+   "text": "Twenty horse stalls, a freshwater tank, and a fish tank lined with lead."
+  },
+  {
+   "id": "towers",
+   "text": "But a floating palace is a target, so you raise eight towers full of archers."
+  },
+  {
+   "id": "catapult",
+   "text": "And Archimedes builds a machine that hurls a hundred and eighty pound stone. This is a catapult.",
+   "label": {
+    "word": "catapult",
+    "text": "CATAPULT"
+   }
+  },
+  {
+   "id": "leak",
+   "text": "But the bilge fills with water."
+  },
+  {
+   "id": "screw",
+   "text": "So one man pumps it out with a turning screw. This is an Archimedes screw.",
+   "label": {
+    "word": "screw",
+    "text": "ARCHIMEDES SCREW"
+   }
+  },
+  {
+   "id": "harbor",
+   "text": "But harbors can't safely take a ship this big."
+  },
+  {
+   "id": "gift",
+   "text": "So the king renames her Alexandris, fills her with grain, and sends her to Egypt as a gift."
+  },
+  {
+   "id": "end",
+   "text": "Congratulations. You have built a giant ship."
+  }
+ ]
+}
