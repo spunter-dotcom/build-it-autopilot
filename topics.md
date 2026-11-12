@@ -8,9 +8,10 @@
 
 ## In progress (manual drafts, 2026-11-12)
 - canal lock · blacksmith forge with bellows · drawbridge
+- ballista · portcullis · water clock · Roman road · screw press (olive or cider)
 
 ## Ideas (all buildable from the kit; the analyst promotes them to Next)
-lime kiln · charcoal clamp · pottery kiln · saw pit · ropewalk · warp-weighted loom · screw press (olive or cider) · straw beehive (skep) · bread oven · smokehouse · ice house · fire beacon tower · portcullis · mangonel · ballista · water clock · Roman road · noria water wheel · weir · hand quern · horse-powered mill · rope-and-pulley hoist · wooden barrel · thatched roof · timber-frame house · stone fireplace and chimney · palisade fort
+lime kiln · charcoal clamp · pottery kiln · saw pit · ropewalk · warp-weighted loom · straw beehive (skep) · bread oven · smokehouse · ice house · fire beacon tower · mangonel · noria water wheel · weir · hand quern · horse-powered mill · rope-and-pulley hoist · wooden barrel · thatched roof · timber-frame house · stone fireplace and chimney · palisade fort
 
 ## Done
 - [x] Roman aqueduct (owner already has one; made outside the autopilot)
