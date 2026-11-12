@@ -29,12 +29,14 @@ Write `videos/$ID/script.json`, using `videos/2026-11-10-well/script.json` as th
 - Format: 16–20 lines, 240–300 words, in the second person ("you").
 - Shape: open with a need, then chain "So you …" and "But …" beats.
 - Naming lines: include 2–3 lines like "This is a ___." Each gets `"label": {"word": "...", "text": "..."}`.
+- Words: use plain English. Translate Latin or Greek terms ("apartment block", not "insula") unless the name itself is the point (Archimedes, Vitruvius, a ship's name). For any such name, check `engine/pronunciations.json`; if it isn't there, add a lowercase, hyphenated respelling (e.g. `"athenaeus": "ath-uh-nee-us"`) to `videos/$ID/pronunciations.json`. Captions keep the real spelling; only the voice uses the respelling.
 - Ending: the last line is exactly "Congratulations. You have built a ___."
 - Point `"topic"` at `/topics/$ID.js`.
 
 ## 5. Voice
 - Run `engine/make_video.sh videos/$ID voice`.
 - The narration must be at least 61 s. If it's shorter, add a beat and run it again.
+- Listen for names: transcribe each line that contains a Latin/Greek name (the listening test in step 9 does this for the whole video). If a name comes out garbled, add or fix its respelling and regenerate the voice. Never write respellings in capital letters; the voice spells capitals out letter by letter.
 
 ## 6. Scene
 Write `engine/topics/$ID.js`. Copy the structure of `engine/topics/well.js`:

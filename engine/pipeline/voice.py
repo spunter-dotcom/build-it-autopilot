@@ -50,6 +50,29 @@ def word_times(text, y, sr):
         out.append({"w": w, "t0": round(t0, 3), "t1": round(t1, 3)})
     return out
 
+def load_lexicon(*paths):
+    """Pronunciation respellings: {"insula": "IN-soo-lah"}. Respellings must be ONE token (hyphens, no spaces)
+    so caption words and spoken words stay aligned one-to-one."""
+    lex = {}
+    for p in paths:
+        if p and os.path.exists(p):
+            for k_, v in json.load(open(p)).items():
+                if k_.startswith("_"): continue
+                assert " " not in v.strip() and v == v.lower(), f"respelling for {k_!r}: lowercase, no spaces"
+                lex[k_.lower()] = v.strip()
+    return lex
+
+def spoken(text, lex):
+    """Replace words found in the lexicon (keeping surrounding punctuation) for the TTS only."""
+    out = []
+    for tok in text.split():
+        m = re.match(r"^(\W*)([\w'\-]+?)(\W*)$", tok)
+        if m and m.group(2).lower() in lex:
+            out.append(m.group(1) + lex[m.group(2).lower()] + m.group(3))
+        else:
+            out.append(tok)
+    return " ".join(out)
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("script"); ap.add_argument("outdir"); ap.add_argument("--models", required=True)
     ap.add_argument("--voice", default="am_fenrir"); ap.add_argument("--speed", type=float, default=1.15); ap.add_argument("--gap", type=float, default=0.14)
@@ -58,8 +81,12 @@ def main():
     k = Kokoro(os.path.join(a.models, "kokoro-v1.0.int8.onnx"), os.path.join(a.models, "voices-v1.0.bin"))
     sr = 24000; parts = []; lines = {}; words_all = []; labels = []; t = 0.25
     parts.append(np.zeros(int(0.25 * sr), np.float32))
+    eng = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    lex = load_lexicon(os.path.join(eng, "pronunciations.json"), os.path.join(a.outdir, "pronunciations.json"))
     for L in script["lines"]:
-        y, sr = k.create(L["text"], voice=a.voice, speed=a.speed, lang="en-us")
+        say = spoken(L.get("say", L["text"]), lex)
+        if len(say.split()) != len(L["text"].split()): say = spoken(L["text"], lex)  # keep word counts aligned
+        y, sr = k.create(say, voice=a.voice, speed=a.speed, lang="en-us")
         y = trim(y.astype(np.float32), sr)
         ws = word_times(L["text"], y, sr)
         for w in ws:
