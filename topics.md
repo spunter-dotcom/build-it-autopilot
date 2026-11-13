@@ -1,7 +1,6 @@
 # Topics
 
 ## Next (the producer takes the first unchecked one)
-- [ ] Trebuchet
 - [ ] Shaduf (counterweight water lift)
 - [ ] Log cabin
 - [ ] Stone arch bridge
@@ -21,3 +20,4 @@ lime kiln · charcoal clamp · pottery kiln · saw pit · ropewalk · warp-weigh
 - [x] 2026-11-11 Siracusia, Archimedes' giant ship for Hiero II (owner-assigned topic)
 - [x] 2026-11-11 Treadwheel crane (lifting cathedral stones) (owner-assigned topic; posted by hand)
 - [x] 2026-11-11 Water wheel that grinds grain (owner-assigned topic)
+- [x] 2026-11-13 Trebuchet

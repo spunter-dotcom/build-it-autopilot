@@ -1,0 +1,5 @@
+{"wer": 0.039, "ref_words": 283, "hyp_words": 276, "pass": true}
+  expected "two hundred and fifty" heard "250"
+  expected "but" heard "at"
+  expected "three hundred and fifty" heard "350"
+  expected "fourteen hundreds" heard "1400s"

@@ -1,0 +1,20 @@
+{"title": "You built a trebuchet", "topic": "/topics/2026-11-13-trebuchet.js",
+ "lines": [
+  {"id":"intro","text":"There is a castle wall in your way, taller than five men, and you need to throw a rock over it."},
+  {"id":"seesaw","text":"So you lay a long beam across a frame, like a seesaw, with one arm much shorter than the other."},
+  {"id":"pull","text":"You put a rock on the long end and pull the short end down hard."},
+  {"id":"weak","text":"But one person barely moves it."},
+  {"id":"crowd","text":"So you tie ropes to the short end, and a whole crowd yanks them at the same time."},
+  {"id":"traction","text":"The long arm whips up and the rock flies. This is a traction trebuchet. Crews in ancient China had up to two hundred and fifty pullers.","label":{"word":"trebuchet","text":"TRACTION TREBUCHET"}},
+  {"id":"messy","text":"But no two pulls are the same, and your rocks land all over the place."},
+  {"id":"box","text":"So you swap the people for a giant wooden box and fill it with stones and sand."},
+  {"id":"hinge","text":"Hang it from the short arm on a hinge, so it falls the same way every time. This is a counterweight.","label":{"word":"counterweight","text":"COUNTERWEIGHT"}},
+  {"id":"heavy","text":"But now the long arm is far too heavy to pull down by hand."},
+  {"id":"winch","text":"So you add a winch, and crank until the long arm is pinned to the ground."},
+  {"id":"short","text":"But the arm alone throws the rock short and low."},
+  {"id":"sling","text":"So you tie a rope sling to the tip. One end is fixed, the other is a loop hooked over a pin."},
+  {"id":"release","text":"As the arm swings, the sling whips around, the loop slips off the pin, and the rock flies free. This is a sling.","label":{"word":"sling","text":"SLING"}},
+  {"id":"far","text":"Now you can hurl stones heavier than three grown men, or send smaller ones more than three hundred and fifty meters."},
+  {"id":"cannon","text":"Armies kept building these until cannons took over in the fourteen hundreds."},
+  {"id":"end","text":"Congratulations. You have built a trebuchet."}
+ ]}
