@@ -1,0 +1,9 @@
+{"wer": 0.044, "ref_words": 296, "hyp_words": 298, "pass": true}
+  expected "plant" heard "plan"
+  expected "tied a" heard "tie to"
+  expected "bucket" heard "buck check it"
+  expected "shaduf" heard "shadu"
+  expected "two thousand" heard "2 000"
+  expected "but" heard "if"
+  expected "four thousand" heard "4 000"
+  expected "shaduf" heard "shadu"

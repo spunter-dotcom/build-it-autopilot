@@ -1,0 +1,21 @@
+{"title": "You built a shaduf", "topic": "/topics/2026-11-14-shaduf.js",
+ "lines": [
+  {"id":"intro","text":"Your crops are dying in the sun, and the river is right there, just below the bank."},
+  {"id":"carry","text":"So you climb down with a bucket, fill it, and haul it back up the bank, over and over."},
+  {"id":"tired","text":"But by noon you have watered three rows, and your back is screaming."},
+  {"id":"post","text":"So you plant a tall forked post right at the edge of the bank."},
+  {"id":"pole","text":"Lay a long pole in the fork, tied a fifth of the way from one end, like a seesaw."},
+  {"id":"bucket","text":"Hang the bucket from the long end on a rope, and pull it down into the river."},
+  {"id":"heavy","text":"But lifting a full bucket on the end of a pole is just as hard as carrying it."},
+  {"id":"mud","text":"So you pack wet mud into a big ball on the short end and let it bake hard in the sun."},
+  {"id":"counter","text":"Now the ball wants to fall, and when it falls, it lifts the bucket for you. This is a counterweight.","label":{"word":"counterweight","text":"COUNTERWEIGHT"}},
+  {"id":"swing","text":"Pull the empty bucket down, let the weight swing it up full, then turn the pole and tip it out."},
+  {"id":"shaduf","text":"This is a shaduf. One person can lift about two thousand liters of water an hour.","label":{"word":"shaduf","text":"SHADUF"}},
+  {"id":"soak","text":"But the water just soaks into the dirt right where you pour it."},
+  {"id":"canal","text":"So you dig a channel along the top of the bank, lined with packed clay, with furrows branching between your rows."},
+  {"id":"flow","text":"Every bucket now runs straight to the roots. This is an irrigation canal.","label":{"word":"canal","text":"IRRIGATION CANAL"}},
+  {"id":"leak","text":"But your bucket leaks half its water on the way up."},
+  {"id":"basket","text":"So you weave a basket out of reeds and coat it in sticky black tar, so it holds every drop."},
+  {"id":"history","text":"Farmers in Mesopotamia were lifting water like this over four thousand years ago, and some still do today."},
+  {"id":"end","text":"Congratulations. You have built a shaduf."}
+ ]}
