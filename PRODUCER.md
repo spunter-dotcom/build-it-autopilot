@@ -74,3 +74,12 @@ Metricool needs a public URL. Use the Higgsfield URL first; keep a GitHub copy a
 ## 9. Failures
 - After 2 failed attempts at any step, don't post.
 - Log the reason in `log.csv`, commit, and send one short push notification saying what broke.
+
+## 10. Lessons from the first run (2026-11-15) — read before step 5
+- Claude usage is the bottleneck. Keep tool calls few: batch sandbox work into one command, look at 4 frames per call, and don't re-read instructions you already have.
+- Render time is about 2.5–3 s per frame on XL. Render the 65 s in four `--range` parts of 16.25 s (r1..r4), one background call at a time (each takes about 7–8 minutes), then join with the ffmpeg concat demuxer (`-c copy`). Wait with one long local `sleep 420` between polls, not many short polls. Never put a `sleep` longer than about 40 s inside `sandbox_exec`; it returns Bad Gateway.
+- Call `media_upload` while the last part renders and save the upload URL to a file in the sandbox, so the final command can concat, fix loudness, check and upload in one go.
+- Loudness: aim for -14 LUFS but keep the true peak under -1 dB. If the gain needed would clip, use a smaller gain (-16 LUFS is acceptable). Never limit or compress.
+- GLSL scenes: when repeating objects in grid cells, apply the cell-boundary step limit to every cell (also empty ones), and keep objects well inside their cell. Otherwise shapes render hollow or broken. Check a preview frame of every scene for hollow shells, holes and broken parts before rendering.
+- This workspace's shell cannot reach Higgsfield's file host, so step 6 (media-branch backup) is normally skipped. Record the hosted URL from `media_upload` ("Read url") in `higgsfield.json`.
+- If a run is cut off, its sandbox files under `/home/user/what-if/<slug>/` survive for 24 hours. A later run should resume from them (reuse `voice.mp3`; never re-voice a take that passed).
