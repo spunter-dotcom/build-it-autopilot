@@ -1,10 +1,17 @@
 # Topics
 
 ## Next (the producer takes the first unchecked one)
+Rewritten 2026-11-15 by the weekly analyst: 5 that resemble this week's leaders (ancient spectacle, ships, Roman building, water) and 2 experiments (new families, marked).
 - [ ] Stone arch bridge
+- [ ] Greek trireme (three banks of oars; ships, like Syracusia)
+- [ ] Ballista (the bolt-and-stone thrower; siege, like Syracusia's stone thrower)
+- [ ] Roman road (layered stone; Roman building, like the insula)
+- [ ] Canal lock (lifting boats with water; water family)
+- [ ] Inca grass-rope suspension bridge (experiment: rope-and-fibre family)
+- [ ] Ice house (keeping ice through summer; experiment: food-storage family)
 
 ## Ideas (the analyst promotes them to Next)
-canal lock · blacksmith forge with bellows · castle drawbridge · ballista · portcullis · water clock · Roman road · olive oil screw press · lime kiln · charcoal clamp · pottery kiln · saw pit · ropewalk · warp-weighted loom · straw beehive (skep) · bread oven · smokehouse · ice house · fire beacon tower · mangonel · noria water wheel · weir · hand quern · horse-powered mill · rope-and-pulley hoist · wooden barrel · thatched roof · timber-frame house · stone fireplace and chimney · palisade fort
+blacksmith forge with bellows · castle drawbridge · portcullis · water clock · olive oil screw press · lime kiln · charcoal clamp · pottery kiln · saw pit · ropewalk · warp-weighted loom · straw beehive (skep) · bread oven · smokehouse · fire beacon tower · mangonel · noria water wheel · weir · hand quern · horse-powered mill · rope-and-pulley hoist · wooden barrel · thatched roof · timber-frame house · stone fireplace and chimney · palisade fort
 
 ## Done
 - [x] 2026-11-15 Log cabin (first Higgsfield video; awaiting owner review)

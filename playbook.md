@@ -3,7 +3,7 @@
 ## Current rules
 1. **Length:** 65 s target (62–80 s allowed). Creator Rewards only counts videos over 1 minute.
 2. **Voice and look:** ElevenLabs v4 preset Desmond (voice_id 563f728c-e249-5a85-97ab-8461e8c09da6), made with Higgsfield `/content-factory` in the style of the owner's reference video (media_id 79814186-bdc0-4392-9803-0669ea6b7cf2). Keep a brisk pace with very short pauses.
-3. **Opening:** the first line states the need in under 3 seconds ("Your village needs water…").
+3. **Opening:** the first line states the need in under 3 seconds ("Your village needs water…"). While the active experiment runs, its arm decides whether that line is a statement or a question.
 4. **Shape:** a chain of "So you…" and "But…" beats, with 6–9 build steps.
 5. **Naming beats:** 2–3 per video ("This is a ___."), each with an on-screen label and a clear hero shot.
 6. **Ending:** "Congratulations. You have built a ___."
@@ -17,9 +17,14 @@
 10. **Cadence:** 4–5 videos a week, under Metricool's free cap of 20 per month.
 
 ## Active experiment
-None yet. Start the first one after 8 videos: opening as a question ("How did a village get water before pipes?") versus a statement.
+**Opening: question vs statement** (started 2026-11-15; one variable only).
+- **Arms:** A = statement ("Your village needs water."), B = question ("How did a village get water before pipes?"). Both still name the need in under 3 seconds; everything else follows the rules above.
+- **Assignment:** alternate by the order videos are produced. The next new video is B, then A, then B, and so on. Write `hook_style` in `log.csv` as `question` or `statement`.
+- **Measure:** 72h views and 72h engagement rate, (likes + comments + shares) / views; completion rate too if Metricool starts returning it.
+- **Close:** when each arm has 8 videos made on the Higgsfield pipeline (log cabin onward). Count so far: A 1 (log cabin), B 0.
 
 ## Changelog
+- 2026-11-15 (weekly review): started the question-vs-statement opening experiment and added the arm note to rule 3. Why now: the account has 7 posts, the shaduf makes 8 on Monday, and the switch to Higgsfield is a clean break, so the test starts with the new pipeline instead of mixing two pipelines. Evidence so far (5 autopilot posts, snapshot 2026-11-15 15:18 ET, ages 5–101 h): Syracusia 2,227 views (21 h, 4.9% engagement), insula 1,012 (69 h, 6.3%), Archimedes screw 974 (45 h, 6.7%), trebuchet 355 (5 h, 6.8%), well 294 (101 h, 6.1%). The only question-hook video is the well (n=1), the weakest, so no conclusion; every group is far below 8. Leads to test, not rules: 18:00 ET posts (3) beat 10:00 ET posts (2), and the ship topic (Syracusia, n=1) beat everything.
 - 2026-11-14: owner moved production to Higgsfield `/content-factory` (65 s, Desmond voice, owner's reference video). Metricool stays the poster.
 - 2026-11-10: owner asked for the new caption style, with no on-screen AI tag and no AI mention in the caption. TikTok's platform AI label stays on.
 - 2026-11-10: seeded from an analysis of the reference video (80 s, about 233 wpm, chained "But/So" beats, one-word captions, labelled terms).
