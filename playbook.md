@@ -1,11 +1,11 @@
 # Playbook (read by the producer before every video; rewritten weekly by the analyst)
 
 ## Current rules
-1. **Length:** 62–80 s. Creator Rewards only counts videos over 1 minute.
-2. **Pace:** 225–235 words per minute, voice `am_fenrir` at speed 1.15, very short pauses.
+1. **Length:** 65 s target (62–80 s allowed). Creator Rewards only counts videos over 1 minute.
+2. **Voice and look:** ElevenLabs v4 preset Desmond (voice_id 563f728c-e249-5a85-97ab-8461e8c09da6), made with Higgsfield `/content-factory` in the style of the owner's reference video (media_id 79814186-bdc0-4392-9803-0669ea6b7cf2). Keep a brisk pace with very short pauses.
 3. **Opening:** the first line states the need in under 3 seconds ("Your village needs water…").
 4. **Shape:** a chain of "So you…" and "But…" beats, with 6–9 build steps.
-5. **Naming beats:** 2–3 per video ("This is a ___."), each with a yellow ALL-CAPS label and a hero shot.
+5. **Naming beats:** 2–3 per video ("This is a ___."), each with an on-screen label and a clear hero shot.
 6. **Ending:** "Congratulations. You have built a ___."
 7. **Pacing on screen:** something new appears at least every 3 seconds, with a cut or camera move every 3–6 seconds.
 8. **Topics:** pre-industrial machines and structures built from wood, stone and rope.
@@ -20,6 +20,7 @@
 None yet. Start the first one after 8 videos: opening as a question ("How did a village get water before pipes?") versus a statement.
 
 ## Changelog
+- 2026-11-14: owner moved production to Higgsfield `/content-factory` (65 s, Desmond voice, owner's reference video). Metricool stays the poster.
 - 2026-11-10: owner asked for the new caption style, with no on-screen AI tag and no AI mention in the caption. TikTok's platform AI label stays on.
 - 2026-11-10: seeded from an analysis of the reference video (80 s, about 233 wpm, chained "But/So" beats, one-word captions, labelled terms).
 

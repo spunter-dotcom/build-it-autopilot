@@ -30,7 +30,7 @@ Rewrite `playbook.md` within these limits:
 ## 4. Plan next week
 Rewrite the **Next** list in `topics.md` with 7 topics:
 - About 5 that resemble the winners and about 2 experiments.
-- Find new candidates with a few web searches on history, engineering and "how it was made" interest. Each must be original and buildable from the kit.
+- Find new candidates with a few web searches on history, engineering and "how it was made" interest. Each must be original and suit a 65-second "you build it" explainer.
 
 ## 5. Save and report
 - Commit and push.
