@@ -15,6 +15,7 @@ blacksmith forge with bellows · castle drawbridge · portcullis · water clock 
 
 ## Done
 - [x] 2026-11-15 Building the Colosseum (owner-assigned topic; owner posts by hand)
+- [x] 2026-11-15 Building a Roman macellum (food market) (owner-assigned topic; owner posts by hand)
 - [x] 2026-11-15 Log cabin (first Higgsfield video; awaiting owner review)
 - [x] Roman aqueduct (owner already has one; made outside the autopilot)
 - [x] 2026-11-10 Stone well with windlass and ratchet (test video)
