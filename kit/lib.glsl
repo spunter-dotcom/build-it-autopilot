@@ -13,14 +13,16 @@ float noise2(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*(3.0-2.0*f);
 vec3 lin(vec3 c){ return pow(c, vec3(2.2)); }
 
 vec2 map(vec3 p);
+// 1 while marching camera rays; 0 in normal/shadow/AO passes so cell bounds never shade as surfaces.
+float g_bound=1.0;
 
 vec2 screenP(vec2 uv, float pad){ vec2 p=(uv*u_resolution-0.5*u_resolution)/(u_resolution.y-2.0*pad); p.y=-p.y; return p; }
 vec3 camRay(vec2 p, vec3 ro, vec3 ta, float lens){
   vec3 ww=normalize(ta-ro), uu=normalize(cross(ww,vec3(0.0,1.0,0.0))), vv=cross(uu,ww);
   return normalize(p.x*uu+p.y*vv+lens*ww);
 }
-vec3 calcNormal(vec3 p){ vec2 e=vec2(0.001,0.0);
-  return normalize(vec3(map(p+e.xyy).x-map(p-e.xyy).x, map(p+e.yxy).x-map(p-e.yxy).x, map(p+e.yyx).x-map(p-e.yyx).x)); }
+vec3 calcNormal(vec3 p){ vec2 e=vec2(0.001,0.0); g_bound=0.0;
+  vec3 n=normalize(vec3(map(p+e.xyy).x-map(p-e.xyy).x, map(p+e.yxy).x-map(p-e.yxy).x, map(p+e.yyx).x-map(p-e.yyx).x)); g_bound=1.0; return n; }
 vec3 march(vec3 ro, vec3 rd, float tmax, float outlineW){
   float t=0.0, mh=1e9, mt=0.0;
   for(int i=0;i<96;i++){ vec2 h=map(ro+rd*t);
@@ -29,11 +31,11 @@ vec3 march(vec3 ro, vec3 rd, float tmax, float outlineW){
     t+=h.x; if(t>tmax) break; }
   float w=outlineW*max(mt,0.001); return vec3(-1.0,0.0,1.0-smoothstep(0.5*w,w,mh));
 }
-float softShadow(vec3 ro, vec3 rd, float k){ float res=1.0, t=0.02;
+float softShadow(vec3 ro, vec3 rd, float k){ float res=1.0, t=0.02; g_bound=0.0;
   for(int i=0;i<32;i++){ float h=map(ro+rd*t).x; res=min(res,k*h/t); t+=clamp(h,0.02,0.25); if(h<0.001||t>8.0) break; }
-  return clamp(res,0.0,1.0); }
-float calcAO(vec3 p, vec3 n){ float o=0.0, s=1.0;
-  for(int i=1;i<=5;i++){ float h=0.04*float(i); o+=(h-map(p+n*h).x)*s; s*=0.7; } return clamp(1.0-2.5*o,0.0,1.0); }
+  g_bound=1.0; return clamp(res,0.0,1.0); }
+float calcAO(vec3 p, vec3 n){ float o=0.0, s=1.0; g_bound=0.0;
+  for(int i=1;i<=5;i++){ float h=0.04*float(i); o+=(h-map(p+n*h).x)*s; s*=0.7; } g_bound=1.0; return clamp(1.0-2.5*o,0.0,1.0); }
 vec3 shade(vec3 pos, vec3 n, vec3 rd, vec3 alb, vec3 L, vec3 keyCol, vec3 skyCol, vec3 bounceCol, float gloss){
   float sh=mix(0.35,1.0,softShadow(pos+n*0.01,L,6.0));
   float wrap=clamp((dot(n,L)+0.35)/1.35,0.0,1.0)*sh;

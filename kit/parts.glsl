@@ -18,7 +18,7 @@ float count(float k, float n){ return floor(clamp(k,0.0,1.0)*n+0.001); }
 // cellBound(...), and always evaluate the repeated part (never skip it with an if around the call),
 // cellBound(...) so the marcher never steps across a cell boundary (otherwise shapes render hollow).
 vec3 cellXZ(vec3 p, float s, out vec2 c){ c=floor(p.xz/s+0.5); return vec3(p.x-c.x*s, p.y, p.z-c.y*s); }
-float cellBound(vec3 q, float s){ return max(0.5*s-max(abs(q.x),abs(q.z)), 0.05); }
+float cellBound(vec3 q, float s){ return g_bound>0.5 ? max(0.5*s-max(abs(q.x),abs(q.z)), 0.2) : 1e3; }
 
 // ---- nature ----
 vec2 pTree(vec3 p, float h){
@@ -29,7 +29,9 @@ vec2 pTree(vec3 p, float h){
 // A patch of trees (use s >= 3.5): cells of size s inside |x|<=hx, z in [z0,z1]. Trees keep 0.5 units from cell edges.
 vec2 pForest(vec3 p, float s, float hx, float z0, float z1){
   vec2 c; vec3 q=cellXZ(p,s,c);
-  vec2 res=vec2(cellBound(q,s),0.0);
+  vec2 res=vec2(1e3,0.0);
+  // bound only in and next to the forest, so open ground far away is marched in big steps
+  if(abs(c.x*s)<=hx+s && c.y*s>=z0-s && c.y*s<=z1+s) res.x=cellBound(q,s);
   if(abs(c.x*s)<=hx && c.y*s>=z0 && c.y*s<=z1){
     vec2 o=(vec2(hash2(c),hash2(c+7.3))-0.5)*0.2*s;
     float h=min(2.6+1.6*hash2(c+3.1),1.4*s);
