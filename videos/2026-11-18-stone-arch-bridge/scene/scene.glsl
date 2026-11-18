@@ -28,7 +28,7 @@ vec2 map(vec3 p){
 
   // water, drained inside the cofferdam ring while u_dry rises
   vec3 cc=vec3(0.0,0.0,-0.6); float ring=length(p.xz-cc.xz)-3.0;
-  float wl=-1.6;
+  float wl=-2.3;
   float w=p.y-wl;
   if(u_site>0.5&&u_site<1.5&&u_clay>0.5) w=min(max(p.y-wl,-ring),max(p.y-mix(wl,-3.3,u_dry),ring));
   res=opU(res,vec2(w,8.0));

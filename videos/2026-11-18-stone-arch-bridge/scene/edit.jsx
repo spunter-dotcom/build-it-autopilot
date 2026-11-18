@@ -46,7 +46,7 @@ export default async ({ project }) => {
         <Label s={c14} t0={K("keystone")} t1={c15} text="KEYSTONE" y={420} />
       </Scene>
       <Scene t0={c15} t1={c16} set={{ site: 2, ...ARCH, cent: 1, tx: -4, ty: -0.5 }} anims={{ strike: [[K("knock"), 0], [K("and the arch") + 0.2, 1]], ang: [[c15, -0.2], [c16, 0.45]], dist: [[c15, 13], [c16, 10]], h: [[c15, 0.5], [c16, 1.5]] }} />
-      <Scene t0={c16} t1={c17} set={{ site: 3, ...ARCH, ty: -0.5 }} anims={{ arch2: [[K("second") - 0.2, 0], [K("fill"), 1]], fill: [[K("fill"), 0], [K("pave"), 1]], deck: [[K("pave"), 0], [c17 - 0.1, 1]], ang: [[c16, 0.5], [c17, 0.2]], dist: [[c16, 24], [c17, 22]], h: [[c16, 5], [c17, 4]] }} />
+      <Scene t0={c16} t1={c17} set={{ site: 3, ...ARCH, ty: -0.5 }} anims={{ arch2: [[K("second") - 0.2, 0], [K("fill"), 1]], fill: [[K("fill"), 0], [K("pave"), 1]], deck: [[K("pave"), 0], [c17 - 0.1, 1]], ang: [[c16, 0.5], [c17, 0.2]], dist: [[c16, 18], [c17, 16]], h: [[c16, 6], [c17, 5]] }} />
       <Scene t0={c17} t1={c18} set={{ ...DONE, ty: 0 }} anims={{ ang: [[c17, -0.9], [c18, -0.5]], dist: [[c17, 28], [c18, 24]], h: [[c17, 10], [c18, 7]] }}>
         <Card s={c17} t0={K("more than")} t1={c18} title="62 BC" sub="PONS FABRICIUS, ROME" />
       </Scene>
