@@ -1,86 +1,51 @@
-# Daily producer: instructions for the scheduled run
+# Producer (build run): instructions for the scheduled run
 
-You are running unattended. Nobody will answer questions. Make one original 65-second "you build it" explainer with Higgsfield's `/content-factory` and schedule it on TikTok through the Metricool connector. If you can't do that safely, skip the day. A skipped day is fine; a bad post is not.
+You are running unattended. Nobody will answer questions. Your job is to BUILD one 65-second "you build it" video with the scene kit in `kit/` and stop before rendering. A separate, smaller run (`FINISHER.md`) renders, uploads and schedules it. A skipped day is fine; a bad post is not.
 
-Read `playbook.md` first. Its rules override the defaults below.
+Claude usage is the bottleneck, so work lean:
+- Do not load Higgsfield's `/content-factory` instructions or study the reference video. Everything you need is in this file and `kit/README.md`.
+- Do not write 3D code from scratch. Build scenes from the parts in `kit/parts.glsl`.
+- Batch sandbox work into few `sandbox_exec` calls. Look only at the small preview JPEGs, at most 4 per call and at most 3 preview rounds.
+- Read `playbook.md` and `kit/README.md` once. List the parts with `grep -n "^vec2 p\|^// " kit/parts.glsl` instead of reading the whole file.
 
-The old three.js engine in `engine/` is retired (kept for reference). Do not run `engine/setup.sh` or `engine/make_video.sh`. Only `engine/pronunciations.json` is still used.
+## 0. Setup and limits
+- `ID=$(date +%F)-<slug>`; create `videos/$ID/scene/`.
+- Metricool `getScheduledPosts` for this calendar month: if 20 or more TikTok posts exist (free-plan cap), stop, log `skipped: monthly cap`, commit, end. Manual-post runs skip this check.
+- Higgsfield `balance`: if under 10 credits, stop and log `skipped: low Higgsfield credits`.
 
-## Fixed settings (owner decisions, 2026-11-14)
-- **Tool:** the Higgsfield connector, `/content-factory`. Load it with `get_preset_instructions {"preset":"/content-factory", "media":[{"media_id":"79814186-bdc0-4392-9803-0669ea6b7cf2","type":"video"}]}` and follow those instructions and the references they name (what-if-reference, what-if-voiceover, higgsedit, and glsl-3d if the reference is 3D), with the overrides below.
-- **Style reference video:** media_id `79814186-bdc0-4392-9803-0669ea6b7cf2` (the owner's own video). Use it as the reference every time. No `STYLE` block, so no `preset_id`.
-- **Prompt (owner's wording, `[TOPIC]` filled from step 2):** "[TOPIC]. Create a fresh script with a strong opening hook, accurate facts, engaging animated visuals, voice over, and captions."
-- **Length:** `duration_seconds` 65, one episode.
-- **Voice:** ElevenLabs v4, preset **Desmond**, voice_id `563f728c-e249-5a85-97ab-8461e8c09da6`. This overrides any voice the voiceover reference would pick. One take; follow the reference's check and revision rules. Budget: about 4–5 credits.
-- **Format override:** content-factory is written for "what if…" stories. This channel is not. Keep the reference video's look, pacing and caption style, but write the story as a "you build it" explainer following `playbook.md` rules 3–6 (state the need, chain "So you…" / "But…" build beats, 2–3 "This is a ___." naming beats, end on "Congratulations. You have built a ___."). Never copy the reference's wording, premise or characters.
-- **Never** call `generate_image` or `generate_video`. The only paid call is the voiceover.
+## 1. Topic
+- The topic your prompt names, else the first unchecked item under **Next** in `topics.md`. If that is empty, pick a pre-industrial machine or structure not already in `log.csv`. Never remake another creator's video.
 
-## 0. Setup
-- Set the video id: `ID=$(date +%F)-<slug>`. Use `<slug>` as the content-factory slug too.
-- Create the folder `videos/$ID/`.
+## 2. Research
+- 2–4 web searches. Facts with source URLs go to `videos/$ID/sources.md`. Soften or cut anything you can't source. No health, safety or legal claims.
 
-## 1. Check limits
-- Call Metricool `getScheduledPosts` for this calendar month.
-- If 20 or more TikTok posts are already scheduled or published (the free-plan cap), stop. Append a `skipped: monthly cap` row to `log.csv`, commit, and end.
-- Call Higgsfield `balance`. If fewer than 10 credits remain, stop and log `skipped: low Higgsfield credits`.
+## 3. Script
+- Write `videos/$ID/script.md`: 165–180 words, second person, following `playbook.md` rules 3–6 (state the need; chain "So you…" / "But…" beats; 2–3 "This is a ___." naming beats; end "Congratulations. You have built a ___.").
+- Plain English. For a name the voice may garble, use the lowercase respelling from `engine/pronunciations.json` (add one if missing) in the voice text only. Spell numbers out in the voice text.
 
-## 2. Pick the topic
-- Take the first unchecked item under **Next** in `topics.md`.
-- If that list is empty, choose a pre-industrial machine or structure that is built from beams, posts, planks, logs, wheels, gears, rope, stone or brick and isn't already in `log.csv`.
-- Never remake a specific video from another creator.
+## 4. Voice (the only paid call, about 4–5 credits)
+- One `generate_audio` call, exactly:
+  `{"params": {"model": "elevenlabs_v4", "prompt": TAKE, "stability": 0.45, "batch_size": 1, "dialogue": [{"text": TAKE, "voice_id": "563f728c-e249-5a85-97ab-8461e8c09da6", "voice_type": "preset"}]}}`
+  where TAKE = `[warm, confident storyteller, brisk pace] ` followed by the whole script joined with spaces (Desmond voice). Never ask for a slow pace.
+- `jobs_wait` until done; never resubmit a job that already has an id. Save the audio URL to `videos/$ID/scene/voice_url.txt`.
+- One `sandbox_exec`:
+  `mkdir -p /home/user/what-if/$ID && curl -sfL -o /home/user/what-if/$ID/voice.mp3 '<audio url>' && (git -C /home/user/bia pull -q 2>/dev/null || git clone -q --depth 1 https://github.com/spunter-dotcom/build-it-autopilot /home/user/bia) && bash /home/user/bia/kit/scripts/setup.sh $ID`
+  (setup runs the word alignment and prints the voice length and transcript).
+- Check the transcript against the script. If words are missing, a bracket tag was read aloud, or the take is under 58 s (add a beat first), re-voice the whole take once.
 
-## 3. Research and fact-check
-- Run 2–4 web searches.
-- Write the facts you'll use, each with its source URL, to `videos/$ID/sources.md`.
-- If a number or date can't be sourced, use softer wording ("about", "often") or cut it.
-- Avoid health, safety or legal claims.
+## 5. Scene
+- Copy `kit/template/edit.jsx` and `kit/template/scene.glsl` into `videos/$ID/scene/` and edit them there (how: `kit/README.md`):
+  - `scene.glsl`: only `map()`, built from kit parts, one `u_site` value per set. A few dozen parts per site at most.
+  - `edit.jsx`: `DUR` (voice length + about 1.5 s, at least 62), `def` with your own params, cut points from phrases in the transcript, one `Scene` per shot. Every script line gets a visible change and every shot moves the camera. `Label`s for the naming beats, `Card`s for dates and numbers.
+- Commit and push, then in one `sandbox_exec`: `git -C /home/user/bia pull -q && bash /home/user/bia/kit/scripts/setup.sh $ID && bash /home/user/bia/kit/scripts/preview.sh $ID t1 t2 t3 t4`, with `image_paths` set to the four `/home/user/what-if/$ID/prev/f<t>.jpg` files.
+- Fix and repeat (push, then the same command) for at most 3 rounds. Look for empty or blocked shots, floating or overlapping parts, hollow shells or holes, labels over key action, and anything that doesn't match the line being spoken.
+- Speed: preview prints milliseconds per frame on the standard sandbox. If any frame is over 6000 ms, simplify that site (fewer parts, nothing heavy behind a close-up) or the render will not fit its time limit.
 
-## 4. Script
-- Write the narration to `videos/$ID/script.md` before requesting the voice: about 150–175 words for 65 s (check the pace the voiceover reference recommends), in the second person.
-- Plain English. Translate Latin or Greek terms unless the name itself is the point. For a name the voice may garble, use the respelling in `engine/pronunciations.json` (or add a lowercase, hyphenated one there) in the text sent to the voice only. On-screen captions keep the real spelling. Never write respellings in capital letters.
+## 6. Hand over to the finisher
+- Write `videos/$ID/caption.txt` exactly as `playbook.md` rule 9 says. No AI mention. Every number in it must be in `sources.md`.
+- Write `videos/$ID/job.json`: `{"status": "built", "mode": "schedule", "title": "<script title>", "dur": <DUR>, "voice_job": "<job id>", "credits": <credits used>}`. Use `"mode": "manual"` when your prompt says the owner posts by hand.
+- Append a `log.csv` row with status `built`. Tick the topic in `topics.md`. Commit and push (`git pull --rebase` first; retry a rejected push). Never commit video or audio files.
+- Do not render and do not send a notification; the finisher does both.
 
-## 5. Make the video (content-factory)
-- Work in the Higgsfield sandbox as content-factory says: study the reference, voice the script with Desmond, build with Higgsedit, preview frames, render on an XL sandbox, bring loudness to about -14 LUFS, check with ffprobe (1080x1920, 62–80 s, has audio), look at 2–3 frames.
-- Fix in preview, not after the render. Up to 3 preview rounds. Re-voicing is allowed once if the take fails its check.
-- Upload with `media_upload` → curl PUT → `media_confirm` (type video). Then `register_what_if_result` with the `media_id` (no `preset_id`). Skip `show_result` if it errors; nobody is watching.
-- Record the `media_id` and the hosted file URL from `media_confirm` in `videos/$ID/higgsfield.json`. If `media_confirm` does not return a URL, get it with `show_medias` / `resolve_project_assets`.
-
-## 6. Backup copy on the media branch
-Metricool needs a public URL. Use the Higgsfield URL first; keep a GitHub copy as the fallback.
-- In the sandbox, the final file is the loudness-fixed `out.mp4`. Bring it into this workspace: if the Higgsfield URL is reachable from the shell (`curl -fsSLo videos/$ID/final.mp4 <url>`), download it; if the shell can't reach it, skip this step and rely on the Higgsfield URL.
-- If you have the file, host it on the `media` branch, keeping the 3 newest videos:
-   ```bash
-   git fetch --depth 1 origin media && git worktree add --detach ../media-wt FETCH_HEAD && cd ../media-wt
-   git checkout -q -B media-new
-   ls *.mp4 | sort | head -n -2 | xargs -r git rm -q       # keep the 2 newest old videos
-   cp ../build-it-autopilot/videos/$ID/final.mp4 $ID.mp4
-   git add -f *.mp4 README.md && git commit -qm "media: $ID" && git pull --rebase -q origin media && git push -q origin HEAD:media
-   git ls-tree -r --name-only HEAD   # must list $ID.mp4
-   cd ../build-it-autopilot && git worktree remove --force ../media-wt
-   ```
-   Its URL is `https://raw.githubusercontent.com/spunter-dotcom/build-it-autopilot/media/$ID.mp4`.
-
-## 7. Publish
-1. Write the caption to `videos/$ID/caption.txt` exactly as `playbook.md` rule 9 describes. No AI mention in the caption; the platform label covers it. Every number must be in `sources.md`.
-2. Post with Metricool `createScheduledPost` for TikTok. The brand is `blogId` 8019616 ("how_it_happened0"), timezone America/New_York. Use `autoPublish: true`, `providers: [{"network": "tiktok"}]`, the Higgsfield video URL in `media`, and `tiktokData` with `privacyOption: "PUBLIC_TO_EVERYONE"`, `isAigc: true` and a non-empty `title` (the script title). Comments on. Time: the next slot from `getBestTimeToPostByNetwork` not already taken, otherwise 18:30 America/New_York. Metricool copies the video when you schedule, so a success response means the file was fetched.
-3. If Metricool rejects the Higgsfield URL, retry once with the media-branch URL from step 6 (if it exists), then once with `https://github.com/spunter-dotcom/build-it-autopilot/raw/media/$ID.mp4`. If all fail, don't post; record the error.
-4. YouTube Shorts: call `getBrandSettings`. If the brand's `networksData` includes a YouTube channel, add `{"network": "youtube"}` to the same post with `youtubeData: {"title": <script title, under 100 chars, plus " #shorts">, "type": "short", "privacy": "public", "madeForKids": false, "category": "EDUCATION", "isAiGeneratedContent": true}`. Never let a YouTube error block the TikTok post: if the combined post fails, retry with TikTok alone.
-
-## 8. Log and save
-- Append a row to `log.csv`: date, id, status (`scheduled`), title, category, `statement`, duration, word count, naming beats, voice `desmond-elevenlabs-v4`, post time, video URL, then the Metricool post id, Higgsfield media_id and credits used in the notes column.
-- Tick the topic in `topics.md`.
-- Commit `videos/$ID/` (never `*.mp4` or `*.wav`) to `main`. Run `git pull --rebase` before pushing; retry the push if it is rejected.
-
-## 9. Failures
-- After 2 failed attempts at any step, don't post.
-- Log the reason in `log.csv`, commit, and send one short push notification saying what broke.
-
-## 10. Lessons from the first run (2026-11-15) — read before step 5
-- Claude usage is the bottleneck. Keep tool calls few: batch sandbox work into one command, look at 4 frames per call, and don't re-read instructions you already have.
-- Render time is about 2.5–3 s per frame on XL. Render the 65 s in four `--range` parts of 16.25 s (r1..r4), one background call at a time (each takes about 7–8 minutes), then join with the ffmpeg concat demuxer (`-c copy`). Wait with one long local `sleep 420` between polls, not many short polls. Never put a `sleep` longer than about 40 s inside `sandbox_exec`; it returns Bad Gateway.
-- Call `media_upload` while the last part renders and save the upload URL to a file in the sandbox, so the final command can concat, fix loudness, check and upload in one go.
-- Loudness: aim for -14 LUFS but keep the true peak under -1 dB. If the gain needed would clip, use a smaller gain (-16 LUFS is acceptable). Never limit or compress.
-- GLSL scenes: when repeating objects in grid cells, apply the cell-boundary step limit to every cell (also empty ones), and keep objects well inside their cell. Otherwise shapes render hollow or broken. Check a preview frame of every scene for hollow shells, holes and broken parts before rendering.
-- This workspace's shell cannot reach Higgsfield's file host, so step 6 (media-branch backup) is normally skipped. Record the hosted URL from `media_upload` ("Read url") in `higgsfield.json`.
-- If a run is cut off, its sandbox files under `/home/user/what-if/<slug>/` survive for 24 hours. A later run should resume from them (reuse `voice.mp3`; never re-voice a take that passed).
-- The Higgsfield sandbox is shared by every run on this account, and another run may be working in it at the same time. Stay inside your own `/home/user/what-if/<slug>/` folder. Before starting each render part, run `pgrep -f "higgsedit render"`; if a render is already running, wait (local `sleep 240`) and check again, so two renders never share the CPUs and overrun the 15-minute background limit.
+## 7. Failures
+- After 2 failed attempts at any step, stop. Put `"status": "failed"` and the reason in `job.json` (if it exists) and in `log.csv`, commit, and send one short push notification saying what broke.

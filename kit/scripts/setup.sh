@@ -9,4 +9,5 @@ V=$R/videos/$ID/scene
 if [ -d $V ]; then cp $V/edit.jsx $V/scene.glsl $V/words.json $S/edit/ 2>/dev/null || true; fi
 [ -f $S/edit/edit.jsx ] || cp $R/kit/template/edit.jsx $R/kit/template/scene.glsl $S/edit/
 if [ ! -f $S/voice.mp3 ] && [ -f $V/voice_url.txt ]; then curl -sfL -o $S/voice.mp3 "$(cat $V/voice_url.txt)"; fi
-echo "ready: $S"; ls $S $S/edit
+if [ -f $S/voice.mp3 ] && [ ! -f $S/edit/words.json ]; then python3 $R/kit/scripts/align.py $ID 2>&1 | grep -v -i warn; fi
+echo "ready: $S"
