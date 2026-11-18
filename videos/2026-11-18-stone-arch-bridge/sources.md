@@ -1,0 +1,7 @@
+# Sources: Stone arch bridge (2026-11-18)
+
+- Pons Fabricius in Rome was built in 62 BC by Lucius Fabricius, curator of the roads, replacing an earlier wooden bridge destroyed by fire. Two arches, each about 24 m (80 ft); length 62 m. Oldest Roman bridge in Rome still in its original state, in use since antiquity. Its central pier stands in the river and has a small arched opening that lets flood water through. Tuff core, brick and travertine facing. https://en.wikipedia.org/wiki/Pons_Fabricius
+- Roman builders made river piers inside cofferdams: wooden piles driven into the riverbed and sealed with clay to give a dry work area. Arches are wedge-shaped stones (voussoirs) with a keystone at the centre, held by precise cutting and compression; Romans built permanent stone bridges by 100 BCE. https://www.worldatlas.com/ancient-world/how-roman-engineers-built-bridges-that-still-stand.html
+- Centering: a temporary wooden frame that holds the voussoirs until the arch is complete; it is struck (removed) once every voussoir is in place. Cutwater: a pointed face on a pier that splits the flow to reduce scour, usually on the upstream side. Keystone: the voussoir at the crown. https://scotlandsoldestbridges.co.uk/parts-of-a-bridge-and-glossary-of-old-stone-bridges.html
+
+Softened/cut: the bridge is described as "still crossed by people today" (pedestrians, per WorldAtlas/Wikipedia). No claim that mortar was never used.
