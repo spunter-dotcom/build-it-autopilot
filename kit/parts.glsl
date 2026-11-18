@@ -15,6 +15,7 @@ float count(float k, float n){ return floor(clamp(k,0.0,1.0)*n+0.001); }
 
 // ---- safe repetition on the ground plane ----
 // Returns the local position inside a cell of size s; cell id in c. Always combine the result with
+// cellBound(...), and always evaluate the repeated part (never skip it with an if around the call),
 // cellBound(...) so the marcher never steps across a cell boundary (otherwise shapes render hollow).
 vec3 cellXZ(vec3 p, float s, out vec2 c){ c=floor(p.xz/s+0.5); return vec3(p.x-c.x*s, p.y, p.z-c.y*s); }
 float cellBound(vec3 q, float s){ return max(0.5*s-max(abs(q.x),abs(q.z)), 0.05); }

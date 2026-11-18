@@ -5,7 +5,7 @@ vec2 map(vec3 p){
   vec2 res=vec2(p.y,0.0);                                   // ground (look from u_ground)
   if(u_site<0.5){
     // Site 0: a clearing in a forest, a person and a felled log.
-    if(length(p.xz)>6.0) res=opU(res,pForest(p,3.6,22.0,-22.0,-6.0));
+    res=opU(res,pForest(p,3.6,22.0,-22.0,-6.0));    // never wrap pForest in an if: it must always run
     res=opU(res,pPerson(p-vec3(1.2,0.0,0.6),u_work,0.3));
     if(u_logs>0.01) res=opU(res,pLog(drop(p,u_logs),vec3(-1.5,0.25,0.0),vec3(1.0,0.25,0.4),0.25));
   } else if(u_site<1.5){
