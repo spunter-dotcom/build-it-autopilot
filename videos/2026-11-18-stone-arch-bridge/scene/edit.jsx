@@ -26,7 +26,7 @@ export default async ({ project }) => {
     <frame width={1080} height={1920} layout="none">
       <Scene t0={0} t1={c1} set={{ site: 0, ty: -1 }} anims={{ ang: [[0, 0.9], [c1, 0.5]], dist: [[0, 30], [c1, 25]], h: [[0, 12], [c1, 9]] }} />
       <Scene t0={c1} t1={c2} set={{ site: 0, tx: 14, ty: 1 }} anims={{ ang: [[c1, -0.6], [c2, -0.2]], dist: [[c1, 14], [c2, 12]], h: [[c1, 3], [c2, 2.5]] }} />
-      <Scene t0={c2} t1={c3} set={{ site: 0, ty: -1 }} anims={{ rot: [[c2 + 0.4, 0], [c3 - 0.4, 1]], ang: [[c2, 0.25], [c3, -0.1]], dist: [[c2, 16], [c3, 13]], h: [[c2, 3], [c3, 2]] }} />
+      <Scene t0={c2} t1={c3} set={{ site: 0, ty: -1 }} anims={{ rot: [[c2 + 0.4, 0], [c3 - 0.4, 1]], ang: [[c2, 0.25], [c3, -0.1]], dist: [[c2, 17], [c3, 14]], h: [[c2, 6], [c3, 4.5]] }} />
       <Scene t0={c3} t1={c4} set={{ site: 1, ty: -1.5 }} anims={{ ang: [[c3, -0.5], [c4, 0.3]], dist: [[c3, 18], [c4, 12]], h: [[c3, 5], [c4, 3]] }} />
       <Scene t0={c4} t1={c5} set={{ site: 1, ty: -2 }} anims={{ posts: [[c4 + 0.2, 0], [K("seal") - 0.1, 1]], clay: [[K("seal"), 0], [c5 - 0.1, 1]], ang: [[c4, 0.6], [c5, 1.1]], dist: [[c4, 13], [c5, 11]], h: [[c4, 6], [c5, 5]] }} />
       <Scene t0={c5} t1={c6} set={{ site: 1, posts: 1, clay: 1, ty: -2 }} anims={{ ang: [[c5, -0.3], [c6, -0.6]], dist: [[c5, 10], [c6, 9]], h: [[c5, 3.5], [c6, 3.8]] }}>
@@ -41,7 +41,7 @@ export default async ({ project }) => {
         <Label s={c11} t0={K("centering")} t1={c12} text="CENTERING" />
       </Scene>
       <Scene t0={c12} t1={c13} set={{ site: 2, ...PIER, cent: 1, tx: -4, ty: -0.5 }} anims={{ stones: [[K("wedge"), 0], [c13 - 0.15, 1]], ang: [[c12, 0.3], [c13, 0.05]], dist: [[c12, 12], [c13, 10.5]], h: [[c12, 2], [c13, 1.5]] }} />
-      <Scene t0={c13} t1={c14} set={{ site: 2, ...PIER, cent: 1, stones: 1, tx: -4, ty: 0.6 }} anims={{ key: [[K("drops") - 0.2, 0], [K("locks"), 1]], ang: [[c13, -0.35], [c14, -0.15]], dist: [[c13, 7], [c14, 5.5]], h: [[c13, 1.5], [c14, 1]] }} />
+      <Scene t0={c13} t1={c14} set={{ site: 2, ...PIER, cent: 1, stones: 1, tx: -4, ty: 0.8 }} anims={{ key: [[K("drops") - 0.2, 0], [K("locks"), 1]], ang: [[c13, -0.35], [c14, -0.15]], dist: [[c13, 9], [c14, 7.5]], h: [[c13, 3.5], [c14, 2.8]] }} />
       <Scene t0={c14} t1={c15} set={{ site: 2, ...ARCH, cent: 1, tx: -4, ty: 1 }} anims={{ ang: [[c14, 0.35], [c15, 0.15]], dist: [[c14, 5], [c15, 4.2]], h: [[c14, 0.8], [c15, 0.6]] }}>
         <Label s={c14} t0={K("keystone")} t1={c15} text="KEYSTONE" y={420} />
       </Scene>
@@ -50,7 +50,7 @@ export default async ({ project }) => {
       <Scene t0={c17} t1={c18} set={{ ...DONE, ty: 0 }} anims={{ ang: [[c17, -0.9], [c18, -0.5]], dist: [[c17, 28], [c18, 24]], h: [[c17, 10], [c18, 7]] }}>
         <Card s={c17} t0={K("more than")} t1={c18} title="62 BC" sub="PONS FABRICIUS, ROME" />
       </Scene>
-      <Scene t0={c18} t1={c19} set={{ ...DONE, tx: 0, ty: 2.2 }} anims={{ people: [[c18, 0], [c19, 0.6]], ang: [[c18, 1.2], [c19, 0.9]], dist: [[c18, 7], [c19, 6]], h: [[c18, 1], [c19, 1.2]] }} />
+      <Scene t0={c18} t1={c19} set={{ ...DONE, tx: -2, ty: 2.2 }} anims={{ people: [[c18, 0], [c19, 0.6]], ang: [[c18, 1.45], [c19, 1.35]], dist: [[c18, 10], [c19, 9]], h: [[c18, 1.2], [c19, 1.5]] }} />
       <Scene t0={c19} t1={DUR} set={{ ...DONE, ty: -0.5 }} anims={{ people: [[c19, 0.6], [DUR, 1]], ang: [[c19, 0.3], [DUR, -0.4]], dist: [[c19, 20], [DUR, 25]], h: [[c19, 2], [DUR, 5]] }} />
       <Captions />
     </frame>,
