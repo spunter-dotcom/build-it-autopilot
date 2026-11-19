@@ -70,28 +70,25 @@ vec2 trireme(vec3 q, float keel, float planks, float rope, float deck, float sag
   return res;
 }
 
-// A finished trireme (used for other ships).
-vec2 shipDone(vec3 q, float row){ return trireme(q,1.0,1.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,row); }
-
-// A fleet on the water: one ship per 28 m cell inside |x|<=hx, z in [z0,z1].
-vec2 pFleet(vec3 p, float hx, float z0, float z1, float row){
-  float s=28.0;
-  vec2 c; vec3 q=cellXZ(p,s,c);
-  vec2 res=vec2(1e3,0.0);
-  if(abs(c.x*s)<=hx+s && c.y*s>=z0-s && c.y*s<=z1+s) res.x=cellBound(q,s);
-  if(abs(c.x*s)<=hx && c.y*s>=z0 && c.y*s<=z1){
-    vec2 o=(vec2(hash2(c),hash2(c+7.3))-0.5)*vec2(1.6,5.0);
-    res=opU(res,shipDone(q-vec3(o.x,0.0,o.y),fract(row+hash2(c+1.7))));
-  }
-  return res;
+// A cheap closed hull without oars (the enemy ship in the ramming shot).
+vec2 hullSimple(vec3 q){
+  float lens=length(vec2(q.x,abs(q.z)+30.45))-32.05;
+  float rocker=length(vec2(q.x,q.y-59.4))-60.0;
+  float vee=(abs(q.z)-0.3-1.08*(q.y+0.6))/1.47;
+  return vec2(max(max(lens,max(rocker,vee)),q.y-1.45),3.0);
 }
+float shipBox(vec3 q){ return sdRoundBox(q-vec3(1.0,1.2,0.0), vec3(14.0,2.8,5.6), 0.0); }
 
 float stroke(){ return 0.5+0.5*sin(u_time*u_rowspd*6.2832); }
 
+// Speed note: the renderer evaluates every branch of map(), so the trireme is called exactly once;
+// each site only chooses where that one ship is and how far it is built.
 vec2 map(vec3 p){
   vec2 res=vec2(p.y,0.0);
+  vec3 qa=p-vec3(1e4,0.0,0.0), qb=p-vec3(1e4,0.0,0.0);
+  float k=1.0, pl=1.0, ro=1.0, de=1.0, sg=0.0, a1=1.0, a2=1.0, a3=1.0, rm=1.0, rw=stroke();
   if(u_site<0.5){
-    // Site 0: a Greek harbour town, an enemy fleet out at sea.
+    // Site 0: a Greek harbour town, warships out at sea.
     res=opU(res,pWater(p,0.05));
     res=opU(res,pBlock(p-vec3(-40.0,0.4,0.0),vec3(30.0,0.4,60.0),1.0));
     res=opU(res,pWall(p-vec3(-13.0,0.8,-6.0),vec3(2.2,1.6,2.0),12.0));
@@ -103,8 +100,7 @@ vec2 map(vec3 p){
     vec3 tc=vec3(abs(t.x)-3.4,t.y-0.6,abs(t.z)-1.8);
     res=opU(res,pColumn(vec3(tc.x,tc.y,tc.z),0.28,3.0,4.0));
     res=opU(res,pRoof(t-vec3(0.0,3.6,0.0),4.4,2.6,1.2,4.0));
-    res=opU(res,shipDone(p-vec3(22.0,0.05,0.0),stroke()));
-    res=opU(res,shipDone(p-vec3(50.0,0.05,-4.0),fract(stroke()+0.3)));
+    qa=p-vec3(22.0,0.05,0.0); qb=p-vec3(50.0,0.05,-4.0);
   } else if(u_site<1.5){
     // Site 1: a beach shipyard. Timber, rope and people, and the empty slipway.
     res=opU(res,pLog(p,vec3(-5.0,0.25,2.0),vec3(1.0,0.25,2.6),0.25));
@@ -113,9 +109,7 @@ vec2 map(vec3 p){
     vec3 tr=p-vec3(3.0,0.12,2.6);
     res=opU(res,vec2(sdTorus(tr,vec2(0.45,0.12)),13.0));
     res=opU(res,vec2(sdTorus(tr-vec3(0.0,0.24,0.0),vec2(0.42,0.12)),13.0));
-    res=opU(res,vec2(sdTorus(tr-vec3(1.3,0.0,0.4),vec2(0.4,0.12)),13.0));
     res=opU(res,pPerson(p-vec3(-1.5,0.0,4.2),u_work,0.2));
-    res=opU(res,pPerson(p-vec3(0.3,0.0,4.6),0.0,0.5));
     res=opU(res,pPerson(p-vec3(1.8,0.0,4.0),u_work,0.8));
     vec3 b=vec3(p.x-2.4*clamp(floor(p.x/2.4+0.5),-3.0,3.0),p.y,p.z+2.0);
     res=opU(res,pBlock(b-vec3(0.0,0.2,0.0),vec3(0.3,0.2,0.8),3.0));   // keel blocks on the slipway
@@ -123,24 +117,32 @@ vec2 map(vec3 p){
     // Site 2: the hull on its slipway, built step by step.
     vec3 b=vec3(p.x-2.4*clamp(floor(p.x/2.4+0.5),-3.0,3.0),p.y,p.z);
     res=opU(res,pBlock(b-vec3(0.0,0.2,0.0),vec3(0.3,0.2,0.8),3.0));
-    res=opU(res,trireme(p-vec3(0.0,0.75,0.0),u_keel,u_planks,u_rope,u_deck,u_sag,u_o1,u_o2,u_o3,u_ram,u_row*stroke()));
     res=opU(res,pPerson(p-vec3(-3.0,0.0,3.2),1.0,0.3));
-    res=opU(res,pPerson(p-vec3(4.0,0.0,-3.0),1.0,0.6));
+    qa=p-vec3(0.0,0.75,0.0);
+    k=u_keel; pl=u_planks; ro=u_rope; de=u_deck; sg=u_sag; a1=u_o1; a2=u_o2; a3=u_o3; rm=u_ram; rw=u_row*stroke();
   } else if(u_site<3.5){
-    // Site 3: the finished ship at sea; an enemy ship sideways ahead for the ramming shot.
+    // Site 3: the finished ship at sea; an enemy hull sideways ahead for the ramming shot.
     res=opU(res,pWater(p,0.05));
-    res=opU(res,trireme(p-vec3(u_go,0.05,0.0),1.0,1.0,1.0,1.0,0.0,1.0,1.0,1.0,u_ram,u_row*stroke()));
-    if(u_enemy>0.5){
-      vec3 e=p-vec3(16.2,0.05-0.25*u_hit,0.0); e.xz=rot(1.5708)*e.xz; e.yz=rot(0.12*u_hit)*e.yz;
-      res=opU(res,shipDone(e,0.5));
-      if(u_hit>0.01) res=opU(res,vec2(sdEllipsoid(p-vec3(14.55,0.35,0.0),vec3(0.18,0.45,0.75)*u_hit),15.0));
-    }
+    qa=p-vec3(u_go,0.05,0.0); rm=u_ram; rw=u_row*stroke();
+    vec3 e=p-vec3(16.2+(u_enemy>0.5?0.0:1e4),0.05-0.25*u_hit,0.0); e.xz=rot(1.5708)*e.xz; e.yz=rot(0.12*u_hit)*e.yz;
+    res=opU(res,hullSimple(e));
+    if(u_hit>0.01) res=opU(res,vec2(sdEllipsoid(p-vec3(14.55,0.35,0.0),vec3(0.18,0.45,0.75)*u_hit),15.0));
   } else {
-    // Site 4: Salamis. A strait full of ships between two shores.
+    // Site 4: Salamis. A strait full of ships between two shores (one ship per 28 m cell).
     res=opU(res,pWater(p,0.05));
-    res=opU(res,pFleet(p,60.0,-30.0,30.0,stroke()));                   // never inside an if
     res=opU(res,vec2(sdEllipsoid(p-vec3(0.0,-6.0,-120.0),vec3(140.0,16.0,40.0)),1.0));
     res=opU(res,vec2(sdEllipsoid(p-vec3(-150.0,-6.0,0.0),vec3(45.0,14.0,140.0)),1.0));
+    float s=28.0; vec2 c; vec3 q=cellXZ(p,s,c);
+    if(abs(c.x*s)<=60.0+s && abs(c.y*s)<=30.0+s) res.x=min(res.x,cellBound(q,s));
+    if(abs(c.x*s)<=60.0 && abs(c.y*s)<=30.0){
+      vec2 o=(vec2(hash2(c),hash2(c+7.3))-0.5)*vec2(1.6,5.0);
+      qa=q-vec3(o.x,0.05,o.y); rw=fract(rw+hash2(c+1.7));
+    }
   }
-  return res;
+  // the one ship: whichever candidate box is nearer; the other box only limits the step
+  float da=shipBox(qa), db=shipBox(qb);
+  vec3 q=da<db?qa:qb;
+  vec2 sh=trireme(q,k,pl,ro,de,sg,a1,a2,a3,rm,rw);
+  sh.x=min(sh.x,max(max(da,db),0.05));
+  return opU(res,sh);
 }
