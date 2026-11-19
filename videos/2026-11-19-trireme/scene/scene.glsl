@@ -27,6 +27,8 @@ vec2 trireme(vec3 q, float keel, float planks, float rope, float deck, float sag
   float bb=sdRoundBox(q-vec3(1.0,1.2,0.0), vec3(14.0,2.8,5.6), 0.0);
   if(bb>1.0) return vec2(bb,0.0);
   q.y+=sag*1.0*(1.0-clamp(q.x*q.x/100.0,0.0,1.0));        // a weak hull sags in the middle
+  float hb=sdRoundBox(q-vec3(0.0,2.0,0.0), vec3(11.0,3.0,1.9), 0.0);
+  if(hb>=0.5) res=vec2(hb,3.0);
   // hull solid: pointed plan (two arcs), curved keel line (rocker), V-shaped sides. Exact-ish, so it marches fast.
   float lens=length(vec2(q.x,abs(q.z)+30.45))-32.05;
   float rocker=length(vec2(q.x,q.y-59.4))-60.0;
