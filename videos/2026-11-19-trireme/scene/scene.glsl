@@ -5,9 +5,11 @@
 vec2 oarTier(vec3 q, float k, float N, float y, float z0, float xo, float sw){
   float n=count(k,N);
   if(n<0.5) return vec2(1e3,3.0);
-  float s=0.62;
+  float s=0.55;
   float lo=-floor(N*0.5);
   vec3 r=vec3(q.x-xo, q.y, abs(q.z));
+  float bd=sdRoundBox(r-vec3(0.0,0.5*y,z0+1.7), vec3(9.0,0.5*y+0.25,1.9), 0.0);
+  if(bd>0.3) return vec2(bd,3.0);
   float id0=floor(r.x/s+0.5);
   float d=1e3;
   for(int i=-1;i<=1;i++){
@@ -27,12 +29,14 @@ vec2 trireme(vec3 q, float keel, float planks, float rope, float deck, float sag
   q.y+=sag*0.7*(1.0-clamp(q.x*q.x/100.0,0.0,1.0));        // a weak hull sags in the middle
   vec3 c=q-vec3(0.0,0.9,0.0);
   vec3 R=vec3(10.0,1.5,1.6);
-  if(keel>0.01){
+  float hb=sdRoundBox(q-vec3(0.0,2.0,0.0), vec3(11.0,3.0,1.9), 0.0);
+  if(hb>=0.5) res=vec2(hb,3.0);
+  if(hb<0.5 && keel>0.01){
     float k=max(max(sdEllipsoid(c,R+vec3(0.12,0.12,0.0)), abs(q.z)-0.12), q.y-0.35);
     k=max(k, q.x-mix(-10.5,10.5,keel));
     res=opU(res,vec2(k,3.0));
   }
-  if(planks>0.01){
+  if(hb<0.5 && planks>0.01){
     float e=sdEllipsoid(c,R);
     float sh=max(abs(e)-0.07, q.y-1.4);
     sh=max(sh, q.y-mix(-0.7,1.4,planks));
@@ -42,23 +46,23 @@ vec2 trireme(vec3 q, float keel, float planks, float rope, float deck, float sag
     sp=min(sp, sdCapsule(q,vec3(9.6,0.6,0.0),vec3(10.3,1.8,0.0),0.14));
     res=opU(res,vec2(max(sp, q.y-mix(-0.7,3.2,planks)),3.0));
   }
-  if(rope>0.01){
+  if(hb<0.5 && rope>0.01){
     vec3 r=vec3(q.x,q.y,abs(q.z));
     float tw=0.03*sin(q.x*9.0);
     float d=sdCapsule(r-vec3(0.0,tw,0.0), vec3(-8.5,1.15,0.35), vec3(mix(-8.5,8.5,rope),1.15,0.35), 0.08);
     res=opU(res,vec2(d,13.0));
   }
-  if(deck>0.01){
+  if(hb<0.5 && deck>0.01){
     vec3 dq=drop(q,deck);
     res=opU(res,vec2(sdRoundBox(dq-vec3(0.0,1.45,0.0),vec3(8.6,0.06,1.25),0.02),3.0));
     // outrigger box along each side for the top rowers
     vec3 oq=vec3(dq.x,dq.y,abs(dq.z));
     res=opU(res,vec2(sdRoundBox(oq-vec3(0.0,1.3,1.75),vec3(8.0,0.12,0.22),0.02),3.0));
   }
-  float sw=mix(-0.6,0.6,row);
-  res=opU(res,oarTier(q,o1,15.0,1.3,1.8,0.3,sw));   // top tier (from the outrigger)
-  res=opU(res,oarTier(q,o2,13.0,0.95,1.5,0.0,sw));  // middle tier
-  res=opU(res,oarTier(q,o3,13.0,0.55,1.5,0.0,sw));  // bottom tier
+  float sw=mix(-0.5,0.5,row);
+  res=opU(res,oarTier(q,o1,31.0,1.3,1.8,0.27,sw));   // top tier (from the outrigger)
+  res=opU(res,oarTier(q,o2,27.0,0.95,1.5,0.0,sw));  // middle tier
+  res=opU(res,oarTier(q,o3,27.0,0.55,1.5,0.0,sw));  // bottom tier
   if(ram>0.01){
     vec3 rq=q-vec3(mix(2.5,0.0,ram),0.0,0.0);
     float d=sdEllipsoid(rq-vec3(10.9,0.05,0.0),vec3(1.3,0.24,0.26));
@@ -101,7 +105,7 @@ vec2 map(vec3 p){
     vec3 tc=vec3(abs(t.x)-3.4,t.y-0.6,abs(t.z)-1.8);
     res=opU(res,pColumn(vec3(tc.x,tc.y,tc.z),0.28,3.0,4.0));
     res=opU(res,pRoof(t-vec3(0.0,3.6,0.0),4.4,2.6,1.2,4.0));
-    res=opU(res,pFleet(p-vec3(78.0,0.05,0.0),26.0,-52.0,52.0,stroke()));   // never inside an if
+    res=opU(res,pFleet(p-vec3(50.0,0.05,0.0),30.0,-30.0,30.0,stroke()));   // never inside an if
   } else if(u_site<1.5){
     // Site 1: a beach shipyard. Timber, rope and people, and the empty slipway.
     res=opU(res,pLog(p,vec3(-5.0,0.25,2.0),vec3(1.0,0.25,2.6),0.25));

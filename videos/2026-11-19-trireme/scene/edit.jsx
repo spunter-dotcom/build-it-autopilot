@@ -24,7 +24,7 @@ export default async ({ project }) => {
   const SEA = { site: 3, row: 1 };
   p.compose(
     <frame width={1080} height={1920} layout="none">
-      <Scene t0={0} t1={c1} set={{ site: 0, ty: 2, tz: 0 }} anims={{ tx: [[0, 30], [c1, 40]], ang: [[0, -1.15], [c1, -1.35]], dist: [[0, 50], [c1, 44]], h: [[0, 11], [c1, 8]] }} />
+      <Scene t0={0} t1={c1} set={{ site: 0, ty: 2, tz: 0, lens: 1.3 }} anims={{ tx: [[0, 0], [c1, -6]], ang: [[0, 1.3], [c1, 1.48]], dist: [[0, 78], [c1, 66]], h: [[0, 14], [c1, 9]] }} />
       <Scene t0={c1} t1={c2} set={{ site: 1, ground: 3, tx: 0, ty: 1, tz: 2.8 }} anims={{ work: [[c1 + 0.5, 0], [c1 + 1.2, 1]], ang: [[c1, 0.35], [c2, -0.05]], dist: [[c1, 10], [c2, 7.5]], h: [[c1, 2.5], [c2, 1.6]] }} />
       <Scene t0={c2} t1={c3} set={{ site: 1, ground: 3, work: 1, tx: 0, ty: 0.4, tz: -1 }} anims={{ ang: [[c2, 0.9], [c3, 0.45]], dist: [[c2, 15], [c3, 11]], h: [[c2, 5], [c3, 3.5]] }} />
       <Scene t0={c3} t1={c4} set={{ ...Y, ty: 1 }} anims={{ keel: [[c3 + 0.3, 0], [c4 - 0.4, 1]], ang: [[c3, 0.55], [c4, 0.2]], dist: [[c3, 21], [c4, 18]], h: [[c3, 5], [c4, 4]] }}>
@@ -36,7 +36,7 @@ export default async ({ project }) => {
       <Scene t0={c7} t1={c8} set={{ ...HULL, deck: 0, ty: 1.2 }} anims={{ deck: [[c7 + 0.1, 0], [c8 - 0.05, 1]], ang: [[c7, -0.6], [c8, -0.45]], dist: [[c7, 18], [c8, 16]], h: [[c7, 5], [c8, 4]] }} />
       <Scene t0={c8} t1={c9} set={{ ...HULL, ty: 1 }} anims={{ o2: [[c8 + 0.2, 0], [K("enough"), 1]], ang: [[c8, 0.35], [c9, 0.2]], dist: [[c8, 16], [c9, 14]], h: [[c8, 2.5], [c9, 2]] }} />
       <Scene t0={c9} t1={c10} set={{ ...HULL, o2: 1, tx: 3, ty: 1 }} anims={{ o3: [[K("stack"), 0], [K("rowers"), 1]], o1: [[K("rowers"), 0], [c10 - 0.1, 1]], ang: [[c9, 0.18], [c10, 0.32]], dist: [[c9, 9.5], [c10, 8]], h: [[c9, 0.8], [c10, 1.0]] }} />
-      <Scene t0={c10} t1={c11} set={{ ...ALL, tx: 1 }} anims={{ ty: [[c10, 1.4], [c11, 0.6]], h: [[c10, 2.2], [c11, -0.2]], ang: [[c10, -0.25], [c11, -0.1]], dist: [[c10, 8], [c11, 7]] }}>
+      <Scene t0={c10} t1={c11} set={{ ...ALL, tx: 1 }} anims={{ ty: [[c10, 1.5], [c11, 0.6]], h: [[c10, 2.5], [c11, 0.4]], ang: [[c10, -0.3], [c11, -0.15]], dist: [[c10, 14], [c11, 12.5]], lens: [[c10, 1.4], [c11, 1.4]] }}>
         <Card s={c10} t0={K("62")} t1={c11} title="62 / 54 / 54" sub="TOP / MIDDLE / BOTTOM" />
       </Scene>
       <Scene t0={c11} t1={c12} set={{ ...ALL, rowspd: 0.55, ty: 1 }} anims={{ row: [[c11, 0], [c11 + 0.6, 1]], ang: [[c11, -0.55], [c12, -0.25]], dist: [[c11, 24], [c12, 21]], h: [[c11, 6], [c12, 4.5]] }}>
@@ -50,7 +50,7 @@ export default async ({ project }) => {
       <Scene t0={c15} t1={c16} set={{ ...SEA, ram: 1, tx: 10.8, ty: 0.3 }} anims={{ ang: [[c15, 1.25], [c16, 0.8]], dist: [[c15, 4.5], [c16, 4]], h: [[c15, 0.5], [c16, 0.7]] }}>
         <Label s={c15} t0={K("ram")} t1={c16} text="RAM" />
       </Scene>
-      <Scene t0={c16} t1={c17} set={{ ...SEA, ram: 1, enemy: 1, rowspd: 0.8, ty: 1 }} anims={{ go: [[c16 + 0.3, 0], [K("punch") + 0.3, 2.5]], hit: [[K("punch") + 0.3, 0], [K("hull") + 0.4, 1]], tx: [[c16, 9], [c17, 13]], ang: [[c16, 0.3], [c17, 0.15]], dist: [[c16, 26], [c17, 22]], h: [[c16, 5], [c17, 4]] }} />
+      <Scene t0={c16} t1={c17} set={{ ...SEA, ram: 1, enemy: 1, rowspd: 0.8, ty: 1 }} anims={{ go: [[c16 + 0.3, 0], [K("punch") + 0.3, 2.5]], hit: [[K("punch") + 0.3, 0], [K("hull") + 0.4, 1]], tx: [[c16, 9], [c17, 12]], ang: [[c16, 0.55], [c17, 0.35]], dist: [[c16, 30], [c17, 26]], h: [[c16, 13], [c17, 10]] }} />
       <Scene t0={c17} t1={c18} set={{ site: 4, row: 1, ty: 0 }} anims={{ ang: [[c17, 0.45], [c18, 0.15]], dist: [[c17, 125], [c18, 105]], h: [[c17, 48], [c18, 38]] }}>
         <Card s={c17} t0={K("salamis")} t1={c18} title="480 BC" sub="BATTLE OF SALAMIS" />
       </Scene>
