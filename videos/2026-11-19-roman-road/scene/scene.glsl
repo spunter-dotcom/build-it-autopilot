@@ -42,7 +42,7 @@ vec2 map(vec3 p){
   if(u_drain>0.01) res=opU(res,vec2(max(p.y+0.4*u_drain, sdBox(vec3(abs(p.x)-4.6,p.y,p.z-zc),vec3(0.4,1.0,zh))),8.0));
 
   // ---- trees on both sides, well away from the road ----
-  res=opU(res,pForest(vec3(abs(p.x)-19.0,p.y,p.z),4.0,7.0,-36.0,36.0));
+  res=opU(res,pForest(vec3(abs(p.x)-17.0,p.y,p.z),5.0,2.5,-30.0,30.0));
 
   // ---- mud puddles on the old dirt track (a thin strip of packed dirt on the grass) ----
   if(u_mud>0.01){
@@ -87,7 +87,6 @@ vec2 map(vec3 p){
     float top=-0.9+0.5*u_rudus-0.12*u_spread;
     float w=2.1+0.5*u_spread*smoothstep(-0.9,-0.4,p.y);
     float d=max(sdBox(p-vec3(0.0,-0.95,zc),vec3(w,1.0,zh)),p.y-top);
-    d+=0.025*noise2(p.xz*6.0+p.y*4.0);
     res=opU(res,vec2(max(d,zend),5.0));
   }
   if(u_curb>0.01){
@@ -100,14 +99,15 @@ vec2 map(vec3 p){
     res=opU(res,vec2(d*0.9,12.0));
   }
   if(u_flood>0.01) res=opU(res,vec2(max(sdBox(p-vec3(0.0,0.0,zc),vec3(2.1,1.0,zh)),p.y-(coreTop(0.0)+0.05*u_flood)),8.0));
-  // paving slabs: a grid of fitted blocks sweeping in from -z (always evaluated, clipped by u_pave)
-  {
+  // paving slabs: a grid of fitted blocks sweeping in from -z, clipped by u_pave (skipped entirely before paving starts)
+  if(u_pave>0.01){
     vec2 c; vec3 q=cellXZ(p,0.7,c);
     float base=coreTop(p.x);
     float d=sdRoundBox(q-vec3(0.0,base+0.075,0.0),vec3(0.33+0.02*hash2(c),0.075,0.33),0.03);
     d=max(d,abs(p.x)-2.1);
     d=max(d,p.z-(-40.0+(u_end+40.0)*u_pave));
-    if(abs(p.x)<2.5 && p.y<0.6) d=min(d,cellBound(q,0.7));
+    float pz=-40.0+(u_end+40.0)*u_pave;
+    if(abs(p.x)<2.5 && p.y<0.6 && p.y>-0.6 && p.z<pz+1.0) d=min(d,cellBound(q,0.7));
     res=opU(res,vec2(d,2.0));
   }
   // footpaths of packed gravel beside the curbs
@@ -120,7 +120,7 @@ vec2 map(vec3 p){
     vec3 q=drop(p,u_guard); q.x=abs(q.x)-2.25; q.z=mod(q.z+2.0,4.0)-2.0;
     float d=sdRoundBox(q-vec3(0.0,0.3,0.0),vec3(0.18,0.32,0.2),0.03);
     d=max(d,zend);
-    if(g_bound>0.5 && abs(q.x)<0.8 && p.y<0.8) d=min(d,max(2.0-abs(q.z),0.2));
+    if(g_bound>0.5 && abs(q.x)<0.8 && p.y<0.8 && p.y>-0.2) d=min(d,max(2.0-abs(q.z),0.2));
     res=opU(res,vec2(d,2.0));
   }
   // milestone beside the road
