@@ -1,6 +1,8 @@
 // scene.glsl: Roman road. The road runs along z (centre x = 0) from z = -40 to u_end, so with u_end = 0
 // its end face at z = 0 shows the layers in cross-section. Everything is evaluated once per map call.
 
+float sdBox(vec3 p, vec3 b){ return sdRoundBox(p,b,0.0); }
+
 // Cart facing along z, wheels on axles along x; moves with its own offset.
 vec2 cart(vec3 q, float roll){
   float bb=sdBox(q-vec3(0.0,0.8,0.0),vec3(1.1,0.9,1.7));
