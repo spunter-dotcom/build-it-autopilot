@@ -6,7 +6,7 @@ const GLSL = read("./lib.glsl") + read("./parts.glsl") + read("./scene.glsl") + 
 const WORDS = JSON.parse(read("./words.json"));
 const DUR = 68;
 
-const def = { site: 0, bx: -8, tilt: 0, spill: 0, crack: 0, work: 0, work2: 0, level: 0, walls: 0, gates: 0, uo: 0, lo: 0, mitre: 0, mopen: 0, pad: 0, crank: 0, pour: 0 };
+const def = { site: 0, haul: 0, bx: -8, tilt: 0, spill: 0, crack: 0, work: 0, work2: 0, level: 0, walls: 0, gates: 0, uo: 0, lo: 0, mitre: 0, mopen: 0, pad: 0, crank: 0, pour: 0 };
 const { Scene, Label, Card, Captions, K, C } = makeKit({ glsl: GLSL, words: WORDS, dur: DUR, def });
 
 export default async ({ project }) => {
@@ -24,15 +24,15 @@ export default async ({ project }) => {
     <frame width={1080} height={1920} layout="none">
       <Scene t0={0} t1={c1} set={{ site: 0, tx: -1, ty: -0.5 }} anims={{ bx: [[0, -6], [c1, -5]], ang: [[0, 0.6], [c1, 0.4]], dist: [[0, 12], [c1, 10]], h: [[0, 15], [c1, 13]] }} />
       <Scene t0={c1} t1={c2} set={{ site: 0, tx: -8.5, ty: -1 }} anims={{ bx: [[c1, -11], [c2, -7]], ang: [[c1, 0.9], [c2, 0.5]], dist: [[c1, 7], [c2, 6]], h: [[c1, 2], [c2, 1.5]] }} />
-      <Scene t0={c2} t1={c3} set={{ site: 0, bx: -6, ty: -0.8 }} anims={{ ang: [[c2, 0.15], [c3, 0.05]], dist: [[c2, 13], [c3, 11]], h: [[c2, 0.8], [c3, 1.2]] }} />
-      <Scene t0={c3} t1={c4} set={{ site: 0, work: 1, ty: -0.5 }} anims={{ bx: [[K("haul"), -5], [c4, 0.5]], ang: [[c3, 0.5], [c4, 0.8]], dist: [[c3, 12], [c4, 10]], h: [[c3, 3], [c4, 4]] }} />
-      <Scene t0={c4} t1={c5} set={{ site: 0, work: 1, tx: 1.5, ty: -0.2 }} anims={{ bx: [[c4, 0.5], [c5, 1.5]], tilt: [[c4, 0], [K("crack") + 0.3, -0.25]], crack: [[K("crack"), 0], [K("crack") + 0.3, 1]], spill: [[K("spills"), 0], [K("spills") + 0.8, 1]], ang: [[c4, -0.4], [c5, -0.6]], dist: [[c4, 8], [c5, 7]], h: [[c4, 2], [c5, 1.6]] }} />
+      <Scene t0={c2} t1={c3} set={{ site: 0, bx: -6, ty: -0.8 }} anims={{ ang: [[c2, 2.95], [c3, 3.1]], dist: [[c2, 13], [c3, 11]], h: [[c2, 2.5], [c3, 2.2]] }} />
+      <Scene t0={c3} t1={c4} set={{ site: 0, work: 1, haul: 1, ty: -0.5 }} anims={{ bx: [[K("haul"), -5], [c4, 0.5]], ang: [[c3, 0.5], [c4, 0.8]], dist: [[c3, 12], [c4, 10]], h: [[c3, 3], [c4, 4]] }} />
+      <Scene t0={c4} t1={c5} set={{ site: 0, work: 1, haul: 1, tx: 1.5, ty: -0.2 }} anims={{ bx: [[c4, 0.5], [c5, 1.5]], tilt: [[c4, 0], [K("crack") + 0.3, -0.25]], crack: [[K("crack"), 0], [K("crack") + 0.3, 1]], spill: [[K("spills"), 0], [K("spills") + 0.8, 1]], ang: [[c4, -0.4], [c5, -0.6]], dist: [[c4, 8], [c5, 7]], h: [[c4, 2], [c5, 1.6]] }} />
       <Scene t0={c5} t1={c6} set={{ site: 1, ground: 1, lo: 1, bx: -10, ty: -1 }} anims={{ gates: [[K("two gates") - 0.1, 0], [K("two gates") + 0.9, 1]], ang: [[c5, 0.6], [c6, 0.3]], dist: [[c5, 14], [c6, 12]], h: [[c5, 10], [c6, 9]] }} />
       <Scene t0={c6} t1={c7} set={{ site: 1, ground: 1, gates: 1, lo: 1, bx: -10, ty: -1 }} anims={{ walls: [[c6 + 0.2, 0], [K("chamber") + 0.3, 1]], ang: [[c6, -0.5], [c7, -0.25]], dist: [[c6, 11], [c7, 10]], h: [[c6, 10], [c7, 9]] }} />
       <Scene t0={c7} t1={c8} set={{ ...LOCK, lo: 1, bx: -10, ty: -1 }} anims={{ ang: [[c7, 0.25], [c8, 0.15]], dist: [[c7, 6], [c8, 5]], h: [[c7, 14], [c8, 12.5]] }}>
         <Label s={c7} t0={K("lock")} t1={c8} text="LOCK" />
       </Scene>
-      <Scene t0={c8} t1={c9} set={{ ...LOCK, tx: -3, ty: -1 }} anims={{ bx: [[c8, -10], [K("shut") - 0.1, 0]], lo: [[K("shut"), 1], [c9 - 0.15, 0]], ang: [[c8, 0.9], [c9, 0.7]], dist: [[c8, 14], [c9, 12]], h: [[c8, 5], [c9, 4]] }} />
+      <Scene t0={c8} t1={c9} set={{ ...LOCK, tx: -3, ty: -1 }} anims={{ bx: [[c8, -10], [K("shut") - 0.1, 0]], lo: [[K("shut"), 1], [c9 - 0.15, 0]], ang: [[c8, 0.35], [c9, 0.2]], dist: [[c8, 12], [c9, 11]], h: [[c8, 8], [c9, 7]] }} />
       <Scene t0={c9} t1={c10} set={{ ...LOCK, bx: 0, work: 1, tx: 4, ty: 0 }} anims={{ uo: [[K("lift"), 0], [K("top"), 0.3]], ang: [[c9, -0.7], [c10, -0.9]], dist: [[c9, 7], [c10, 6]], h: [[c9, 1.5], [c10, 2]] }} />
       <Scene t0={c10} t1={c11} set={{ ...LOCK, bx: 0, uo: 0.3, ty: -1 }} anims={{ pour: [[c10, 0], [c10 + 0.4, 1], [c11 - 0.4, 1], [c11 - 0.1, 0]], level: [[c10 + 0.2, 0], [c11 - 0.1, 1]], ang: [[c10, 0.6], [c11, 0.45]], dist: [[c10, 9], [c11, 8]], h: [[c10, 5], [c11, 5.5]] }} />
       <Scene t0={c11} t1={c12} set={{ ...LOCK, level: 1, tx: 3, ty: 0 }} anims={{ uo: [[K("open"), 0.3], [K("sail"), 1]], bx: [[K("sail") - 0.3, 0], [c12, 10]], ang: [[c11, 0.9], [c12, 1.2]], dist: [[c11, 13], [c12, 14]], h: [[c11, 4], [c12, 4.5]] }} />

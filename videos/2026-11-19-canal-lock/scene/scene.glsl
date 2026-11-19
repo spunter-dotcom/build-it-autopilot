@@ -87,13 +87,13 @@ vec2 map(vec3 p){
     // Site 0: earth ramp across the canal, haulers on the bank
     res=opU(res,vec2(sdEllipsoid(p-vec3(0.0,-2.5,0.0),vec3(4.0,2.7,2.3)),1.0));
     vec3 hc=vec3(u_bx+3.6,by+1.0,2.0);
-    if(length(p-hc)>4.6) res.x=min(res.x,length(p-hc)-3.6); else {
+    if(u_haul<0.5||length(p-hc)>4.6) res.x=min(res.x,length(p-hc)-3.6); else {
     vec3 bow=vec3(u_bx+1.6*cos(tilt),by+0.3+1.6*sin(tilt),0.4);
     for(int i=0;i<2;i++){
       float px=u_bx+4.5+1.2*float(i);
       vec3 pp=vec3(px,landH(px),3.0+0.5*float(i));
       res=opU(res,pPerson(p-pp,u_work,0.3+0.4*float(i)));
-      res=opU(res,pRope(p,bow,pp+vec3(0.0,0.9,0.0)));
+      res=opU(res,vec2(sdCapsule(p,bow,pp+vec3(0.0,0.9,0.0),0.05),13.0));
     }
     }
   } else {
