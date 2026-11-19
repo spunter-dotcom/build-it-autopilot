@@ -34,7 +34,6 @@ vec2 ballista(vec3 q){
     res=opU(res,pLog(f,vec3(0.0,0.0,0.4),vec3(0.0,1.05,0.4),0.1));          // post
     res=opU(res,pBeam(f-vec3(0.0,0.06,0.4),vec3(0.9,0.06,0.08)));           // feet
     res=opU(res,pBeam(f-vec3(0.0,0.06,0.4),vec3(0.08,0.06,0.9)));
-    res=opU(res,pLog(f,vec3(0.0,0.5,0.4),vec3(0.0,1.0,-0.6),0.06));         // brace
     vec3 fr=f-vec3(0.0,0.0,-1.0);
     res=opU(res,pBeam(fr-vec3(0.0,1.62,0.0),vec3(0.82,0.07,0.13)));         // spring frame top and bottom
     res=opU(res,pBeam(fr-vec3(0.0,0.84,0.0),vec3(0.82,0.07,0.13)));
@@ -68,7 +67,6 @@ vec2 ballista(vec3 q){
     res=opU(res,pLog(w,vec3(-0.45,0.0,0.0),vec3(0.45,0.0,0.0),0.09));
     vec3 hq=w; hq.yz=rot(W)*hq.yz; hq.x=abs(hq.x)-0.5;
     res=opU(res,pLog(hq,vec3(0.0,-0.35,0.0),vec3(0.0,0.35,0.0),0.035));
-    res=opU(res,pLog(hq,vec3(0.0,0.0,-0.35),vec3(0.0,0.0,0.35),0.035));
     res=opU(res,pRope(q,vec3(0.0,1.08,1.95),vec3(0.0,1.25,slz)));
   }
   if(u_ratchet>0.01){
@@ -82,7 +80,6 @@ vec2 ballista(vec3 q){
     res=opU(res,pBeam(s-vec3(0.0,1.23,slz-1.0),vec3(0.08,0.04,1.0)));
     if(u_trig>0.01){
       res=opU(res,vec2(sdRoundBox(drop(s,u_trig)-vec3(0.0,1.3,slz+0.05),vec3(0.04,0.08,0.05),0.01),7.0));
-      res=opU(res,vec2(sdCapsule(drop(s,u_trig),vec3(0.0,1.2,slz+0.08),vec3(0.0,1.0,slz+0.3),0.02),7.0));
     }
   }
   // crew member at the winch, facing -z
@@ -108,11 +105,9 @@ vec2 cityWall(vec3 p){
     float d=sdCapsule(c,vec3(0.0),vec3(1.4,1.1,0.0)*k,0.07);
     d=min(d,sdCapsule(c,vec3(0.0),vec3(-1.2,1.3,0.0)*k,0.06));
     d=min(d,sdCapsule(c,vec3(0.0),vec3(0.4,-2.4,0.0)*k,0.07));
-    d=min(d,sdCapsule(c,vec3(0.0),vec3(-1.5,-1.2,0.0)*k,0.06));
-    d=min(d,sdEllipsoid(c,vec3(0.55,0.5,0.12)*k));
+    d=min(d,length(c)-0.45*k);
     res=opU(res,vec2(d,15.0));
     res=opU(res,pRock(drop(w-vec3(0.8,0.25,2.0),k),0.35));
-    res=opU(res,pRock(drop(w-vec3(-0.6,0.2,2.6),k),0.28));
   }
   return res;
 }
