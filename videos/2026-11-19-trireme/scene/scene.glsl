@@ -12,8 +12,9 @@ vec2 oarTier(vec3 q, float k, float N, float y, float z0, float xo, float sw){
   if(bd>0.3) return vec2(bd,3.0);
   float id0=floor(r.x/s+0.5);
   float d=1e3;
-  for(int i=-1;i<=1;i++){
-    float id=clamp(id0+float(i), lo, lo+n-1.0);
+  float dir=sw>0.0?1.0:-1.0;
+  for(int i=0;i<=1;i++){
+    float id=clamp(id0+dir*float(i), lo, lo+n-1.0);
     vec3 rr=vec3(r.x-id*s, r.y, r.z);
     d=min(d, sdCapsule(rr, vec3(0.0,y,z0), vec3(sw,-0.02,z0+3.4), 0.04));
   }
@@ -50,7 +51,7 @@ vec2 trireme(vec3 q, float keel, float planks, float rope, float deck, float sag
   }
   if(hb<0.5 && rope>0.01){
     vec3 r=vec3(q.x,q.y,abs(q.z));
-    float tw=0.03*sin(q.x*9.0);
+    float tw=0.012*sin(q.x*6.0);
     float d=sdCapsule(r-vec3(0.0,tw,0.0), vec3(-8.5,1.15,0.35), vec3(mix(-8.5,8.5,rope),1.15,0.35), 0.08);
     res=opU(res,vec2(d,13.0));
   }
@@ -107,7 +108,8 @@ vec2 map(vec3 p){
     vec3 tc=vec3(abs(t.x)-3.4,t.y-0.6,abs(t.z)-1.8);
     res=opU(res,pColumn(vec3(tc.x,tc.y,tc.z),0.28,3.0,4.0));
     res=opU(res,pRoof(t-vec3(0.0,3.6,0.0),4.4,2.6,1.2,4.0));
-    res=opU(res,pFleet(p-vec3(50.0,0.05,0.0),30.0,0.0,0.0,stroke()));   // never inside an if
+    res=opU(res,shipDone(p-vec3(22.0,0.05,0.0),stroke()));
+    res=opU(res,shipDone(p-vec3(50.0,0.05,-4.0),fract(stroke()+0.3)));
   } else if(u_site<1.5){
     // Site 1: a beach shipyard. Timber, rope and people, and the empty slipway.
     res=opU(res,pLog(p,vec3(-5.0,0.25,2.0),vec3(1.0,0.25,2.6),0.25));
