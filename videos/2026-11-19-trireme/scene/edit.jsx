@@ -28,7 +28,7 @@ export default async ({ project }) => {
       <Scene t0={c1} t1={c2} set={{ site: 1, ground: 3, tx: 0, ty: 1, tz: 2.8 }} anims={{ work: [[c1 + 0.5, 0], [c1 + 1.2, 1]], ang: [[c1, 0.35], [c2, -0.05]], dist: [[c1, 10], [c2, 7.5]], h: [[c1, 2.5], [c2, 1.6]] }} />
       <Scene t0={c2} t1={c3} set={{ site: 1, ground: 3, work: 1, tx: 0, ty: 0.4, tz: -1 }} anims={{ ang: [[c2, 0.9], [c3, 0.45]], dist: [[c2, 15], [c3, 11]], h: [[c2, 5], [c3, 3.5]] }} />
       <Scene t0={c3} t1={c4} set={{ ...Y, ty: 1 }} anims={{ keel: [[c3 + 0.3, 0], [c4 - 0.4, 1]], ang: [[c3, 0.55], [c4, 0.2]], dist: [[c3, 21], [c4, 18]], h: [[c3, 5], [c4, 4]] }}>
-        <Card s={c3} t0={K("37")} t1={c4} title="37 M" sub="ABOUT AS LONG AS IT GETS" />
+        <Card s={c3} t0={K("37")} t1={c4} title="37 M" sub="SHIP LENGTH" />
       </Scene>
       <Scene t0={c4} t1={c5} set={{ ...Y, keel: 1, ty: 1.2 }} anims={{ planks: [[c4 + 0.3, 0], [c5 - 0.3, 1]], ang: [[c4, -0.45], [c5, -0.15]], dist: [[c4, 17], [c5, 15]], h: [[c4, 3.5], [c5, 3]] }} />
       <Scene t0={c5} t1={c6} set={{ ...Y, keel: 1, planks: 1, ty: 1 }} anims={{ sag: [[K("bends") - 0.2, 0], [K("waves") + 0.3, 1]], ang: [[c5, 0.08], [c6, 0.02]], dist: [[c5, 24], [c6, 22]], h: [[c5, 1.2], [c6, 1.0]] }} />
