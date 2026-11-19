@@ -44,8 +44,9 @@ vec2 map(vec3 p){
   // ---- trees on both sides, well away from the road ----
   res=opU(res,pForest(vec3(abs(p.x)-19.0,p.y,p.z),4.0,7.0,-36.0,36.0));
 
-  // ---- mud puddles on the old dirt track ----
+  // ---- mud puddles on the old dirt track (a thin strip of packed dirt on the grass) ----
   if(u_mud>0.01){
+    res=opU(res,vec2(max(p.y-0.01,abs(p.x)-3.0),1.0));
     float pd=length(p.xz-vec2(0.6,1.0))-1.3*u_mud;
     pd=min(pd,length(p.xz-vec2(-0.9,-3.5))-1.6*u_mud);
     pd=min(pd,length(p.xz-vec2(0.4,-8.0))-1.9*u_mud);
@@ -57,7 +58,7 @@ vec2 map(vec3 p){
     vec3 lp=p-vec3(0.0,u_ly,u_march);
     vec2 c; vec3 q=cellXZ(lp,1.5,c);
     if(abs(c.x)<=1.0 && c.y>=-4.0 && c.y<=1.0 && lp.y<1.6) res.x=min(res.x,cellBound(q,1.5));
-    if(abs(c.x)<=1.0 && c.y>=-3.0 && c.y<=0.0 && lp.y<1.7) res=opU(res,pPerson(q,0.0,0.05+0.02*hash2(c)));
+    if(abs(c.x)<=1.0 && c.y>=-3.0 && c.y<=0.0) res=opU(res,pPerson(q,0.0,0.05+0.02*hash2(c)));
   }
 
   // ---- surveyors' line: stakes every 5 m and a rope, growing toward +z ----
