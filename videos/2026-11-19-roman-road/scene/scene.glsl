@@ -1,4 +1,4 @@
-// scene.glsl: Roman road. The road runs along z (centre x = 0) from z = -40 to u_end, so with u_end = 0
+// scene.glsl: Roman road. The road runs along z (centre x = 0) from z = -24 to u_end, so with u_end = 0
 // its end face at z = 0 shows the layers in cross-section. Everything is evaluated once per map call.
 
 float sdBox(vec3 p, vec3 b){ return sdRoundBox(p,b,0.0); }
@@ -24,10 +24,10 @@ float coreTop(float x){ float k=clamp(x/2.1,-1.0,1.0); return -0.4+0.25*u_nuc+0.
 
 vec2 map(vec3 p){
   // ---- ground, carved by the trench and the side drains ----
-  float zc=0.5*(u_end-40.0), zh=0.5*(u_end+40.0);                       // road z range [-40, u_end]
+  float zc=0.5*(u_end-24.0), zh=0.5*(u_end+24.0);                       // road z range [-24, u_end]
   float D=0.9*clamp(u_trench,0.0,1.0);
   float pz1=u_end<1.0 ? u_end+8.0 : u_end;                              // open viewing pit in front of the end face
-  float pc=0.5*(pz1-40.0), ph=0.5*(pz1+40.0);
+  float pc=0.5*(pz1-24.0), ph=0.5*(pz1+24.0);
   float g=p.y;
   float gid=0.0;
   if(u_trench>0.01){
@@ -42,7 +42,7 @@ vec2 map(vec3 p){
   if(u_drain>0.01) res=opU(res,vec2(max(p.y+0.4*u_drain, sdBox(vec3(abs(p.x)-4.6,p.y,p.z-zc),vec3(0.4,1.0,zh))),8.0));
 
   // ---- trees on both sides, well away from the road ----
-  res=opU(res,pForest(vec3(abs(p.x)-17.0,p.y,p.z),5.0,2.5,-30.0,30.0));
+  res=opU(res,pForest(vec3(abs(p.x)-17.0,p.y,p.z),5.0,2.5,-25.0,25.0));
 
   // ---- mud puddles on the old dirt track (a thin strip of packed dirt on the grass) ----
   if(u_mud>0.01){
@@ -63,13 +63,13 @@ vec2 map(vec3 p){
 
   // ---- surveyors' line: stakes every 5 m and a rope, growing toward +z ----
   if(u_line>0.01){
-    float zl=-40.0+52.0*u_line;
+    float zl=-24.0+36.0*u_line;
     vec3 s=vec3(p.x,p.y,mod(p.z+2.5,5.0)-2.5);
     float st=sdCapsule(s,vec3(0.0,0.0,0.0),vec3(0.0,0.9,0.0),0.05);
     st=max(st,p.z-zl-0.1);
     if(g_bound>0.5 && abs(p.x)<1.0 && p.y<1.1) st=min(st,max(2.5-abs(s.z),0.2));
     res=opU(res,vec2(st,3.0));
-    res=opU(res,pRope(p,vec3(0.0,0.85,-40.0),vec3(0.0,0.85,zl)));
+    res=opU(res,pRope(p,vec3(0.0,0.85,-24.0),vec3(0.0,0.85,zl)));
     res=opU(res,pPerson(p-vec3(0.9,0.0,zl+1.0),1.0,0.6));
   }
 
@@ -105,8 +105,8 @@ vec2 map(vec3 p){
     float base=coreTop(p.x);
     float d=sdRoundBox(q-vec3(0.0,base+0.075,0.0),vec3(0.33+0.02*hash2(c),0.075,0.33),0.03);
     d=max(d,abs(p.x)-2.1);
-    d=max(d,p.z-(-40.0+(u_end+40.0)*u_pave));
-    float pz=-40.0+(u_end+40.0)*u_pave;
+    d=max(d,p.z-(-24.0+(u_end+24.0)*u_pave));
+    float pz=-24.0+(u_end+24.0)*u_pave;
     if(abs(p.x)<2.5 && p.y<0.6 && p.y>-0.6 && p.z<pz+1.0) d=min(d,cellBound(q,0.7));
     res=opU(res,vec2(d,2.0));
   }

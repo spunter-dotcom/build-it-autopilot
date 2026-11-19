@@ -27,7 +27,7 @@ export default async ({ project }) => {
   const NU = { ...CU, nuc: 1 };
   const CA = { ...NU, camber: 1, drain: 1 };
   const PV = { ...CA, pave: 1, path: 1 };
-  const DONE = { ...PV, guard: 1, mile: 1, end: 40 };
+  const DONE = { ...PV, guard: 1, mile: 1, end: 24 };
   p.compose(
     <frame width={1080} height={1920} layout="none">
       <Scene t0={0} t1={c1} set={{ mud: 0.02, legion: 1, tz: -5 }} anims={{ march: [[0, -2], [c1, 4]], ang: [[0, 0.55], [c1, 0.3]], dist: [[0, 14], [c1, 11]], h: [[0, 8], [c1, 6.5]] }} />
