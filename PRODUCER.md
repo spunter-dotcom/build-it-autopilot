@@ -14,14 +14,14 @@ Claude usage is the bottleneck, so work lean:
 - Higgsfield `balance`: if under 10 credits, stop and log `skipped: low Higgsfield credits`.
 
 ## 1. Topic
-- The topic your prompt names, else the first unchecked item under **Next** in `topics.md`. If that is empty, pick a pre-industrial machine or structure not already in `log.csv`. Never remake another creator's video.
+- The topic and mode your prompt names (`manual` = the owner posts it by hand), else the first unchecked item under **Next** in `topics.md`. If that is empty, pick a pre-industrial machine or structure not already in `log.csv`. Never remake another creator's video.
 
 ## 2. Research
 - 2–4 web searches. Facts with source URLs go to `videos/$ID/sources.md`. Soften or cut anything you can't source. No health, safety or legal claims.
 
 ## 3. Script
-- Write `videos/$ID/script.md`: 165–180 words, second person, following `playbook.md` rules 3–6 (state the need; chain "So you…" / "But…" beats; 2–3 "This is a ___." naming beats; end "Congratulations. You have built a ___.").
-- Plain English. For a name the voice may garble, use the lowercase respelling from `engine/pronunciations.json` (add one if missing) in the voice text only. Spell numbers out in the voice text.
+- Write `videos/$ID/script.md`: 190–210 words (Desmond reads fast; under 190 usually comes in short of 60 s), second person, following `playbook.md` rules 3–6 (state the need; chain "So you…" / "But…" beats; 2–3 "This is a ___." naming beats; end "Congratulations. You have built a ___.").
+- Plain English. For a name the voice may garble, use the lowercase respelling from `kit/pronunciations.json` (add one if missing) in the voice text only. Spell numbers out in the voice text.
 
 ## 4. Voice (the only paid call, about 4–5 credits)
 - One `generate_audio` call, exactly:
@@ -43,9 +43,9 @@ Claude usage is the bottleneck, so work lean:
 
 ## 6. Hand over to the finisher
 - Write `videos/$ID/caption.txt` exactly as `playbook.md` rule 9 says. No AI mention. Every number in it must be in `sources.md`.
-- Write `videos/$ID/job.json`: `{"status": "built", "mode": "schedule", "title": "<script title>", "dur": <DUR>, "voice_job": "<job id>", "credits": <credits used>}`. Use `"mode": "manual"` when your prompt says the owner posts by hand.
+- Write `videos/$ID/job.json`: `{"status": "built", "mode": "schedule", "title": "<script title>", "dur": <DUR>, "voice_job": "<job id>", "credits": <credits used>}`. Use `"mode": "manual"` when your prompt says the owner posts by hand; never post or schedule a manual video.
 - Append a `log.csv` row with status `built`. Tick the topic in `topics.md`. Commit and push (`git pull --rebase` first; retry a rejected push). Never commit video or audio files.
-- Do not render and do not send a notification; the finisher does both.
+- Start the finisher: call the Claude_Code_Remote `fire_trigger` tool with `trigger_id` `trig_017NL8BdJXkDq7oMXa7ymQWU` and `text` "Finish job $ID". This step is required; without it nothing gets rendered. Then end. Do not render and do not send a notification; the finisher does both.
 
 ## 7. Failures
 - After 2 failed attempts at any step, stop. Put `"status": "failed"` and the reason in `job.json` (if it exists) and in `log.csv`, commit, and send one short push notification saying what broke.

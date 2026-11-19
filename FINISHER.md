@@ -3,7 +3,7 @@
 You are running unattended. Nobody will answer questions. A build run (`PRODUCER.md`) already wrote the script, voice and scene. Your job is mechanical: render, upload, schedule, log. Keep it short: no research, no rewriting, no reading other docs. Each step below is one or two tool calls.
 
 ## 1. Find the work
-- `grep -l '"status": "built"' videos/*/job.json`. If none, end quietly (no notification). Otherwise take the oldest; set `ID` to its folder name. Do at most two jobs per run.
+- The build run that started you names the job in its message ("Finish job <id>"). Otherwise use `grep -l '"status": "built"' videos/*/job.json` and take the oldest. If there is none, end quietly (no notification). Set `ID` to the folder name. One job per run.
 
 ## 2. Prepare (one sandbox_exec)
 `(git -C /home/user/bia pull -q 2>/dev/null || git clone -q --depth 1 https://github.com/spunter-dotcom/build-it-autopilot /home/user/bia) && bash /home/user/bia/kit/scripts/setup.sh $ID && cd /home/user/what-if/$ID/edit && higgsedit build edit.jsx | tail -3`

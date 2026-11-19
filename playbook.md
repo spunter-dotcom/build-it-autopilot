@@ -2,7 +2,7 @@
 
 ## Current rules
 1. **Length:** 65 s target (62–80 s allowed). Creator Rewards only counts videos over 1 minute.
-2. **Voice and look:** ElevenLabs v4 preset Desmond (voice_id 563f728c-e249-5a85-97ab-8461e8c09da6), made with Higgsfield `/content-factory` in the style of the owner's reference video (media_id 79814186-bdc0-4392-9803-0669ea6b7cf2). Keep a brisk pace with very short pauses.
+2. **Voice and look:** ElevenLabs v4 preset Desmond (voice_id 563f728c-e249-5a85-97ab-8461e8c09da6), 3D scenes from the shared kit in `kit/`. Keep a brisk pace with very short pauses.
 3. **Opening:** the first line states the need in under 3 seconds ("Your village needs water…"). While the active experiment runs, its arm decides whether that line is a statement or a question.
 4. **Shape:** a chain of "So you…" and "But…" beats, with 6–9 build steps.
 5. **Naming beats:** 2–3 per video ("This is a ___."), each with an on-screen label and a clear hero shot.
@@ -24,6 +24,7 @@
 - **Close:** when each arm has 8 videos made on the Higgsfield pipeline (log cabin onward). Count so far: A 1 (log cabin), B 0.
 
 ## Changelog
+- 2026-11-19: production moved to the scene kit with a separate build run and finisher; the old engine and the content-factory reference video are retired.
 - 2026-11-15 (weekly review): started the question-vs-statement opening experiment and added the arm note to rule 3. Why now: the account has 7 posts, the shaduf makes 8 on Monday, and the switch to Higgsfield is a clean break, so the test starts with the new pipeline instead of mixing two pipelines. Evidence so far (5 autopilot posts, snapshot 2026-11-15 15:18 ET, ages 5–101 h): Syracusia 2,227 views (21 h, 4.9% engagement), insula 1,012 (69 h, 6.3%), Archimedes screw 974 (45 h, 6.7%), trebuchet 355 (5 h, 6.8%), well 294 (101 h, 6.1%). The only question-hook video is the well (n=1), the weakest, so no conclusion; every group is far below 8. Leads to test, not rules: 18:00 ET posts (3) beat 10:00 ET posts (2), and the ship topic (Syracusia, n=1) beat everything.
 - 2026-11-14: owner moved production to Higgsfield `/content-factory` (65 s, Desmond voice, owner's reference video). Metricool stays the poster.
 - 2026-11-10: owner asked for the new caption style, with no on-screen AI tag and no AI mention in the caption. TikTok's platform AI label stays on.
