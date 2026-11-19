@@ -56,9 +56,9 @@ vec2 map(vec3 p){
   // ---- marching legion: 3 files, 8 ranks, moving toward +z with u_march ----
   if(u_legion>0.5){
     vec3 lp=p-vec3(0.0,u_ly,u_march);
-    vec2 c; vec3 q=cellXZ(lp,1.3,c);
-    if(abs(c.x)<=2.0 && c.y>=-7.0 && c.y<=1.0 && lp.y<1.6) res.x=min(res.x,cellBound(q,1.3));
-    if(abs(c.x)<=1.0 && c.y>=-5.0 && c.y<=0.0) res=opU(res,pPerson(q,0.0,0.05+0.02*hash2(c)));
+    vec2 c; vec3 q=cellXZ(lp,1.5,c);
+    if(abs(c.x)<=1.0 && c.y>=-4.0 && c.y<=1.0 && lp.y<1.6) res.x=min(res.x,cellBound(q,1.5));
+    if(abs(c.x)<=1.0 && c.y>=-3.0 && c.y<=0.0) res=opU(res,pPerson(q,0.0,0.05+0.02*hash2(c)));
   }
 
   // ---- surveyors' line: stakes every 5 m and a rope, growing toward +z ----
@@ -88,7 +88,7 @@ vec2 map(vec3 p){
     float w=2.1+0.5*u_spread*smoothstep(-0.9,-0.4,p.y);
     float d=max(sdBox(p-vec3(0.0,-0.95,zc),vec3(w,1.0,zh)),p.y-top);
     d+=0.025*noise2(p.xz*6.0+p.y*4.0);
-    res=opU(res,vec2(max(d,zend),1.0));
+    res=opU(res,vec2(max(d,zend),5.0));
   }
   if(u_curb>0.01){
     vec3 q=drop(p,u_curb); q.x=abs(q.x)-2.25;
@@ -124,7 +124,7 @@ vec2 map(vec3 p){
     res=opU(res,vec2(d,2.0));
   }
   // milestone beside the road
-  if(u_mile>0.01) res=opU(res,pColumn(drop(p,u_mile)-vec3(3.3,0.0,6.0),0.28,1.9,2.0));
+  if(u_mile>0.01) res=opU(res,vec2(sdCylinder(drop(p,u_mile)-vec3(3.3,0.95,6.0),0.95,0.3)-0.03,2.0));
   // carts: A drives toward -z on the right, B toward +z on the left; A can drift onto the footpath (u_cax)
   if(u_carts>0.5){
     vec3 a=p-vec3(1.05+u_cax,0.12,u_ca); a.xz=-a.xz;
