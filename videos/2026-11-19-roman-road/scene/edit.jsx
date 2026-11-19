@@ -30,8 +30,8 @@ export default async ({ project }) => {
   const DONE = { ...PV, guard: 1, mile: 1, end: 40 };
   p.compose(
     <frame width={1080} height={1920} layout="none">
-      <Scene t0={0} t1={c1} set={{ mud: 0.5, legion: 1, tz: -5 }} anims={{ march: [[0, -2], [c1, 4]], ang: [[0, 0.55], [c1, 0.3]], dist: [[0, 14], [c1, 11]], h: [[0, 7], [c1, 5.5]] }} />
-      <Scene t0={c1} t1={c2} set={{ legion: 1, tz: -3, ty: 0.5 }} anims={{ mud: [[c1, 0.6], [c2, 1]], march: [[c1, 4], [c2, 6]], ang: [[c1, -0.7], [c2, -0.5]], dist: [[c1, 7], [c2, 6]], h: [[c1, 1.2], [c2, 1.0]] }} />
+      <Scene t0={0} t1={c1} set={{ mud: 0.02, legion: 1, tz: -5 }} anims={{ march: [[0, -2], [c1, 4]], ang: [[0, 0.55], [c1, 0.3]], dist: [[0, 14], [c1, 11]], h: [[0, 8], [c1, 6.5]] }} />
+      <Scene t0={c1} t1={c2} set={{ legion: 1, tz: -3, ty: 0.5 }} anims={{ mud: [[c1, 0.2], [c2, 1]], march: [[c1, 4], [c2, 6]], ang: [[c1, -0.7], [c2, -0.5]], dist: [[c1, 7], [c2, 6]], h: [[c1, 1.2], [c2, 1.0]] }} />
       <Scene t0={c2} t1={c3} set={{ tz: -8 }} anims={{ line: [[c2 + 0.2, 0], [c3 - 0.2, 1]], ang: [[c2, 0.2], [c3, 0.1]], dist: [[c2, 20], [c3, 16]], h: [[c2, 6], [c3, 5]] }} />
       <Scene t0={c3} t1={c4} set={{ workers: 1, tz: -3, ty: -0.3 }} anims={{ trench: [[c3 + 0.1, 0], [c4 - 0.1, 1]], work: [[c3, 0], [c3 + 0.6, 1], [c3 + 1.2, 0], [c4, 1]], ang: [[c3, 0.75], [c4, 0.5]], dist: [[c3, 12], [c4, 10]], h: [[c3, 5], [c4, 4]] }} />
       <Scene t0={c4} t1={c5} set={{ ...TR, workers: 1, tz: -1, ty: -0.4 }} anims={{ rudus: [[c4 + 0.1, 0], [K("pounded"), 1]], work: [[K("pounded"), 0], [K("pounded") + 0.4, 1], [c5, 0]], ang: [[c4, 0.35], [c5, 0.15]], dist: [[c4, 9], [c5, 8]], h: [[c4, 3], [c5, 2.5]] }} />
