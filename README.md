@@ -8,6 +8,7 @@ Makes "you build it from scratch" 3D explainers for TikTok (@how_it_happened0), 
 3. **Weekly analyst** (`ANALYST.md`, Sunday 3:17 PM): pulls TikTok numbers from Metricool, updates `playbook.md` and the topic queue.
 
 ## Files
+- `HANDOFF.md`: everything a new chat needs to take over operations.
 | File | What it is |
 |---|---|
 | `PRODUCER.md`, `FINISHER.md`, `ANALYST.md` | the three run procedures |
