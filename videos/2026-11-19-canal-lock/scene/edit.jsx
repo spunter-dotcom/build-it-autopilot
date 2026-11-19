@@ -24,8 +24,8 @@ export default async ({ project }) => {
     <frame width={1080} height={1920} layout="none">
       <Scene t0={0} t1={c1} set={{ site: 0, tx: -1, ty: -0.5 }} anims={{ bx: [[0, -6], [c1, -5]], ang: [[0, 0.6], [c1, 0.4]], dist: [[0, 12], [c1, 10]], h: [[0, 15], [c1, 13]] }} />
       <Scene t0={c1} t1={c2} set={{ site: 0, tx: -8.5, ty: -1 }} anims={{ bx: [[c1, -11], [c2, -7]], ang: [[c1, 0.9], [c2, 0.5]], dist: [[c1, 7], [c2, 6]], h: [[c1, 2], [c2, 1.5]] }} />
-      <Scene t0={c2} t1={c3} set={{ site: 0, bx: -6, ty: -0.8 }} anims={{ ang: [[c2, 2.95], [c3, 3.1]], dist: [[c2, 13], [c3, 11]], h: [[c2, 2.5], [c3, 2.2]] }} />
-      <Scene t0={c3} t1={c4} set={{ site: 0, work: 1, haul: 1, ty: -0.5 }} anims={{ bx: [[K("haul"), -5], [c4, 0.5]], ang: [[c3, 0.5], [c4, 0.8]], dist: [[c3, 12], [c4, 10]], h: [[c3, 3], [c4, 4]] }} />
+      <Scene t0={c2} t1={c3} set={{ site: 0, bx: -6, ty: -0.8 }} anims={{ ang: [[c2, 2.95], [c3, 3.1]], dist: [[c2, 13], [c3, 11]], h: [[c2, 4], [c3, 3.5]] }} />
+      <Scene t0={c3} t1={c4} set={{ site: 0, work: 1, haul: 1, tx: -1.5, ty: -0.5 }} anims={{ bx: [[K("haul"), -5], [c4, 0.5]], ang: [[c3, 0.5], [c4, 0.7]], dist: [[c3, 13], [c4, 12]], h: [[c3, 5], [c4, 5.5]] }} />
       <Scene t0={c4} t1={c5} set={{ site: 0, work: 1, haul: 1, tx: 1.5, ty: -0.2 }} anims={{ bx: [[c4, 0.5], [c5, 1.5]], tilt: [[c4, 0], [K("crack") + 0.3, -0.25]], crack: [[K("crack"), 0], [K("crack") + 0.3, 1]], spill: [[K("spills"), 0], [K("spills") + 0.8, 1]], ang: [[c4, -0.4], [c5, -0.6]], dist: [[c4, 8], [c5, 7]], h: [[c4, 2], [c5, 1.6]] }} />
       <Scene t0={c5} t1={c6} set={{ site: 1, ground: 1, lo: 1, bx: -10, ty: -1 }} anims={{ gates: [[K("two gates") - 0.1, 0], [K("two gates") + 0.9, 1]], ang: [[c5, 0.6], [c6, 0.3]], dist: [[c5, 14], [c6, 12]], h: [[c5, 10], [c6, 9]] }} />
       <Scene t0={c6} t1={c7} set={{ site: 1, ground: 1, gates: 1, lo: 1, bx: -10, ty: -1 }} anims={{ walls: [[c6 + 0.2, 0], [K("chamber") + 0.3, 1]], ang: [[c6, -0.5], [c7, -0.25]], dist: [[c6, 11], [c7, 10]], h: [[c6, 10], [c7, 9]] }} />

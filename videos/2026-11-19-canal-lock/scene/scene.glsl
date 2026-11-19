@@ -71,7 +71,7 @@ vec2 map(vec3 p){
   c=vec3(-11.0,1.4,-5.5); if(length(p-c)<6.5){ res=opU(res,pWall(p-vec3(-11.0,0.0,-5.5),vec3(1.4,1.0,1.5),12.0)); res=opU(res,pRoof(p-vec3(-11.0,2.0,-5.5),3.2,1.8,1.1,6.0)); } else res.x=min(res.x,length(p-c)-5.5);
   c=vec3(-7.0,2.4,5.0); if(length(p-c)<4.0) res=opU(res,pTree(p-vec3(-7.0,0.0,5.0),3.2)); else res.x=min(res.x,length(p-c)-3.0);
   c=vec3(7.5,4.1,-5.0); if(length(p-c)<4.4) res=opU(res,pTree(p-vec3(7.5,1.4,-5.0),3.6)); else res.x=min(res.x,length(p-c)-3.4);
-  c=vec3(1.0,2.1,-6.0); if(length(p-c)<3.6) res=opU(res,pTree(p-vec3(1.0,0.0,-6.0),2.8)); else res.x=min(res.x,length(p-c)-2.6);
+  c=vec3(-14.0,2.1,-3.0); if(length(p-c)<3.6) res=opU(res,pTree(p-vec3(-14.0,0.0,-3.0),2.8)); else res.x=min(res.x,length(p-c)-2.6);
 
   // barge
   float by=levelAt(u_bx)-0.05;
@@ -87,7 +87,7 @@ vec2 map(vec3 p){
     // Site 0: earth ramp across the canal, haulers on the bank
     res=opU(res,vec2(sdEllipsoid(p-vec3(0.0,-2.5,0.0),vec3(4.0,2.7,2.3)),1.0));
     vec3 hc=vec3(u_bx+3.6,by+1.0,2.0);
-    if(u_haul<0.5||length(p-hc)>4.6) res.x=min(res.x,length(p-hc)-3.6); else {
+    if(u_haul<0.5){} else if(length(p-hc)>4.6) res.x=min(res.x,length(p-hc)-3.6); else {
     vec3 bow=vec3(u_bx+1.6*cos(tilt),by+0.3+1.6*sin(tilt),0.4);
     for(int i=0;i<2;i++){
       float px=u_bx+4.5+1.2*float(i);
