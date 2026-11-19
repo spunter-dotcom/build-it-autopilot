@@ -26,19 +26,19 @@ vec2 trireme(vec3 q, float keel, float planks, float rope, float deck, float sag
   // bounding box: skip everything when far away (keeps the fleet shots fast)
   float bb=sdRoundBox(q-vec3(1.0,1.2,0.0), vec3(14.0,2.8,5.6), 0.0);
   if(bb>1.0) return vec2(bb,0.0);
-  q.y+=sag*0.7*(1.0-clamp(q.x*q.x/100.0,0.0,1.0));        // a weak hull sags in the middle
-  vec3 c=q-vec3(0.0,0.9,0.0);
-  vec3 R=vec3(10.0,1.5,1.6);
-  float hb=sdRoundBox(q-vec3(0.0,2.0,0.0), vec3(11.0,3.0,1.9), 0.0);
-  if(hb>=0.5) res=vec2(hb,3.0);
+  q.y+=sag*1.0*(1.0-clamp(q.x*q.x/100.0,0.0,1.0));        // a weak hull sags in the middle
+  // hull solid: pointed plan (two arcs), curved keel line (rocker), V-shaped sides. Exact-ish, so it marches fast.
+  float lens=length(vec2(q.x,abs(q.z)+30.45))-32.05;
+  float rocker=length(vec2(q.x,q.y-59.4))-60.0;
+  float vee=(abs(q.z)-0.3-1.08*(q.y+0.6))/1.47;
+  float solid=max(lens,max(rocker,vee));
   if(hb<0.5 && keel>0.01){
-    float k=max(max(sdEllipsoid(c,R+vec3(0.12,0.12,0.0)), abs(q.z)-0.12), q.y-0.35);
+    float k=max(max(abs(q.z)-0.12, rocker-0.12), max(q.y-0.35, abs(q.x)-10.1));
     k=max(k, q.x-mix(-10.5,10.5,keel));
     res=opU(res,vec2(k,3.0));
   }
   if(hb<0.5 && planks>0.01){
-    float e=sdEllipsoid(c,R);
-    float sh=max(abs(e)-0.07, q.y-1.4);
+    float sh=max(abs(solid)-0.07, q.y-1.4);
     sh=max(sh, q.y-mix(-0.7,1.4,planks));
     res=opU(res,vec2(sh,3.0));
     // stern post curling up and back, bow post
@@ -105,7 +105,7 @@ vec2 map(vec3 p){
     vec3 tc=vec3(abs(t.x)-3.4,t.y-0.6,abs(t.z)-1.8);
     res=opU(res,pColumn(vec3(tc.x,tc.y,tc.z),0.28,3.0,4.0));
     res=opU(res,pRoof(t-vec3(0.0,3.6,0.0),4.4,2.6,1.2,4.0));
-    res=opU(res,pFleet(p-vec3(50.0,0.05,0.0),30.0,-30.0,30.0,stroke()));   // never inside an if
+    res=opU(res,pFleet(p-vec3(50.0,0.05,0.0),30.0,0.0,0.0,stroke()));   // never inside an if
   } else if(u_site<1.5){
     // Site 1: a beach shipyard. Timber, rope and people, and the empty slipway.
     res=opU(res,pLog(p,vec3(-5.0,0.25,2.0),vec3(1.0,0.25,2.6),0.25));
@@ -141,7 +141,7 @@ vec2 map(vec3 p){
     res=opU(res,pWater(p,0.05));
     res=opU(res,pFleet(p,60.0,-30.0,30.0,stroke()));                   // never inside an if
     res=opU(res,vec2(sdEllipsoid(p-vec3(0.0,-6.0,-120.0),vec3(140.0,16.0,40.0)),1.0));
-    res=opU(res,vec2(sdEllipsoid(p-vec3(40.0,-6.0,110.0),vec3(120.0,12.0,35.0)),1.0));
+    res=opU(res,vec2(sdEllipsoid(p-vec3(-150.0,-6.0,0.0),vec3(45.0,14.0,140.0)),1.0));
   }
   return res;
 }

@@ -31,7 +31,7 @@ export default async ({ project }) => {
         <Card s={c3} t0={K("37")} t1={c4} title="37 M" sub="SHIP LENGTH" />
       </Scene>
       <Scene t0={c4} t1={c5} set={{ ...Y, keel: 1, ty: 1.2 }} anims={{ planks: [[c4 + 0.3, 0], [c5 - 0.3, 1]], ang: [[c4, -0.45], [c5, -0.15]], dist: [[c4, 17], [c5, 15]], h: [[c4, 3.5], [c5, 3]] }} />
-      <Scene t0={c5} t1={c6} set={{ ...Y, keel: 1, planks: 1, ty: 1 }} anims={{ sag: [[K("bends") - 0.2, 0], [K("waves") + 0.3, 1]], ang: [[c5, 0.08], [c6, 0.02]], dist: [[c5, 24], [c6, 22]], h: [[c5, 1.2], [c6, 1.0]] }} />
+      <Scene t0={c5} t1={c6} set={{ ...Y, keel: 1, planks: 1, ty: 0.8 }} anims={{ sag: [[K("bends") - 0.2, 0], [K("waves") + 0.3, 1]], ang: [[c5, 0.12], [c6, 0.04]], dist: [[c5, 27], [c6, 24]], h: [[c5, 3], [c6, 2.2]] }} />
       <Scene t0={c6} t1={c7} set={{ ...Y, keel: 1, planks: 1, ty: 1.2 }} anims={{ rope: [[K("ropes"), 0], [K("stern") + 0.3, 1]], sag: [[c6, 1], [K("twist"), 1], [c7 - 0.2, 0]], ang: [[c6, 0.6], [c7, 0.3]], dist: [[c6, 13], [c7, 12]], h: [[c6, 8], [c7, 6]] }} />
       <Scene t0={c7} t1={c8} set={{ ...HULL, deck: 0, ty: 1.2 }} anims={{ deck: [[c7 + 0.1, 0], [c8 - 0.05, 1]], ang: [[c7, -0.6], [c8, -0.45]], dist: [[c7, 18], [c8, 16]], h: [[c7, 5], [c8, 4]] }} />
       <Scene t0={c8} t1={c9} set={{ ...HULL, ty: 1 }} anims={{ o2: [[c8 + 0.2, 0], [K("enough"), 1]], ang: [[c8, 0.35], [c9, 0.2]], dist: [[c8, 16], [c9, 14]], h: [[c8, 2.5], [c9, 2]] }} />
@@ -51,7 +51,7 @@ export default async ({ project }) => {
         <Label s={c15} t0={K("ram")} t1={c16} text="RAM" />
       </Scene>
       <Scene t0={c16} t1={c17} set={{ ...SEA, ram: 1, enemy: 1, rowspd: 0.8, ty: 1 }} anims={{ go: [[c16 + 0.3, 0], [K("punch") + 0.3, 2.5]], hit: [[K("punch") + 0.3, 0], [K("hull") + 0.4, 1]], tx: [[c16, 9], [c17, 12]], ang: [[c16, 0.55], [c17, 0.35]], dist: [[c16, 30], [c17, 26]], h: [[c16, 13], [c17, 10]] }} />
-      <Scene t0={c17} t1={c18} set={{ site: 4, row: 1, ty: 0 }} anims={{ ang: [[c17, 0.45], [c18, 0.15]], dist: [[c17, 125], [c18, 105]], h: [[c17, 48], [c18, 38]] }}>
+      <Scene t0={c17} t1={c18} set={{ site: 4, row: 1, ty: 0 }} anims={{ ang: [[c17, 0.45], [c18, 0.15]], dist: [[c17, 110], [c18, 95]], h: [[c17, 40], [c18, 32]], lens: [[c17, 1.0], [c18, 1.0]] }}>
         <Card s={c17} t0={K("salamis")} t1={c18} title="480 BC" sub="BATTLE OF SALAMIS" />
       </Scene>
       <Scene t0={c18} t1={c19} set={{ ...SEA, ram: 1, rowspd: 0.9, ty: 1 }} anims={{ go: [[c18, 0], [c19, 7]], tx: [[c18, 0], [c19, 5]], ang: [[c18, 0.95], [c19, 0.6]], dist: [[c18, 19], [c19, 17]], h: [[c18, 3], [c19, 2.5]] }}>
