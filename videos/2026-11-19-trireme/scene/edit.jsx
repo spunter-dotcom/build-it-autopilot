@@ -32,7 +32,7 @@ export default async ({ project }) => {
       </Scene>
       <Scene t0={c4} t1={c5} set={{ ...Y, keel: 1, ty: 1.2 }} anims={{ planks: [[c4 + 0.3, 0], [c5 - 0.3, 1]], ang: [[c4, -0.45], [c5, -0.15]], dist: [[c4, 17], [c5, 15]], h: [[c4, 3.5], [c5, 3]] }} />
       <Scene t0={c5} t1={c6} set={{ ...Y, keel: 1, planks: 1, ty: 0.8 }} anims={{ sag: [[K("bends") - 0.2, 0], [K("waves") + 0.3, 1]], ang: [[c5, 0.12], [c6, 0.04]], dist: [[c5, 27], [c6, 24]], h: [[c5, 3], [c6, 2.2]] }} />
-      <Scene t0={c6} t1={c7} set={{ ...Y, keel: 1, planks: 1, ty: 1.2 }} anims={{ rope: [[K("ropes"), 0], [K("stern") + 0.3, 1]], sag: [[c6, 1], [K("twist"), 1], [c7 - 0.2, 0]], ang: [[c6, 0.6], [c7, 0.3]], dist: [[c6, 13], [c7, 12]], h: [[c6, 8], [c7, 6]] }} />
+      <Scene t0={c6} t1={c7} set={{ ...Y, keel: 1, planks: 1, ty: 1.2 }} anims={{ rope: [[K("ropes"), 0], [K("stern") + 0.3, 1]], sag: [[c6, 1], [K("twist"), 1], [c7 - 0.2, 0]], ang: [[c6, 0.6], [c7, 0.35]], dist: [[c6, 12], [c7, 11]], h: [[c6, 4.2], [c7, 3.5]] }} />
       <Scene t0={c7} t1={c8} set={{ ...HULL, deck: 0, ty: 1.2 }} anims={{ deck: [[c7 + 0.1, 0], [c8 - 0.05, 1]], ang: [[c7, -0.6], [c8, -0.45]], dist: [[c7, 18], [c8, 16]], h: [[c7, 5], [c8, 4]] }} />
       <Scene t0={c8} t1={c9} set={{ ...HULL, ty: 1 }} anims={{ o2: [[c8 + 0.2, 0], [K("enough"), 1]], ang: [[c8, 0.35], [c9, 0.2]], dist: [[c8, 16], [c9, 14]], h: [[c8, 2.5], [c9, 2]] }} />
       <Scene t0={c9} t1={c10} set={{ ...HULL, o2: 1, tx: 3, ty: 1 }} anims={{ o3: [[K("stack"), 0], [K("rowers"), 1]], o1: [[K("rowers"), 0], [c10 - 0.1, 1]], ang: [[c9, 0.18], [c10, 0.32]], dist: [[c9, 9.5], [c10, 8]], h: [[c9, 0.8], [c10, 1.0]] }} />
@@ -46,8 +46,8 @@ export default async ({ project }) => {
         <Label s={c12} t0={K("tri") + 0.2} t1={c13} text="TRIREME" />
       </Scene>
       <Scene t0={c13} t1={c14} set={{ ...SEA, enemy: 1, ty: 1, tz: 0 }} anims={{ tx: [[c13, 6], [c14, 9]], ang: [[c13, -1.25], [c14, -1.4]], dist: [[c13, 30], [c14, 26]], h: [[c13, 6], [c14, 4]] }} />
-      <Scene t0={c14} t1={c15} set={{ ...SEA, tx: 10.5, ty: 0.4 }} anims={{ ram: [[K("bronze"), 0], [K("waterline"), 1]], ang: [[c14, 0.55], [c15, 0.9]], dist: [[c14, 6], [c15, 4.8]], h: [[c14, 1.4], [c15, 0.9]] }} />
-      <Scene t0={c15} t1={c16} set={{ ...SEA, ram: 1, tx: 10.8, ty: 0.3 }} anims={{ ang: [[c15, 1.25], [c16, 0.8]], dist: [[c15, 4.5], [c16, 4]], h: [[c15, 0.5], [c16, 0.7]] }}>
+      <Scene t0={c14} t1={c15} set={{ ...SEA, tx: 10.5, ty: 0.4 }} anims={{ ram: [[K("bronze"), 0], [K("waterline"), 1]], ang: [[c14, 0.6], [c15, 0.85]], dist: [[c14, 8.5], [c15, 7]], h: [[c14, 1.8], [c15, 1.3]] }} />
+      <Scene t0={c15} t1={c16} set={{ ...SEA, ram: 1, tx: 10.8, ty: 0.3 }} anims={{ ang: [[c15, 1.2], [c16, 0.9]], dist: [[c15, 6.5], [c16, 6]], h: [[c15, 0.9], [c16, 1.1]] }}>
         <Label s={c15} t0={K("ram")} t1={c16} text="RAM" />
       </Scene>
       <Scene t0={c16} t1={c17} set={{ ...SEA, ram: 1, enemy: 1, rowspd: 0.8, ty: 1 }} anims={{ go: [[c16 + 0.3, 0], [K("punch") + 0.3, 2.5]], hit: [[K("punch") + 0.3, 0], [K("hull") + 0.4, 1]], tx: [[c16, 9], [c17, 12]], ang: [[c16, 0.55], [c17, 0.35]], dist: [[c16, 30], [c17, 26]], h: [[c16, 13], [c17, 10]] }} />

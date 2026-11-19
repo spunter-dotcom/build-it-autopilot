@@ -5,19 +5,14 @@
 vec2 oarTier(vec3 q, float k, float N, float y, float z0, float xo, float sw){
   float n=count(k,N);
   if(n<0.5) return vec2(1e3,3.0);
-  float s=0.55;
+  float s=0.8;
   float lo=-floor(N*0.5);
   vec3 r=vec3(q.x-xo, q.y, abs(q.z));
   float bd=sdRoundBox(r-vec3(0.0,0.5*y,z0+1.7), vec3(9.0,0.5*y+0.25,1.9), 0.0);
   if(bd>0.3) return vec2(bd,3.0);
-  float id0=floor(r.x/s+0.5);
-  float d=1e3;
-  float dir=sw>0.0?1.0:-1.0;
-  for(int i=0;i<=1;i++){
-    float id=clamp(id0+dir*float(i), lo, lo+n-1.0);
-    vec3 rr=vec3(r.x-id*s, r.y, r.z);
-    d=min(d, sdCapsule(rr, vec3(0.0,y,z0), vec3(sw,-0.02,z0+3.4), 0.04));
-  }
+  float id=clamp(floor(r.x/s+0.5), lo, lo+n-1.0);
+  r.x-=id*s;
+  float d=sdCapsule(r, vec3(0.0,y,z0), vec3(sw,-0.02,z0+3.4), 0.045);
   return vec2(d,3.0);
 }
 
@@ -62,10 +57,10 @@ vec2 trireme(vec3 q, float keel, float planks, float rope, float deck, float sag
     vec3 oq=vec3(dq.x,dq.y,abs(dq.z));
     res=opU(res,vec2(sdRoundBox(oq-vec3(0.0,1.3,1.75),vec3(8.0,0.12,0.22),0.02),3.0));
   }
-  float sw=mix(-0.5,0.5,row);
-  res=opU(res,oarTier(q,o1,31.0,1.3,1.8,0.27,sw));   // top tier (from the outrigger)
-  res=opU(res,oarTier(q,o2,27.0,0.95,1.5,0.0,sw));  // middle tier
-  res=opU(res,oarTier(q,o3,27.0,0.55,1.5,0.0,sw));  // bottom tier
+  float sw=mix(-0.35,0.35,row);
+  res=opU(res,oarTier(q,o1,21.0,1.3,1.8,0.4,sw));   // top tier (from the outrigger)
+  res=opU(res,oarTier(q,o2,19.0,0.95,1.5,0.0,sw));  // middle tier
+  res=opU(res,oarTier(q,o3,19.0,0.55,1.5,0.0,sw));  // bottom tier
   if(ram>0.01){
     vec3 rq=q-vec3(mix(2.5,0.0,ram),0.0,0.0);
     float d=sdEllipsoid(rq-vec3(10.9,0.05,0.0),vec3(1.3,0.24,0.26));
