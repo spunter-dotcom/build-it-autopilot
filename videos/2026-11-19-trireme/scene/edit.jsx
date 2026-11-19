@@ -51,7 +51,7 @@ export default async ({ project }) => {
         <Label s={c15} t0={K("ram")} t1={c16} text="RAM" />
       </Scene>
       <Scene t0={c16} t1={c17} set={{ ...SEA, ram: 1, enemy: 1, rowspd: 0.8, ty: 1 }} anims={{ go: [[c16 + 0.3, 0], [K("punch") + 0.3, 2.5]], hit: [[K("punch") + 0.3, 0], [K("hull") + 0.4, 1]], tx: [[c16, 9], [c17, 12]], ang: [[c16, 0.55], [c17, 0.35]], dist: [[c16, 30], [c17, 26]], h: [[c16, 13], [c17, 10]] }} />
-      <Scene t0={c17} t1={c18} set={{ site: 4, row: 1, ty: 0 }} anims={{ ang: [[c17, 0.45], [c18, 0.15]], dist: [[c17, 110], [c18, 95]], h: [[c17, 40], [c18, 32]], lens: [[c17, 1.0], [c18, 1.0]] }}>
+      <Scene t0={c17} t1={c18} set={{ site: 4, row: 1, ty: 0 }} anims={{ ang: [[c17, 0.45], [c18, 0.15]], dist: [[c17, 44], [c18, 38]], h: [[c17, 22], [c18, 18]], lens: [[c17, 0.85], [c18, 0.85]] }}>
         <Card s={c17} t0={K("salamis")} t1={c18} title="480 BC" sub="BATTLE OF SALAMIS" />
       </Scene>
       <Scene t0={c18} t1={c19} set={{ ...SEA, ram: 1, rowspd: 0.9, ty: 1 }} anims={{ go: [[c18, 0], [c19, 7]], tx: [[c18, 0], [c19, 5]], ang: [[c18, 0.95], [c19, 0.6]], dist: [[c18, 19], [c19, 17]], h: [[c18, 3], [c19, 2.5]] }}>
