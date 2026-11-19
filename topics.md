@@ -2,7 +2,6 @@
 
 ## Next (the producer takes the first unchecked one)
 Rewritten 2026-11-15 by the weekly analyst: 5 that resemble this week's leaders (ancient spectacle, ships, Roman building, water) and 2 experiments (new families, marked).
-- [ ] Ballista (the bolt-and-stone thrower; siege, like Syracusia's stone thrower)
 - [ ] Roman road (layered stone; Roman building, like the insula)
 - [ ] Canal lock (lifting boats with water; water family)
 - [ ] Inca grass-rope suspension bridge (experiment: rope-and-fibre family)
@@ -12,6 +11,7 @@ Rewritten 2026-11-15 by the weekly analyst: 5 that resemble this week's leaders 
 blacksmith forge with bellows · castle drawbridge · portcullis · water clock · olive oil screw press · lime kiln · charcoal clamp · pottery kiln · saw pit · ropewalk · warp-weighted loom · straw beehive (skep) · bread oven · smokehouse · fire beacon tower · mangonel · noria water wheel · weir · hand quern · horse-powered mill · rope-and-pulley hoist · wooden barrel · thatched roof · timber-frame house · stone fireplace and chimney · palisade fort
 
 ## Done
+- [x] 2026-11-19 Ballista
 - [x] 2026-11-19 Greek trireme (owner-assigned rerun; owner posts by hand)
 - [x] 2026-11-18 Stone arch bridge
 - [x] 2026-11-15 Sculpting the statue of David (owner-assigned; posted by hand)
