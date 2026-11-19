@@ -26,10 +26,12 @@ vec2 map(vec3 p){
   // ---- ground, carved by the trench and the side drains ----
   float zc=0.5*(u_end-40.0), zh=0.5*(u_end+40.0);                       // road z range [-40, u_end]
   float D=0.9*clamp(u_trench,0.0,1.0);
+  float pz1=u_end<1.0 ? u_end+8.0 : u_end;                              // open viewing pit in front of the end face
+  float pc=0.5*(pz1-40.0), ph=0.5*(pz1+40.0);
   float g=p.y;
   float gid=0.0;
   if(u_trench>0.01){
-    float tb=sdBox(p-vec3(0.0,0.5*(1.0-D),zc),vec3(2.4,0.5*(1.0+D),zh));
+    float tb=sdBox(p-vec3(0.0,0.5*(1.0-D),pc),vec3(2.4,0.5*(1.0+D),ph));
     if(-tb>g){ g=-tb; gid=1.0; }
   }
   if(u_drain>0.01){
@@ -55,8 +57,8 @@ vec2 map(vec3 p){
   if(u_legion>0.5){
     vec3 lp=p-vec3(0.0,u_ly,u_march);
     vec2 c; vec3 q=cellXZ(lp,1.3,c);
-    if(abs(c.x)<=2.0 && c.y>=-9.0 && c.y<=1.0) res.x=min(res.x,cellBound(q,1.3));
-    if(abs(c.x)<=1.0 && c.y>=-8.0 && c.y<=0.0) res=opU(res,pPerson(q,0.0,0.05+0.02*hash2(c)));
+    if(abs(c.x)<=2.0 && c.y>=-7.0 && c.y<=1.0 && lp.y<1.6) res.x=min(res.x,cellBound(q,1.3));
+    if(abs(c.x)<=1.0 && c.y>=-5.0 && c.y<=0.0) res=opU(res,pPerson(q,0.0,0.05+0.02*hash2(c)));
   }
 
   // ---- surveyors' line: stakes every 5 m and a rope, growing toward +z ----
@@ -65,7 +67,7 @@ vec2 map(vec3 p){
     vec3 s=vec3(p.x,p.y,mod(p.z+2.5,5.0)-2.5);
     float st=sdCapsule(s,vec3(0.0,0.0,0.0),vec3(0.0,0.9,0.0),0.05);
     st=max(st,p.z-zl-0.1);
-    if(g_bound>0.5 && abs(p.x)<1.0) st=min(st,max(2.5-abs(s.z),0.2));
+    if(g_bound>0.5 && abs(p.x)<1.0 && p.y<1.1) st=min(st,max(2.5-abs(s.z),0.2));
     res=opU(res,vec2(st,3.0));
     res=opU(res,pRope(p,vec3(0.0,0.85,-40.0),vec3(0.0,0.85,zl)));
     res=opU(res,pPerson(p-vec3(0.9,0.0,zl+1.0),1.0,0.6));
@@ -118,7 +120,7 @@ vec2 map(vec3 p){
     vec3 q=drop(p,u_guard); q.x=abs(q.x)-2.25; q.z=mod(q.z+2.0,4.0)-2.0;
     float d=sdRoundBox(q-vec3(0.0,0.3,0.0),vec3(0.18,0.32,0.2),0.03);
     d=max(d,zend);
-    if(g_bound>0.5 && abs(q.x)<0.8) d=min(d,max(2.0-abs(q.z),0.2));
+    if(g_bound>0.5 && abs(q.x)<0.8 && p.y<0.8) d=min(d,max(2.0-abs(q.z),0.2));
     res=opU(res,vec2(d,2.0));
   }
   // milestone beside the road
