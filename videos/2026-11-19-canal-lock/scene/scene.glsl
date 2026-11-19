@@ -86,6 +86,8 @@ vec2 map(vec3 p){
   if(u_site<0.5){
     // Site 0: earth ramp across the canal, haulers on the bank
     res=opU(res,vec2(sdEllipsoid(p-vec3(0.0,-2.5,0.0),vec3(4.0,2.7,2.3)),1.0));
+    vec3 hc=vec3(u_bx+3.6,by+1.0,2.0);
+    if(length(p-hc)>4.6) res.x=min(res.x,length(p-hc)-3.6); else {
     vec3 bow=vec3(u_bx+1.6*cos(tilt),by+0.3+1.6*sin(tilt),0.4);
     for(int i=0;i<2;i++){
       float px=u_bx+4.5+1.2*float(i);
@@ -93,8 +95,12 @@ vec2 map(vec3 p){
       res=opU(res,pPerson(p-pp,u_work,0.3+0.4*float(i)));
       res=opU(res,pRope(p,bow,pp+vec3(0.0,0.9,0.0)));
     }
+    }
   } else {
-    // Site 1: the lock. Stone chamber walls rise with u_walls.
+    // Site 1: the lock. Everything below sits inside a box bound (skipped far away).
+    float lb=length(max(abs(p)-vec3(7.5,8.0,5.0),0.0));
+    if(lb>1.0) res.x=min(res.x,lb); else {
+    // Stone chamber walls rise with u_walls.
     vec3 wq=p-vec3(0.0,-2.5,0.0);
     float wall=sdRoundBox(vec3(p.x,p.y+1.15,abs(p.z)-2.12),vec3(4.0,1.35,0.12),0.02);
     res=opU(res,vec2(rise(wall,wq,u_walls,2.7),2.0));
@@ -116,6 +122,7 @@ vec2 map(vec3 p){
     // lock keepers
     res=opU(res,pPerson(p-vec3(4.8,landH(4.8),2.8),u_work,0.5));
     res=opU(res,pPerson(p-vec3(-4.8,0.0,-2.8),u_work2,0.8));
+    }
   }
   return res;
 }
