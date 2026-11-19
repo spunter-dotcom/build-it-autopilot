@@ -65,14 +65,13 @@ vec2 map(vec3 p){
   else w=min(max(p.y-LO,p.x+4.0),min(max(p.y-chamberL(),abs(p.x)-4.0),max(p.y-HI,4.0-p.x)));
   res=opU(res,vec2(w,8.0));
 
-  // a village and trees on the banks
-  res=opU(res,pWall(p-vec3(12.0,1.4,5.5),vec3(1.5,1.1,1.4),12.0));
-  res=opU(res,pRoof(p-vec3(12.0,3.6,5.5),3.4,1.7,1.2,6.0));
-  res=opU(res,pWall(p-vec3(-11.0,0.0,-5.5),vec3(1.4,1.0,1.5),12.0));
-  res=opU(res,pRoof(p-vec3(-11.0,2.0,-5.5),3.2,1.8,1.1,6.0));
-  res=opU(res,pTree(p-vec3(-7.0,0.0,5.0),3.2));
-  res=opU(res,pTree(p-vec3(7.5,1.4,-5.0),3.6));
-  res=opU(res,pTree(p-vec3(1.0,0.0,-6.0),2.8));
+  // a village and trees on the banks (each skipped far away: a sphere bound keeps the marcher stepping)
+  vec3 c;
+  c=vec3(12.0,2.8,5.5); if(length(p-c)<4.5){ res=opU(res,pWall(p-vec3(12.0,1.4,5.5),vec3(1.5,1.1,1.4),12.0)); res=opU(res,pRoof(p-vec3(12.0,3.6,5.5),3.4,1.7,1.2,6.0)); } else res.x=min(res.x,length(p-c)-3.5);
+  c=vec3(-11.0,1.4,-5.5); if(length(p-c)<4.5){ res=opU(res,pWall(p-vec3(-11.0,0.0,-5.5),vec3(1.4,1.0,1.5),12.0)); res=opU(res,pRoof(p-vec3(-11.0,2.0,-5.5),3.2,1.8,1.1,6.0)); } else res.x=min(res.x,length(p-c)-3.5);
+  c=vec3(-7.0,2.0,5.0); if(length(p-c)<3.5) res=opU(res,pTree(p-vec3(-7.0,0.0,5.0),3.2)); else res.x=min(res.x,length(p-c)-2.5);
+  c=vec3(7.5,3.6,-5.0); if(length(p-c)<3.5) res=opU(res,pTree(p-vec3(7.5,1.4,-5.0),3.6)); else res.x=min(res.x,length(p-c)-2.5);
+  c=vec3(1.0,1.8,-6.0); if(length(p-c)<3.2) res=opU(res,pTree(p-vec3(1.0,0.0,-6.0),2.8)); else res.x=min(res.x,length(p-c)-2.2);
 
   // barge
   float by=levelAt(u_bx)-0.05;
@@ -82,7 +81,7 @@ vec2 map(vec3 p){
     if(ry+0.3>by){ by=ry+0.3; tilt=atan(-2.7*u_bx/16.0/sqrt(max(1.0-u_bx*u_bx/16.0,0.05))); }
   }
   vec3 bq=p-vec3(u_bx,by,0.0); bq.xy=rot(tilt+u_tilt)*bq.xy;
-  res=opU(res,barge(bq));
+  if(length(bq)<3.0) res=opU(res,barge(bq)); else res.x=min(res.x,length(bq)-2.0);
 
   if(u_site<0.5){
     // Site 0: earth ramp across the canal, haulers on the bank
