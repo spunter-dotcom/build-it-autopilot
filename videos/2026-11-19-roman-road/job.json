@@ -1,5 +1,1 @@
-<<<<<<< Updated upstream
-{"status": "built", "mode": "manual", "title": "You built a Roman road", "dur": 72, "voice_job": "6b93f946-81f7-4816-b374-54d8a0833524", "credits": 5.52}
-=======
-{"status": "failed", "mode": "schedule", "title": "You built a Roman road", "dur": 72, "voice_job": "6b93f946-81f7-4816-b374-54d8a0833524", "credits": 5.52, "fail_reason": "finisher render: part 1 ok (719s, needed a retry after a sandbox restart); part 2 failed twice, killed at the 15-minute background limit while joining parts (heavier than part 1). Not uploaded or scheduled. Needs a lighter scene or shorter parts."}
->>>>>>> Stashed changes
+{"status": "failed", "mode": "manual", "title": "You built a Roman road", "dur": 72, "voice_job": "6b93f946-81f7-4816-b374-54d8a0833524", "credits": 5.52, "fail_reason": "finisher render: part 1 ok (719 s after one retry); part 2 failed twice, killed at the 15-minute background limit. Not uploaded. Needs a lighter scene or shorter parts."}
