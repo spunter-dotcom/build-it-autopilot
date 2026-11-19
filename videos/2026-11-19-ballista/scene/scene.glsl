@@ -83,7 +83,7 @@ vec2 ballista(vec3 q){
     }
   }
   // crew member at the winch, facing -z
-  vec3 pq=q-vec3(1.05,0.0,2.5); pq.xz=-pq.xz;
+  vec3 pq=q-vec3(-1.05,0.0,2.5); pq.xz=-pq.xz;
   res=opU(res,pPerson(pq,u_work,0.6));
   return res;
 }

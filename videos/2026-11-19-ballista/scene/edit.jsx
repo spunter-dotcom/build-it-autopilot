@@ -28,7 +28,7 @@ export default async ({ project }) => {
   p.compose(
     <frame width={1080} height={1920} layout="none">
       <Scene t0={0} t1={c1} set={{ tx: 0, ty: 3.5, tz: -34, lens: 1.0 }} anims={{ ang: [[0, 0.35], [c1, 0.12]], dist: [[0, 30], [c1, 23]], h: [[0, 1.0], [c1, 2.5]] }} />
-      <Scene t0={c1} t1={c2} set={{ tx: 0, ty: 3, tz: -34, lens: 1.0 }} anims={{ ang: [[c1, -0.7], [c2, -0.35]], dist: [[c1, 17], [c2, 13]], h: [[c1, 7], [c2, 4]] }}>
+      <Scene t0={c1} t1={c2} set={{ tx: 0, ty: 3, tz: -34, lens: 1.0 }} anims={{ ang: [[c1, -0.3], [c2, -0.12]], dist: [[c1, 19], [c2, 15]], h: [[c1, 3], [c2, 2]] }}>
         <Card s={c1} t0={K("your king") + 0.2} t1={c2} title="399 BC" sub="SYRACUSE" />
       </Scene>
       <Scene t0={c2} t1={c3} set={{ tx: -30, ty: 0.75, tz: 0.4, lens: 1.3 }} anims={{ bow: [[K("build a bigger"), 0], [K("build a bigger") + 0.9, 1]], push: [[K("brace it"), 0], [K("push"), 1]], ang: [[c2, 0.9], [c3, 0.55]], dist: [[c2, 4.2], [c3, 3.2]], h: [[c2, 0.5], [c3, 0.3]] }} />
