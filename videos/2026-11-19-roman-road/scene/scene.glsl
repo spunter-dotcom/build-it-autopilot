@@ -42,7 +42,13 @@ vec2 map(vec3 p){
   if(u_drain>0.01) res=opU(res,vec2(max(p.y+0.4*u_drain, sdBox(vec3(abs(p.x)-4.6,p.y,p.z-zc),vec3(0.4,1.0,zh))),8.0));
 
   // ---- trees on both sides, well away from the road ----
-  res=opU(res,pForest(vec3(abs(p.x)-17.0,p.y,p.z),5.0,2.5,-25.0,25.0));
+  // a few trees on each side; each is skipped far away (a sphere bound keeps the marcher stepping)
+  {
+    vec3 t=vec3(abs(p.x)-16.0,p.y,p.z-(p.x>0.0?0.0:6.0));
+    t.z=t.z-12.0*clamp(floor(t.z/12.0+0.5),-2.0,1.0);
+    vec3 c=t-vec3(0.0,2.6,0.0);
+    if(length(c)<4.3) res=opU(res,pTree(t,3.4)); else res.x=min(res.x,length(c)-3.3);
+  }
 
   // ---- mud puddles on the old dirt track (a thin strip of packed dirt on the grass) ----
   if(u_mud>0.01){
