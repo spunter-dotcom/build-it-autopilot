@@ -28,7 +28,7 @@ export default async ({ project }) => {
   p.compose(
     <frame width={1080} height={1920} layout="none">
       <Scene t0={0} t1={c1} set={{ tx: 0, ty: 3.5, tz: -34, lens: 1.0 }} anims={{ ang: [[0, 0.35], [c1, 0.12]], dist: [[0, 30], [c1, 23]], h: [[0, 1.0], [c1, 2.5]] }} />
-      <Scene t0={c1} t1={c2} set={{ tx: 0, ty: 3, tz: -34, lens: 1.0 }} anims={{ ang: [[c1, -0.3], [c2, -0.12]], dist: [[c1, 19], [c2, 15]], h: [[c1, 3], [c2, 2]] }}>
+      <Scene t0={c1} t1={c2} set={{ tx: 0, ty: 3, tz: -34, lens: 1.0 }} anims={{ ang: [[c1, -0.25], [c2, -0.1]], dist: [[c1, 27], [c2, 23]], h: [[c1, 5], [c2, 4]] }}>
         <Card s={c1} t0={K("your king") + 0.2} t1={c2} title="399 BC" sub="SYRACUSE" />
       </Scene>
       <Scene t0={c2} t1={c3} set={{ tx: -30, ty: 0.75, tz: 0.4, lens: 1.3 }} anims={{ bow: [[K("build a bigger"), 0], [K("build a bigger") + 0.9, 1]], push: [[K("brace it"), 0], [K("push"), 1]], ang: [[c2, 0.9], [c3, 0.55]], dist: [[c2, 4.2], [c3, 3.2]], h: [[c2, 0.5], [c3, 0.3]] }} />
@@ -51,7 +51,7 @@ export default async ({ project }) => {
       <Scene t0={c13} t1={c14} set={{ ...F5, tx: 0, ty: 1.42, tz: 0.15, lens: 1.3 }} anims={{ ang: [[c13, 0.6], [c14, 0.95]], dist: [[c13, 1.7], [c14, 2.1]], h: [[c13, 0.45], [c14, 0.6]] }}>
         <Card s={c13} t0={K("13 to") + 0.1} t1={c14} title="13–26 KG" sub="SOME UP TO 162 KG" />
       </Scene>
-      <Scene t0={c14} t1={c15} set={{ ...F5, pos: 8, tx: 0, ty: 2.0, tz: -14, lens: 1.0 }} anims={{ ang: [[c14, 0.18], [c15, 0.08]], dist: [[c14, 32], [c15, 28]], h: [[c14, 7], [c15, 5]] }}>
+      <Scene t0={c14} t1={c15} set={{ ...F5, pos: 8, tx: 0, ty: 2.0, tz: -14, lens: 1.0 }} anims={{ ang: [[c14, 0.03], [c15, -0.03]], dist: [[c14, 32], [c15, 28]], h: [[c14, 7], [c15, 5]] }}>
         <Card s={c14} t0={K("within") + 0.1} t1={c15} title="150 M" sub="OR CLOSER TO THE WALL" />
       </Scene>
       <Scene t0={c15} t1={c16} set={{ ...F5, work: 1, tx: 0, ty: 1.2, lens: 1.1 }} anims={{ pos: [[K("move closer"), 8], [K("wind", 1), 0]], tz: [[K("move closer"), 8], [K("wind", 1), 0]], draw: [[K("wind", 1), 0.5], [K("aim"), 1]], ang: [[c15, 1.3], [c16, 1.0]], dist: [[c15, 7.0], [c16, 5.5]], h: [[c15, 1.5], [c16, 1.0]] }} />
