@@ -49,7 +49,6 @@ vec2 map(vec3 p){
     float pd=length(p.xz-vec2(0.6,1.0))-1.3*u_mud;
     pd=min(pd,length(p.xz-vec2(-0.9,-3.5))-1.6*u_mud);
     pd=min(pd,length(p.xz-vec2(0.4,-8.0))-1.9*u_mud);
-    pd=min(pd,length(p.xz-vec2(-0.5,-13.0))-1.5*u_mud);
     res=opU(res,vec2(max(p.y-0.03,pd),8.0));
   }
 
@@ -58,7 +57,7 @@ vec2 map(vec3 p){
     vec3 lp=p-vec3(0.0,u_ly,u_march);
     vec2 c; vec3 q=cellXZ(lp,1.5,c);
     if(abs(c.x)<=1.0 && c.y>=-4.0 && c.y<=1.0 && lp.y<1.6) res.x=min(res.x,cellBound(q,1.5));
-    if(abs(c.x)<=1.0 && c.y>=-3.0 && c.y<=0.0) res=opU(res,pPerson(q,0.0,0.05+0.02*hash2(c)));
+    if(abs(c.x)<=1.0 && c.y>=-3.0 && c.y<=0.0 && lp.y<1.7) res=opU(res,pPerson(q,0.0,0.05+0.02*hash2(c)));
   }
 
   // ---- surveyors' line: stakes every 5 m and a rope, growing toward +z ----

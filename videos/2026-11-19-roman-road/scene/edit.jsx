@@ -30,18 +30,18 @@ export default async ({ project }) => {
   const DONE = { ...PV, guard: 1, mile: 1, end: 40 };
   p.compose(
     <frame width={1080} height={1920} layout="none">
-      <Scene t0={0} t1={c1} set={{ ground: 1, mud: 0.5, legion: 1, tz: -5 }} anims={{ march: [[0, -2], [c1, 4]], ang: [[0, 0.55], [c1, 0.3]], dist: [[0, 16], [c1, 12]], h: [[0, 4], [c1, 3]] }} />
+      <Scene t0={0} t1={c1} set={{ ground: 1, mud: 0.5, legion: 1, tz: -5 }} anims={{ march: [[0, -2], [c1, 4]], ang: [[0, 0.55], [c1, 0.3]], dist: [[0, 14], [c1, 11]], h: [[0, 7], [c1, 5.5]] }} />
       <Scene t0={c1} t1={c2} set={{ ground: 1, legion: 1, tz: -3, ty: 0.5 }} anims={{ mud: [[c1, 0.6], [c2, 1]], march: [[c1, 4], [c2, 6]], ang: [[c1, -0.7], [c2, -0.5]], dist: [[c1, 7], [c2, 6]], h: [[c1, 1.2], [c2, 1.0]] }} />
       <Scene t0={c2} t1={c3} set={{ tz: -8 }} anims={{ line: [[c2 + 0.2, 0], [c3 - 0.2, 1]], ang: [[c2, 0.2], [c3, 0.1]], dist: [[c2, 20], [c3, 16]], h: [[c2, 6], [c3, 5]] }} />
       <Scene t0={c3} t1={c4} set={{ workers: 1, tz: -3, ty: -0.3 }} anims={{ trench: [[c3 + 0.1, 0], [c4 - 0.1, 1]], work: [[c3, 0], [c3 + 0.6, 1], [c3 + 1.2, 0], [c4, 1]], ang: [[c3, 0.75], [c4, 0.5]], dist: [[c3, 12], [c4, 10]], h: [[c3, 5], [c4, 4]] }} />
       <Scene t0={c4} t1={c5} set={{ ...TR, workers: 1, tz: -1, ty: -0.4 }} anims={{ rudus: [[c4 + 0.1, 0], [K("pounded"), 1]], work: [[K("pounded"), 0], [K("pounded") + 0.4, 1], [c5, 0]], ang: [[c4, 0.35], [c5, 0.15]], dist: [[c4, 9], [c5, 8]], h: [[c4, 3], [c5, 2.5]] }} />
-      <Scene t0={c5} t1={c6} set={{ ...RU, tz: 0, ty: -0.5, lens: 1.0 }} anims={{ ang: [[c5, 0.05], [c6, 0.15]], dist: [[c5, 5.2], [c6, 4.6]], h: [[c5, 0.45], [c6, 0.3]] }}>
+      <Scene t0={c5} t1={c6} set={{ ...RU, tz: 0, ty: -0.5, lens: 1.0 }} anims={{ ang: [[c5, 0.05], [c6, 0.15]], dist: [[c5, 3.6], [c6, 3.1]], h: [[c5, 0.6], [c6, 0.5]] }}>
         <Label s={c5} t0={K("rudus")} t1={c6} text="RUDUS" y={520} />
       </Scene>
       <Scene t0={c6} t1={c7} set={{ ...RU, tz: -1, ty: -0.5 }} anims={{ spread: [[K("spreads"), 0], [c7 - 0.1, 1]], ang: [[c6, -0.4], [c7, -0.6]], dist: [[c6, 7.5], [c7, 7]], h: [[c6, 2.2], [c7, 2]] }} />
       <Scene t0={c7} t1={c8} set={{ ...RU, tz: -2, ty: -0.4 }} anims={{ spread: [[c7, 1], [K("upright") + 0.4, 0]], curb: [[K("curb"), 0], [K("lock"), 1]], ang: [[c7, 0.6], [c8, 0.4]], dist: [[c7, 9], [c8, 8]], h: [[c7, 3], [c8, 2.6]] }} />
       <Scene t0={c8} t1={c9} set={{ ...CU, tz: -1, ty: -0.3 }} anims={{ nuc: [[K("layer"), 0], [c9 - 0.2, 1]], ang: [[c8, -0.3], [c9, -0.1]], dist: [[c8, 8], [c9, 7]], h: [[c8, 2.5], [c9, 2.2]] }} />
-      <Scene t0={c9} t1={c10} set={{ ...NU, tz: 0, ty: -0.45, lens: 1.0 }} anims={{ ang: [[c9, -0.15], [c10, -0.05]], dist: [[c9, 5.2], [c10, 4.6]], h: [[c9, 0.45], [c10, 0.3]] }}>
+      <Scene t0={c9} t1={c10} set={{ ...NU, tz: 0, ty: -0.45, lens: 1.0 }} anims={{ ang: [[c9, -0.15], [c10, -0.05]], dist: [[c9, 3.6], [c10, 3.1]], h: [[c9, 0.6], [c10, 0.5]] }}>
         <Label s={c9} t0={K("nucleus")} t1={c10} text="NUCLEUS" y={520} />
       </Scene>
       <Scene t0={c10} t1={c11} set={{ ...NU, night: 0.35, tz: -2, ty: -0.2 }} anims={{ flood: [[c10 + 0.2, 0], [c11 - 0.2, 1]], ang: [[c10, 0.8], [c11, 1.0]], dist: [[c10, 8.5], [c11, 7.5]], h: [[c10, 3], [c11, 2.6]] }} />
@@ -57,7 +57,7 @@ export default async ({ project }) => {
         <Label s={c17} t0={K("milestone")} t1={c18} text="MILESTONE" y={420} />
       </Scene>
       <Scene t0={c18} t1={c19} set={{ ...DONE, tx: 2, tz: 4, ty: 1 }} anims={{ ang: [[c18, -0.3], [c19, 0.25]], dist: [[c18, 8], [c19, 7]], h: [[c18, 1.6], [c19, 1.4]] }} />
-      <Scene t0={c19} t1={c20} set={{ ...DONE, legion: 1, ly: 0.1, tz: -2 }} anims={{ march: [[c19, -6], [c20, -1]], ang: [[c19, 0.35], [c20, 0.2]], dist: [[c19, 22], [c20, 18]], h: [[c19, 8], [c20, 7]] }}>
+      <Scene t0={c19} t1={c20} set={{ ...DONE, legion: 1, ly: 0.1, tz: -2 }} anims={{ march: [[c19, -6], [c20, -1]], ang: [[c19, 0.35], [c20, 0.2]], dist: [[c19, 20], [c20, 16]], h: [[c19, 10], [c20, 8]] }}>
         <Card s={c19} t0={K("in 312")} t1={c20} title="312 BC" sub="VIA APPIA: ROME TO CAPUA" />
       </Scene>
       <Scene t0={c20} t1={DUR} set={{ ...DONE, legion: 1, ly: 0.1, tz: -4 }} anims={{ march: [[c20, -1], [DUR, 5]], ang: [[c20, -0.25], [DUR, -0.05]], dist: [[c20, 16], [DUR, 30]], h: [[c20, 5], [DUR, 11]] }} />
