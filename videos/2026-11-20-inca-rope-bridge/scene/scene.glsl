@@ -80,6 +80,8 @@ vec2 map(vec3 p){
     vec3 b=p; b.z-=u_sway*0.35*sin(u_time*3.0)*(1.0-pow(clamp(p.x/14.0,-1.0,1.0),2.0));
     float bb=length(max(abs(b-vec3(0.0,0.3,0.0))-vec3(15.0,2.0,1.0),0.0));
     if(bb>0.6) res.x=min(res.x,bb); else res=opU(res,bridge(b,u_cab*6.0+0.001,-14.0+28.0*u_haul,u_sticks,u_mats));
+    // someone crossing the finished bridge
+    if(u_walk>-13.5) res=opU(res,pPerson(p-vec3(u_walk,cy(u_walk)+0.06,0.0),0.0,0.6));
     // the old bridge beside it, cut at the left end and swinging down from the right anchor
     if(u_old>0.5){
       vec3 o=p-vec3(14.0,1.0,2.6); o.xy=rot(1.45*u_fall)*o.xy; o+=vec3(14.0,1.0,0.0);
