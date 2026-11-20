@@ -23,11 +23,11 @@ export default async ({ project }) => {
   const BRIDGE = { ...GORGE, cab: 1, haul: 1, sticks: 1, mats: 1 };
   p.compose(
     <frame width={1080} height={1920} layout="none">
-      <Scene t0={0} t1={c1} set={{ site: 0, ty: -3 }} anims={{ ang: [[0, 0.06], [c1, -0.04]], dist: [[0, 34], [c1, 30]], h: [[0, 9], [c1, 7]] }} />
+      <Scene t0={0} t1={c1} set={{ site: 0, ty: -3 }} anims={{ ang: [[0, 0.06], [c1, -0.04]], dist: [[0, 34], [c1, 30]], h: [[0, 14], [c1, 11]] }} />
       <Scene t0={c1} t1={c2} set={{ site: 1, tz: 1, ty: 0.6 }} anims={{ ang: [[c1, 0.7], [c2, 0.35]], dist: [[c1, 10], [c2, 8]], h: [[c1, 2.5], [c2, 2]] }} />
-      <Scene t0={c2} t1={c3} set={{ site: 0, work: 1, ty: 0, lens: 1.0 }} anims={{ bases: [[K("build"), 0], [K("cliff") + 0.3, 1]], ang: [[c2, 0.08], [c3, 0.0]], dist: [[c2, 36], [c3, 33]], h: [[c2, 6], [c3, 5]] }} />
+      <Scene t0={c2} t1={c3} set={{ site: 0, work: 1, ty: -1, lens: 0.95 }} anims={{ bases: [[K("build"), 0], [K("cliff") + 0.3, 1]], ang: [[c2, 0.08], [c3, 0.0]], dist: [[c2, 36], [c3, 33]], h: [[c2, 15], [c3, 13]] }} />
       <Scene t0={c3} t1={c4} set={{ ...GORGE, ty: -6 }} anims={{ ang: [[c3, 0.1], [c4, -0.1]], dist: [[c3, 24], [c4, 20]], h: [[c3, 8], [c4, 9]] }} />
-      <Scene t0={c4} t1={c5} set={{ site: 1, work: 1, tx: 0, ty: 0.7, tz: 1.3, lens: 1.3 }} anims={{ cut: [[K("grass") + 0.2, 0], [K("called") + 0.5, 1]], ang: [[c4, 0.9], [c5, 0.6]], dist: [[c4, 5], [c5, 4]], h: [[c4, 1.2], [c5, 1.5]] }}>
+      <Scene t0={c4} t1={c5} set={{ site: 1, work: 1, tx: 0, ty: 0.7, tz: 1.3, lens: 1.3 }} anims={{ cut: [[K("mountain grass") + 0.2, 0], [K("called") + 0.5, 1]], ang: [[c4, 0.9], [c5, 0.6]], dist: [[c4, 5], [c5, 4]], h: [[c4, 1.2], [c5, 1.5]] }}>
         <Label s={c4} t0={K("called")} t1={c5} text="ICHU GRASS" />
       </Scene>
       <Scene t0={c5} t1={c6} set={{ site: 1, work: 1, cut: 1, ty: 0.3, tz: 2.6 }} anims={{ cord: [[K("twist"), 0], [c6 - 0.2, 1]], tx: [[c5, 0.5], [c6, 4.5]], ang: [[c5, 0.5], [c6, 0.2]], dist: [[c5, 7], [c6, 8]], h: [[c5, 2.5], [c6, 3]] }}>
@@ -54,7 +54,7 @@ export default async ({ project }) => {
       <Scene t0={c18} t1={c19} set={{ ...GORGE, old: 1, crowd: 1, work: 1, ty: 0, lens: 1.0 }} anims={{ cab: [[K("june"), 0], [K("rebuild"), 1]], haul: [[K("rebuild") - 0.3, 0], [K("days"), 1]], sticks: [[K("days") - 0.3, 0], [c19 - 0.1, 1]], ang: [[c18, 0.12], [c19, 0.04]], dist: [[c18, 37], [c19, 34]], h: [[c18, 7], [c19, 6]] }}>
         <Card s={c18} t0={K("june") + 0.1} t1={c19} title="EVERY JUNE" sub="4 COMMUNITIES, 3 DAYS" />
       </Scene>
-      <Scene t0={c19} t1={c20} set={{ ...BRIDGE, old: 1, crowd: 1, ty: -4 }} anims={{ fall: [[K("loose") - 0.2, 0], [K("river") + 0.3, 1]], ang: [[c19, 0.28], [c20, 0.2]], dist: [[c19, 30], [c20, 27]], h: [[c19, 4], [c20, 2]] }} />
+      <Scene t0={c19} t1={c20} set={{ ...BRIDGE, old: 1, crowd: 1, ty: -4 }} anims={{ fall: [[K("loose") - 0.2, 0], [K("into the river") + 0.3, 1]], ang: [[c19, 0.28], [c20, 0.2]], dist: [[c19, 30], [c20, 27]], h: [[c19, 4], [c20, 2]] }} />
       <Scene t0={c20} t1={c21} set={{ ...BRIDGE, crowd: 1, ty: 0, lens: 1.2 }} anims={{ walk: [[c20, -12], [c21, -7]], tx: [[c20, -12], [c21, -7]], ang: [[c20, 1.1], [c21, 0.9]], dist: [[c20, 8], [c21, 7]], h: [[c20, 2], [c21, 1.8]] }}>
         <Card s={c20} t0={K("500")} t1={c21} title="500 YEARS" sub="AN INCA TRADITION" />
       </Scene>
