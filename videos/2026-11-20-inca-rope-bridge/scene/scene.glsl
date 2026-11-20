@@ -118,7 +118,7 @@ vec2 map(vec3 p){
     vec3 w=p-vec3(0.0,1.1,0.0);
     if(u_stage<0.5){
       float d=max(length(w.yz)-0.03,abs(w.x)-2.3);
-      d=max(d,0.02+0.25*u_snap-abs(w.x));                  // the snap opens a gap in the middle
+      d=max(d,0.02+0.25*u_snap-abs(w.x-0.9));                  // the snap opens a gap in the middle
       res=opU(res,vec2(d,13.0));
       // a few more thin cords lying beside it
       res=opU(res,vec2(max(length(vec2(w.y,w.z-0.25))-0.03,abs(w.x)-2.3),13.0));
@@ -133,7 +133,7 @@ vec2 map(vec3 p){
         if(float(i)<n) res=opU(res,vec2(strands(w-vec3(0.0,0.0,0.42*float(i)),3.5,0.1,0.085),13.0));
       }
     }
-    res=opU(res,pPerson(p-vec3(0.2,0.0,-1.0),u_work,0.3));
+    res=opU(res,pPerson(p-vec3(1.4,0.0,-1.3),u_work,0.3));
   }
   return res;
 }

@@ -23,10 +23,10 @@ export default async ({ project }) => {
   const BRIDGE = { ...GORGE, cab: 1, haul: 1, sticks: 1, mats: 1 };
   p.compose(
     <frame width={1080} height={1920} layout="none">
-      <Scene t0={0} t1={c1} set={{ site: 0, ty: -3 }} anims={{ ang: [[0, 0.35], [c1, 0.15]], dist: [[0, 36], [c1, 31]], h: [[0, 9], [c1, 7]] }} />
+      <Scene t0={0} t1={c1} set={{ site: 0, ty: -3 }} anims={{ ang: [[0, 0.06], [c1, -0.04]], dist: [[0, 34], [c1, 30]], h: [[0, 9], [c1, 7]] }} />
       <Scene t0={c1} t1={c2} set={{ site: 1, tz: 1, ty: 0.6 }} anims={{ ang: [[c1, 0.7], [c2, 0.35]], dist: [[c1, 10], [c2, 8]], h: [[c1, 2.5], [c2, 2]] }} />
-      <Scene t0={c2} t1={c3} set={{ site: 0, work: 1, ty: 0 }} anims={{ bases: [[K("build"), 0], [K("cliff") + 0.3, 1]], ang: [[c2, 0.45], [c3, 0.25]], dist: [[c2, 30], [c3, 28]], h: [[c2, 6], [c3, 5]] }} />
-      <Scene t0={c3} t1={c4} set={{ ...GORGE, ty: -6 }} anims={{ ang: [[c3, -0.05], [c4, -0.25]], dist: [[c3, 26], [c4, 22]], h: [[c3, 8], [c4, 9]] }} />
+      <Scene t0={c2} t1={c3} set={{ site: 0, work: 1, ty: 0, lens: 1.0 }} anims={{ bases: [[K("build"), 0], [K("cliff") + 0.3, 1]], ang: [[c2, 0.08], [c3, 0.0]], dist: [[c2, 36], [c3, 33]], h: [[c2, 6], [c3, 5]] }} />
+      <Scene t0={c3} t1={c4} set={{ ...GORGE, ty: -6 }} anims={{ ang: [[c3, 0.1], [c4, -0.1]], dist: [[c3, 24], [c4, 20]], h: [[c3, 8], [c4, 9]] }} />
       <Scene t0={c4} t1={c5} set={{ site: 1, work: 1, tx: 0, ty: 0.7, tz: 1.3, lens: 1.3 }} anims={{ cut: [[K("grass") + 0.2, 0], [K("called") + 0.5, 1]], ang: [[c4, 0.9], [c5, 0.6]], dist: [[c4, 5], [c5, 4]], h: [[c4, 1.2], [c5, 1.5]] }}>
         <Label s={c4} t0={K("called")} t1={c5} text="ICHU GRASS" />
       </Scene>
@@ -39,26 +39,26 @@ export default async ({ project }) => {
       <Scene t0={c9} t1={c10} set={{ site: 2, stage: 2, ty: 1.1, tz: 1.0, lens: 1.2 }} anims={{ six: [[K("six"), 0], [c10 - 0.1, 1]], ang: [[c9, 0.15], [c10, 0.0]], dist: [[c9, 3.2], [c10, 4.6]], h: [[c9, 0.6], [c10, 1.8]] }}>
         <Label s={c9} t0={K("main cable")} t1={K("six")} text="MAIN CABLE" />
       </Scene>
-      <Scene t0={c10} t1={c11} set={{ ...GORGE, cab: 4 / 6, crowd: 1, work: 1, ty: 0 }} anims={{ haul: [[K("haul"), 0], [K("tie") + 0.4, 1]], ang: [[c10, 0.5], [c11, 0.25]], dist: [[c10, 31], [c11, 29]], h: [[c10, 7], [c11, 6]] }} />
+      <Scene t0={c10} t1={c11} set={{ ...GORGE, cab: 4 / 6, crowd: 1, work: 1, ty: 0, lens: 1.0 }} anims={{ haul: [[K("haul"), 0], [K("tie") + 0.4, 1]], ang: [[c10, 0.1], [c11, 0.0]], dist: [[c10, 35], [c11, 32]], h: [[c10, 7], [c11, 6]] }} />
       <Scene t0={c11} t1={c12} set={{ ...GORGE, haul: 1, crowd: 1, tx: -9, ty: 0 }} anims={{ cab: [[K("the others") - 0.1, 4 / 6], [K("handrails") + 0.2, 1]], ang: [[c11, 0.9], [c12, 0.7]], dist: [[c11, 7], [c12, 6]], h: [[c11, 2.5], [c12, 2.2]] }} />
       <Scene t0={c12} t1={c13} set={{ ...GORGE, cab: 1, haul: 1, ty: -1 }} anims={{ sway: [[c12, 0], [K("sways"), 1]], ang: [[c12, 0.2], [c13, 0.05]], dist: [[c12, 20], [c13, 17]], h: [[c12, 3], [c13, 2]] }} />
       <Scene t0={c13} t1={c14} set={{ ...GORGE, cab: 1, haul: 1, ty: 0 }} anims={{ sticks: [[K("weave"), 0], [c14, 1]], sway: [[c13, 1], [c14, 0]], tx: [[c13, -9], [c14, 0]], ang: [[c13, 0.7], [c14, 0.6]], dist: [[c13, 6], [c14, 6]], h: [[c13, 3], [c14, 3.2]] }} />
       <Scene t0={c14} t1={c15} set={{ ...GORGE, cab: 1, haul: 1, sticks: 1, ty: -0.3 }} anims={{ mats: [[K("cover"), 0], [c15 - 0.2, 1]], tx: [[c14, -10], [c15, 2]], ang: [[c14, 0.4], [c15, 0.5]], dist: [[c14, 5], [c15, 5]], h: [[c14, 4.5], [c15, 4]] }} />
-      <Scene t0={c15} t1={c16} set={{ ...BRIDGE, crowd: 1, ty: 0 }} anims={{ ang: [[c15, -0.25], [c16, -0.4]], dist: [[c15, 30], [c16, 27]], h: [[c15, 4], [c16, 3.5]] }}>
+      <Scene t0={c15} t1={c16} set={{ ...BRIDGE, crowd: 1, ty: 0, lens: 1.0 }} anims={{ ang: [[c15, -0.12], [c16, -0.2]], dist: [[c15, 34], [c16, 30]], h: [[c15, 4], [c16, 3.5]] }}>
         <Label s={c15} t0={K("suspension")} t1={c16} text="SUSPENSION BRIDGE" />
       </Scene>
       <Scene t0={c16} t1={c17} set={{ ...BRIDGE, ty: -4 }} anims={{ ang: [[c16, 0.2], [c17, 0.0]], dist: [[c16, 22], [c17, 18]], h: [[c16, -9], [c17, -8]] }}>
         <Card s={c16} t0={K("stretches") + 0.2} t1={c17} title="28 M" sub="APURÍMAC RIVER, PERU" />
       </Scene>
       <Scene t0={c17} t1={c18} set={{ ...BRIDGE, ty: -0.2, tx: 3, lens: 1.3 }} anims={{ ang: [[c17, 0.9], [c18, 1.15]], dist: [[c17, 4], [c18, 3.4]], h: [[c17, 1.6], [c18, 1.3]] }} />
-      <Scene t0={c18} t1={c19} set={{ ...GORGE, old: 1, crowd: 1, work: 1, ty: 0 }} anims={{ cab: [[K("june"), 0], [K("rebuild"), 1]], haul: [[K("rebuild") - 0.3, 0], [K("days"), 1]], sticks: [[K("days") - 0.3, 0], [c19 - 0.1, 1]], ang: [[c18, 0.55], [c19, 0.35]], dist: [[c18, 33], [c19, 30]], h: [[c18, 7], [c19, 6]] }}>
+      <Scene t0={c18} t1={c19} set={{ ...GORGE, old: 1, crowd: 1, work: 1, ty: 0, lens: 1.0 }} anims={{ cab: [[K("june"), 0], [K("rebuild"), 1]], haul: [[K("rebuild") - 0.3, 0], [K("days"), 1]], sticks: [[K("days") - 0.3, 0], [c19 - 0.1, 1]], ang: [[c18, 0.12], [c19, 0.04]], dist: [[c18, 37], [c19, 34]], h: [[c18, 7], [c19, 6]] }}>
         <Card s={c18} t0={K("june") + 0.1} t1={c19} title="EVERY JUNE" sub="4 COMMUNITIES, 3 DAYS" />
       </Scene>
-      <Scene t0={c19} t1={c20} set={{ ...BRIDGE, old: 1, crowd: 1, ty: -4 }} anims={{ fall: [[K("loose") - 0.2, 0], [K("river") + 0.3, 1]], ang: [[c19, 0.7], [c20, 0.55]], dist: [[c19, 28], [c20, 26]], h: [[c19, 6], [c20, 4]] }} />
+      <Scene t0={c19} t1={c20} set={{ ...BRIDGE, old: 1, crowd: 1, ty: -4 }} anims={{ fall: [[K("loose") - 0.2, 0], [K("river") + 0.3, 1]], ang: [[c19, 0.28], [c20, 0.2]], dist: [[c19, 30], [c20, 27]], h: [[c19, 4], [c20, 2]] }} />
       <Scene t0={c20} t1={c21} set={{ ...BRIDGE, crowd: 1, ty: 0, lens: 1.2 }} anims={{ walk: [[c20, -12], [c21, -7]], tx: [[c20, -12], [c21, -7]], ang: [[c20, 1.1], [c21, 0.9]], dist: [[c20, 8], [c21, 7]], h: [[c20, 2], [c21, 1.8]] }}>
         <Card s={c20} t0={K("500")} t1={c21} title="500 YEARS" sub="AN INCA TRADITION" />
       </Scene>
-      <Scene t0={c21} t1={DUR} set={{ ...BRIDGE, crowd: 1, ty: 0 }} anims={{ walk: [[c21, -7], [DUR, 1]], tx: [[c21, -6], [DUR, 0]], ang: [[c21, 0.6], [DUR, 0.15]], dist: [[c21, 12], [DUR, 34]], h: [[c21, 3], [DUR, 10]] }} />
+      <Scene t0={c21} t1={DUR} set={{ ...BRIDGE, crowd: 1, ty: 0 }} anims={{ walk: [[c21, -7], [DUR, 1]], tx: [[c21, -6], [DUR, 0]], ang: [[c21, 0.6], [DUR, 0.1]], dist: [[c21, 12], [DUR, 36]], h: [[c21, 3], [DUR, 10]] }} />
       <Captions />
     </frame>,
     { at: 0, dur: DUR }
