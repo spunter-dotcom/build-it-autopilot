@@ -54,7 +54,7 @@ export default async ({ project }) => {
       <Scene t0={c18} t1={c19} set={{ ...GORGE, old: 1, crowd: 1, work: 1, ty: 0, lens: 1.0 }} anims={{ cab: [[K("june"), 0], [K("rebuild"), 1]], haul: [[K("rebuild") - 0.3, 0], [K("days"), 1]], sticks: [[K("days") - 0.3, 0], [c19 - 0.1, 1]], tx: [[c18, -3], [c19, 0]], ang: [[c18, -1.3], [c19, -1.2]], dist: [[c18, 24], [c19, 22]], h: [[c18, 7], [c19, 6]] }}>
         <Card s={c18} t0={K("june") + 0.1} t1={c19} title="EVERY JUNE" sub="4 COMMUNITIES, 3 DAYS" />
       </Scene>
-      <Scene t0={c19} t1={c20} set={{ ...BRIDGE, old: 1, crowd: 1, ty: -6, lens: 0.9 }} anims={{ fall: [[K("loose") - 0.2, 0], [K("into the river") + 0.3, 1]], ang: [[c19, 0.05], [c20, -0.05]], dist: [[c19, 27], [c20, 25]], h: [[c19, 4], [c20, 3]] }} />
+      <Scene t0={c19} t1={c20} set={{ ...BRIDGE, old: 1, crowd: 1, ty: -3, lens: 1.0 }} anims={{ fall: [[K("loose") - 0.2, 0], [K("into the river") + 0.3, 1]], ang: [[c19, -1.3], [c20, -1.2]], dist: [[c19, 24], [c20, 22]], h: [[c19, 5], [c20, 4]] }} />
       <Scene t0={c20} t1={c21} set={{ ...BRIDGE, crowd: 1, ty: 0, lens: 1.2 }} anims={{ walk: [[c20, -12], [c21, -7]], tx: [[c20, -12], [c21, -7]], ang: [[c20, 1.1], [c21, 0.9]], dist: [[c20, 8], [c21, 7]], h: [[c20, 2], [c21, 1.8]] }}>
         <Card s={c20} t0={K("500")} t1={c21} title="500 YEARS" sub="AN INCA TRADITION" />
       </Scene>

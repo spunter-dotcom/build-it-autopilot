@@ -65,7 +65,7 @@ vec2 map(vec3 p){
     // a hut and two trees on the left cliff, a tree on the right
     res=opU(res,pWall(p-vec3(-20.0,0.0,-5.0),vec3(1.4,1.0,1.4),12.0));
     res=opU(res,pRoof(p-vec3(-20.0,2.0,-5.0),3.2,1.7,1.4,13.0));
-    vec3 c=vec3(-18.0,2.0,4.0); if(length(p-c)<4.0) res=opU(res,pTree(p-vec3(-18.0,0.0,4.0),3.0)); else res.x=min(res.x,length(p-c)-3.0);
+    vec3 c=vec3(-19.0,2.0,-8.0); if(length(p-c)<4.0) res=opU(res,pTree(p-vec3(-19.0,0.0,-8.0),3.0)); else res.x=min(res.x,length(p-c)-3.0);
     c=vec3(19.0,2.0,-4.0); if(length(p-c)<4.0) res=opU(res,pTree(p-vec3(19.0,0.0,-4.0),3.2)); else res.x=min(res.x,length(p-c)-3.0);
     // people at the bases
     res=opU(res,pPerson(p-vec3(-16.2,0.0,1.2),u_work,0.3));
@@ -82,9 +82,9 @@ vec2 map(vec3 p){
     if(bb>0.6) res.x=min(res.x,bb); else res=opU(res,bridge(b,u_cab*6.0+0.001,-14.0+28.0*u_haul,u_sticks,u_mats));
     // someone crossing the finished bridge
     if(u_walk>-13.5) res=opU(res,pPerson(p-vec3(u_walk,cy(u_walk)+0.06,0.0),0.0,0.6));
-    // the old bridge beside it, cut at the left end and swinging down from the right anchor
+    // the old bridge beside it, cut loose and dropping into the gorge
     if(u_old>0.5){
-      vec3 o=p-vec3(14.0,1.0,2.6); o.xy=rot(1.45*u_fall)*o.xy; o+=vec3(14.0,1.0,0.0);
+      vec3 o=p-vec3(0.0,-24.0*u_fall*u_fall,2.6); o.xy=rot(0.3*u_fall)*o.xy;
       float ob=length(max(abs(o-vec3(0.0,0.3,0.0))-vec3(15.0,2.0,1.0),0.0));
       if(ob>0.6) res.x=min(res.x,ob); else res=opU(res,bridge(o,6.0,14.0,1.0,1.0));
       res=opU(res,vec2(sdRoundBox(p-vec3(-14.9,0.45,2.6),vec3(0.8,0.45,0.9),0.05),2.0));
