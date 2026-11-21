@@ -28,21 +28,21 @@ export default async ({ project }) => {
       {/* The shed: the ice melts away. */}
       <Scene t0={c3} t1={c4} set={{ site: 1, ground: 0 }} anims={{ melt: [[c3, 0], [c4, 1]], ang: [[c3, 0.5], [c4, 0.1]], dist: [[c3, 8], [c4, 6]], h: [[c3, 2], [c4, 1.6]], ty: [[c3, 1], [c4, 0.8]] }} />
       {/* Cutaway of the hillside: dig the pit. */}
-      <Scene t0={c4} t1={c5} set={{ ...W }} anims={{ dig: [[c4, 0], [c5, 1]], ang: [[c4, 0.5], [c5, 0.15]], dist: [[c4, 22], [c5, 24]], h: [[c4, 6], [c5, 3]], ty: [[c4, -2], [c5, -4.5]] }} />
-      <Scene t0={c5} t1={c6} set={{ ...W, dig: 1 }} anims={{ ang: [[c5, -0.25], [c6, 0.0]], dist: [[c5, 11], [c6, 10]], h: [[c5, 1], [c6, 0]], ty: [[c5, -5], [c6, -6]] }} />
-      <Scene t0={c6} t1={c7} set={{ ...W, dig: 1 }} anims={{ brick: [[c6, 0], [c6 + 2.6, 1]], ang: [[c6, 0.3], [c7, -0.25]], dist: [[c6, 24], [c7, 21]], h: [[c6, 2], [c7, 4]], ty: [[c6, -4.5], [c7, -4]] }}>
+      <Scene t0={c4} t1={c5} set={{ ...W }} anims={{ dig: [[c4, 0], [c5, 1]], ang: [[c4, 0.5], [c5, 0.15]], dist: [[c4, 22], [c5, 24]], h: [[c4, 8], [c5, 6]], ty: [[c4, -2], [c5, -4.5]] }} />
+      <Scene t0={c5} t1={c6} set={{ ...W, dig: 1 }} anims={{ ang: [[c5, -0.25], [c6, 0.0]], dist: [[c5, 11], [c6, 10]], h: [[c5, 6], [c6, 7]], ty: [[c5, -5], [c6, -6]] }} />
+      <Scene t0={c6} t1={c7} set={{ ...W, dig: 1 }} anims={{ brick: [[c6, 0], [c6 + 2.6, 1]], ang: [[c6, 0.3], [c7, -0.25]], dist: [[c6, 24], [c7, 21]], h: [[c6, 6], [c7, 6]], ty: [[c6, -4.5], [c7, -4]] }}>
         <Card s={c6} t0={c6 + 0.6} t1={K("this is an")} title="UP TO 9 M DEEP" sub="HAMPTON COURT, 1625" />
         <Label s={c6} t0={K("this is an") + 0.1} t1={c7} text="ICE WELL" y={1500} />
       </Scene>
-      <Scene t0={c7} t1={c8} set={{ ...W, dig: 1, brick: 1 }} anims={{ pool: [[c7, 0], [c8, 1]], ang: [[c7, -0.2], [c8, 0.1]], dist: [[c7, 9], [c8, 7.5]], h: [[c7, 1.5], [c8, 1]], ty: [[c7, -8], [c8, -8.2]] }} />
-      <Scene t0={c8} t1={c9} set={{ ...W, dig: 1, brick: 1 }} anims={{ drain: [[c8, 0], [c8 + 0.8, 1]], pool: [[c8 + 0.6, 1], [c9, 0]], ang: [[c8, 0.2], [c9, 0.45]], dist: [[c8, 9], [c9, 11]], h: [[c8, 0.5], [c9, 0]], ty: [[c8, -9], [c9, -9.3]], tx: [[c8, 0.5], [c9, 1.8]] }} />
+      <Scene t0={c7} t1={c8} set={{ ...W, dig: 1, brick: 1 }} anims={{ pool: [[c7, 0], [c8, 1]], ang: [[c7, -0.2], [c8, 0.1]], dist: [[c7, 8], [c8, 6.5]], h: [[c7, 9], [c8, 9]], ty: [[c7, -8], [c8, -8.2]] }} />
+      <Scene t0={c8} t1={c9} set={{ ...W, dig: 1, brick: 1 }} anims={{ drain: [[c8, 0], [c8 + 0.8, 1]], pool: [[c8 + 0.6, 1], [c9, 0]], ang: [[c8, 0.2], [c9, 0.45]], dist: [[c8, 9], [c9, 11]], h: [[c8, 10], [c9, 10]], ty: [[c8, -9], [c9, -9.3]], tx: [[c8, 0.5], [c9, 1.8]] }} />
       {/* The open top, then the dome and earth. */}
       <Scene t0={c9} t1={c10} set={{ ...W, dig: 1, brick: 1, drain: 1 }} anims={{ ang: [[c9, 0.6], [c10, 0.3]], dist: [[c9, 10], [c10, 9]], h: [[c9, 8], [c10, 7]], ty: [[c9, -1], [c10, -1]] }} />
-      <Scene t0={c10} t1={c11} set={{ ...W, dig: 1, brick: 1, drain: 1 }} anims={{ dome: [[c10, 0], [c10 + 1.4, 1]], earth: [[c10 + 1.6, 0], [K("this is the") - 0.2, 1]], ang: [[c10, -0.3], [c11, 0.2]], dist: [[c10, 20], [c11, 24]], h: [[c10, 3], [c11, 2]], ty: [[c10, -2], [c11, -3.5]] }}>
+      <Scene t0={c10} t1={c11} set={{ ...W, dig: 1, brick: 1, drain: 1 }} anims={{ dome: [[c10, 0], [c10 + 1.4, 1]], earth: [[c10 + 1.6, 0], [K("this is the") - 0.2, 1]], ang: [[c10, -0.3], [c11, 0.2]], dist: [[c10, 20], [c11, 24]], h: [[c10, 4], [c11, 5]], ty: [[c10, -2], [c11, -3.5]] }}>
         <Label s={c10} t0={K("this is the") + 0.1} t1={c11} text="DOME AND CUP" y={1500} />
       </Scene>
       {/* Pack ice and straw. */}
-      <Scene t0={c11} t1={c12} set={{ ...W, dig: 1, brick: 1, drain: 1, dome: 1, earth: 1, work: 1, px: -1.0, pz: 0.0 }} anims={{ ice: [[c11, 0], [c12 - 0.4, 1]], ang: [[c11, 0.25], [c12, -0.1]], dist: [[c11, 14], [c12, 12]], h: [[c11, -1], [c12, 1]], ty: [[c11, -6], [c12, -3]] }} />
+      <Scene t0={c11} t1={c12} set={{ ...W, dig: 1, brick: 1, drain: 1, dome: 1, earth: 1, work: 1, px: -1.0, pz: 0.0 }} anims={{ ice: [[c11, 0], [c12 - 0.4, 1]], ang: [[c11, 0.25], [c12, -0.1]], dist: [[c11, 14], [c12, 12]], h: [[c11, 7], [c12, 5]], ty: [[c11, -6], [c12, -3]] }} />
       {/* The passage and its two sets of doors. */}
       <Scene t0={c12} t1={c13} set={{ ...W, dig: 1, brick: 1, drain: 1, dome: 1, earth: 1, ice: 1, px: -8.2, pz: 0.0 }} anims={{ pass: [[C("so you build"), 0], [c13 - 0.5, 1]], ang: [[c12, -0.15], [c13, 0.25]], dist: [[c12, 12], [c13, 10]], h: [[c12, 2], [c13, 3]], tx: [[c12, -3.5], [c13, -4.5]], ty: [[c12, 1.0], [c13, 1.0]] }} />
       {/* Outside: the finished ice house with the big house behind. */}

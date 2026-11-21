@@ -45,7 +45,7 @@ vec2 map(vec3 p){
     float cbox=sdRoundBox(p-vec3(0.0,-5.5,30.0),vec3(9.0,5.5,30.0),0.0);
     cbox=cut>0.5 ? cbox : 1e3;
     // The pit: a brick cup about 9 m deep, 4.8 m wide at the top (dug to depth 9.2*u_dig).
-    float cup=0.8*sdEllipsoid(p,vec3(2.4,9.2,2.4));
+    float cup=0.6*sdEllipsoid(p,vec3(2.4,9.2,2.4));
     float pit=max(cup,-p.y-9.2*clamp(u_dig,0.0,1.0)-0.05);
     float earth=max(p.y,-cbox);
     earth=max(earth,-pit);
