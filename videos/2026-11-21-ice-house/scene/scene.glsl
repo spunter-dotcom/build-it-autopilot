@@ -7,7 +7,7 @@ vec2 map(vec3 p){
   if(u_site<0.5){
     // Frozen lake: an ice sheet in a snowy field (ground 5).
     float lake=max(abs(p.y-0.02)-0.04,length(p.xz-vec2(0.0,-6.0))-11.0);
-    res=opU(res,vec2(lake,8.0));
+    res=opU(res,vec2(lake,4.0));
     // Six cut blocks lifted out beside the hole.
     float nb=count(u_blocks,6.0);
     float bl=1e3;
@@ -16,7 +16,7 @@ vec2 map(vec3 p){
       if(fi<nb){ vec3 q=p-vec3(-1.6+0.85*mod(fi,3.0),0.3,1.4+0.85*floor(fi/3.0)); bl=min(bl,sdRoundBox(q,vec3(0.36,0.28,0.36),0.04)); }
     }
     res=opU(res,vec2(bl,4.0));
-    res=opU(res,vec2(sdRoundBox(p-vec3(-0.8,0.03,-0.6),vec3(1.4,0.05,0.7),0.01),15.0)); // the open water slot
+    res=opU(res,vec2(sdRoundBox(p-vec3(-0.8,0.03,-0.6),vec3(1.4,0.05,0.7),0.01),8.0)); // the open water slot
     res=opU(res,pPerson(p-vec3(0.6,0.0,0.3),u_work,0.3));
     // Cart with loaded blocks.
     vec3 c=p-vec3(3.6,0.0,1.8);
@@ -42,7 +42,7 @@ vec2 map(vec3 p){
     // ---- Site 2: the ice well. Origin at the top of the pit. ----
     float cut=u_cut;
     // Cutaway: remove the earth in front (z > 0) near the pit, down to 11 m.
-    float cbox=sdRoundBox(p-vec3(0.0,-5.5,7.0),vec3(7.0,5.5,7.0),0.0);
+    float cbox=sdRoundBox(p-vec3(0.0,-5.5,30.0),vec3(9.0,5.5,30.0),0.0);
     cbox=cut>0.5 ? cbox : 1e3;
     // The pit: a brick cup about 9 m deep, 4.8 m wide at the top (dug to depth 9.2*u_dig).
     float cup=0.8*sdEllipsoid(p,vec3(2.4,9.2,2.4));
