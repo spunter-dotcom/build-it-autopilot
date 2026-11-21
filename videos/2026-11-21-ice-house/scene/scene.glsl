@@ -42,7 +42,7 @@ vec2 map(vec3 p){
     // ---- Site 2: the ice well. Origin at the top of the pit. ----
     float cut=u_cut;
     // Cutaway: remove the earth in front (z > 0) near the pit, down to 11 m.
-    float cbox=sdRoundBox(p-vec3(0.0,-5.5,30.0),vec3(9.0,5.5,30.0),0.0);
+    float cbox=sdRoundBox(p-vec3(0.0,-3.0,30.0),vec3(9.0,8.0,30.0),0.0);
     cbox=cut>0.5 ? cbox : 1e3;
     // The pit: a brick cup about 9 m deep, 4.8 m wide at the top (dug to depth 9.2*u_dig).
     float cup=0.6*sdEllipsoid(p,vec3(2.4,9.2,2.4));
