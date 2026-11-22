@@ -1,12 +1,18 @@
 # Topics
 
 ## Next (the producer takes the first unchecked one)
-Rewritten 2026-11-15 by the weekly analyst: 5 that resemble this week's leaders (ancient spectacle, ships, Roman building, water) and 2 experiments (new families, marked).
+Rewritten 2026-11-22 by the weekly analyst. No new Metricool numbers this week, so the leads are still last week's (ships, Roman building, water, ancient spectacle): 5 that resemble them and 2 experiments (new families, marked).
 
-
+- [ ] Viking longship (clinker-built hull, keel and rivets)
+- [ ] Roman bathhouse with hypocaust heating
+- [ ] Noria (river-driven water-lifting wheel)
+- [ ] Lighthouse of Alexandria (Pharos)
+- [ ] Raising an Egyptian obelisk
+- [ ] Blacksmith forge with bellows (experiment: crafts family)
+- [ ] Water clock (clepsydra) (experiment: timekeeping family)
 
 ## Ideas (the analyst promotes them to Next)
-blacksmith forge with bellows · castle drawbridge · portcullis · water clock · olive oil screw press · lime kiln · charcoal clamp · pottery kiln · saw pit · ropewalk · warp-weighted loom · straw beehive (skep) · bread oven · smokehouse · fire beacon tower · mangonel · noria water wheel · weir · hand quern · horse-powered mill · rope-and-pulley hoist · wooden barrel · thatched roof · timber-frame house · stone fireplace and chimney · palisade fort
+castle drawbridge · portcullis · olive oil screw press · lime kiln · charcoal clamp · pottery kiln · saw pit · ropewalk · warp-weighted loom · straw beehive (skep) · bread oven · smokehouse · fire beacon tower · mangonel · weir · hand quern · horse-powered mill · rope-and-pulley hoist · wooden barrel · thatched roof · timber-frame house · stone fireplace and chimney · palisade fort
 
 ## Done
 - [x] 2026-11-21 Ice house (experiment: food-storage family)

@@ -1,0 +1,13 @@
+# Source: Metricool getAnalyticsDataByMetrics, brand 8019616, TKPO02/03/06-10/13/15/16, range 2026-10-24..2026-11-22. Rows identical to the 2026-11-15 snapshot; a query for 11-16..11-22 returned no rows although getScheduledPosts shows 4 posts PUBLISHED that week (shaduf, ballista, canal lock, ice house). Full-watch rate, average watch time and For You share came back null. Evolution metrics (followers, new followers, views in period) returned 0 or null for 11-16..11-22. Analytics sync appears stalled. published_utc for the last 4 rows is the scheduled time.
+snapshot_utc,published_utc,tiktok_id,log_id,duration_s,views,likes,comments,shares
+2026-11-22T20:20Z,2026-11-15T15:06Z,7708414683505544479,2026-11-13-trebuchet,76,355,24,0,0
+2026-11-22T20:20Z,2026-11-14T23:02Z,7708166457057725710,2026-11-11-syracusia,73,2227,106,3,0
+2026-11-22T20:20Z,2026-11-13T23:03Z,7707795434068118797,2026-11-11-archimedes-screw,72,974,65,0,0
+2026-11-22T20:20Z,2026-11-12T23:03Z,7707424505513200909,2026-11-10-insula,78,1012,64,0,0
+2026-11-22T20:20Z,2026-11-11T15:08Z,7706930997270678798,2026-11-10-well,67,294,17,1,0
+2026-11-22T20:20Z,2026-11-10T22:36Z,7706675133204778254,2026-11-10-owner-aqueduct,64,4,1,0,0
+2026-11-22T20:20Z,2026-11-10T22:34Z,7706674850701724941,2026-11-10-owner-trebuchet-test,49,2,0,0,0
+2026-11-22T20:20Z,2026-11-16T23:00Z,7708908679919144205,2026-11-14-shaduf,,,,,
+2026-11-22T20:20Z,2026-11-19T23:30Z,7710029205790018830,2026-11-19-ballista,,,,,
+2026-11-22T20:20Z,2026-11-20T15:00Z,7710269306331761934,2026-11-19-canal-lock,,,,,
+2026-11-22T20:20Z,2026-11-21T23:30Z,7710771331821817101,2026-11-21-ice-house,,,,,
