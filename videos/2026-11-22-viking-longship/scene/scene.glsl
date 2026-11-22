@@ -28,9 +28,9 @@ vec2 longship(vec3 q, float keel, float stem, float planks, float riv, float rib
       res=opU(res,vec2(sh*0.8,3.0));
     }
     if(riv>0.01 && n>0.5){
-      float xr=q.x-0.3*floor(q.x/0.3+0.5);
+      float xr=q.x-0.4*floor(q.x/0.4+0.5);
       float yr=yy-0.125*floor(yy/0.125+0.5);
-      float d=max(length(vec2(xr,yr))-0.035, max(solid-0.09, -solid));
+      float d=max(length(vec2(xr,yr))-0.026, max(solid-0.07, -solid));
       d=max(d, max(q.x-mix(-12.0,12.0,riv), yy-n*0.125+0.03));
       res=opU(res,vec2(d,7.0));
     }
@@ -130,7 +130,7 @@ vec2 map(vec3 p){
     // Site 2: the beach shipyard. Keel blocks, a worker, the ship growing step by step.
     vec3 b=vec3(p.x-3.0*clamp(floor(p.x/3.0+0.5),-3.0,3.0),p.y,p.z);
     res=opU(res,pBlock(b-vec3(0.0,0.2,0.0),vec3(0.3,0.2,0.8),3.0));
-    res=opU(res,pPerson(p-vec3(-3.0,0.0,3.6),1.0,0.3));
+    res=opU(res,pPerson(p-vec3(-3.0,0.0,-4.2),1.0,0.3));
     res=opU(res,pPlank(p-vec3(3.0,0.1,4.2),vec3(2.4,0.08,0.4)));
     qa=p-vec3(0.0,0.75,0.0);
     k=u_keel; st=u_stem; pl=u_planks; rv=u_riv; rb=u_ribs; ru=u_rud; oa=u_oars; ma=u_mast; sa=u_sail; rw=u_row*stroke();

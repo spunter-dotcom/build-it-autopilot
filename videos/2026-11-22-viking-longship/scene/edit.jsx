@@ -33,23 +33,23 @@ export default async ({ project }) => {
       {/* Bow and stern posts. */}
       <Scene t0={c2} t1={c3} set={{ ...Y, keel: 1 }} anims={{ stem: [[c2 + 0.3, 0], [c2 + 2.6, 1]], ang: [[c2, -0.6], [c3, -0.95]], dist: [[c2, 15], [c3, 13]], h: [[c2, 2.5], [c3, 2]], tx: [[c2, -4], [c3, -6]], ty: [[c2, 2], [c3, 2.2]] }} />
       {/* No saw: split the oak. */}
-      <Scene t0={c3} t1={c4} set={{ site: 1, ground: 0, work: 1 }} anims={{ split: [[K("so you split"), 0], [K("so you split") + 1.0, 1]], planks0: [[K("shape every"), 0], [c4 - 0.3, 1]], ang: [[c3, 0.35], [c4, -0.2]], dist: [[c3, 8], [c4, 6.5]], h: [[c3, 2.6], [c4, 2]], ty: [[c3, 0.5], [c4, 0.5]], tz: [[c3, 0], [c4, -0.5]] }} />
+      <Scene t0={c3} t1={c4} set={{ site: 1, ground: 0, work: 1 }} anims={{ split: [[K("so you split"), 0], [K("so you split") + 1.0, 1]], planks0: [[K("shape every"), 0], [c4 - 0.3, 1]], ang: [[c3, 0.35], [c4, -0.2]], dist: [[c3, 8], [c4, 6.5]], h: [[c3, 4.5], [c4, 4]], ty: [[c3, 0.5], [c4, 0.5]], tz: [[c3, 0], [c4, -0.5]] }} />
       {/* First strakes, overlapping. */}
       <Scene t0={c4} t1={c5} set={{ ...H1 }} anims={{ planks: [[c4 + 0.3, 0], [c5 - 0.3, 0.19]], ang: [[c4, 0.35], [c5, 0.1]], dist: [[c4, 9], [c5, 7]], h: [[c4, 1.2], [c5, 0.8]], tx: [[c4, 1], [c5, 3]], ty: [[c4, 0.5], [c5, 0.5]], tz: [[c4, 2], [c5, 2]] }} />
       {/* Rivets: clinker building. */}
-      <Scene t0={c5} t1={c6} set={{ ...H1, lens: 1.3 }} anims={{ planks: [[c5, 0.19], [c6, 0.38]], riv: [[c5 + 0.4, 0], [c6 - 0.5, 1]], ang: [[c5, 0.25], [c6, 0.05]], dist: [[c5, 4.5], [c6, 3.6]], h: [[c5, 1.0], [c6, 0.8]], tx: [[c5, -1], [c6, 1]], ty: [[c5, 0.55], [c6, 0.65]], tz: [[c5, 2.2], [c6, 2.2]] }}>
+      <Scene t0={c5} t1={c6} set={{ ...H1, lens: 1.3 }} anims={{ planks: [[c5, 0.19], [c5 + 1.2, 0.75]], riv: [[c5 + 0.6, 0], [c6 - 0.5, 1]], ang: [[c5, 0.3], [c6, 0.1]], dist: [[c5, 5], [c6, 4]], h: [[c5, 0.9], [c6, 0.6]], tx: [[c5, 3], [c6, 5]], ty: [[c5, 1.2], [c6, 1.3]], tz: [[c5, 2.4], [c6, 2.4]] }}>
         <Card s={c5} t0={K("about every")} t1={K("this is clinker")} title="ABOUT 15 CM" sub="BETWEEN RIVETS" />
         <Label s={c5} t0={K("this is clinker") + 0.1} t1={c6} text="CLINKER BUILDING" y={1450} />
       </Scene>
       {/* Sixteen strakes: the shell. */}
-      <Scene t0={c6} t1={c7} set={{ ...H1, riv: 1 }} anims={{ planks: [[c6, 0.38], [c6 + 2.4, 1]], ang: [[c6, 0.85], [c7, 0.45]], dist: [[c6, 21], [c7, 17]], h: [[c6, 6], [c7, 5]], ty: [[c6, 1], [c7, 1]] }}>
+      <Scene t0={c6} t1={c7} set={{ ...H1, riv: 1 }} anims={{ planks: [[c6, 0.75], [c6 + 1.6, 1]], ang: [[c6, 0.85], [c7, 0.45]], dist: [[c6, 21], [c7, 17]], h: [[c6, 6], [c7, 5]], ty: [[c6, 1], [c7, 1]] }}>
         <Card s={c6} t0={c6 + 0.2} t1={c7} title="16" sub="PLANKS A SIDE" />
       </Scene>
       {/* Ribs inside the shell. */}
       <Scene t0={c7} t1={c8} set={{ ...H2 }} anims={{ ribs: [[K("so you fit"), 0], [c8 - 0.4, 1]], ang: [[c7, 0.25], [c8, 0.65]], dist: [[c7, 7], [c8, 9]], h: [[c7, 11], [c8, 10]], ty: [[c7, 0.8], [c8, 0.8]], tx: [[c7, 2], [c8, -1]] }} />
       {/* Steering board. */}
       <Scene t0={c8} t1={c9} set={{ ...H2, ribs: 1 }} anims={{ rud: [[K("so you hang"), 0], [K("so you hang") + 1.2, 1]], ang: [[c8, 0.55], [c9, 0.2]], dist: [[c8, 8], [c9, 6.5]], h: [[c8, 1.5], [c9, 1.2]], tx: [[c8, -8.5], [c8 + 0.01, -8.5]], ty: [[c8, 1.3], [c9, 1.3]], tz: [[c8, 1.2], [c9, 1.2]] }} />
-      <Scene t0={c9} t1={c10} set={{ ...H3 }} anims={{ ang: [[c9, -0.25], [c10, 0.25]], dist: [[c9, 18], [c10, 16]], h: [[c9, 2.5], [c10, 3]], tx: [[c9, -3], [c10, -2]], ty: [[c9, 1.5], [c10, 1.5]] }}>
+      <Scene t0={c9} t1={c10} set={{ ...H3 }} anims={{ ang: [[c9, -0.75], [c10, -0.4]], dist: [[c9, 15], [c10, 13]], h: [[c9, 3.5], [c10, 3]], tx: [[c9, -6], [c10, -5]], ty: [[c9, 1.5], [c10, 1.5]] }}>
         <Label s={c9} t0={K("this is the starboard") + 0.1} t1={c10} text="STARBOARD" y={1450} />
       </Scene>
       {/* Oar holes and oars. */}
