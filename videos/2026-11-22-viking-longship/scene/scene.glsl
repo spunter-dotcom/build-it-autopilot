@@ -5,8 +5,8 @@
 float hullW(float x){ return sqrt(max(870.25-x*x,0.0))-26.95; }   // half-beam at x (2.55 midship, 0 at the stems)
 
 vec2 longship(vec3 q, float keel, float stem, float planks, float riv, float ribs, float rud, float oars, float mast, float sail, float row){
-  vec2 res=vec2(1e3,0.0);
   float hb=sdRoundBox(q-vec3(0.0,0.8,0.0), vec3(12.8,2.4,3.0), 0.0);   // hull region
+  vec2 res=vec2(hb<0.6?1e3:hb,3.0);   // far away: the box is a safe step
   // hull solid: pointed plan, rockered keel line, flared sides
   float lens=length(vec2(q.x,abs(q.z)+26.95))-29.5;
   float rocker=length(vec2(q.x,q.y-59.3))-60.0;
@@ -145,8 +145,6 @@ vec2 map(vec3 p){
     res=opU(res,pTree(p-vec3(48.0,0.9,5.0),5.5));
     qa=p-vec3(u_go,0.05,0.0); ma=u_mast; sa=u_sail; rw=u_row*stroke();
   }
-  float da=shipBox(qa);
   vec2 sh=longship(qa,k,st,pl,rv,rb,ru,oa,ma,sa,rw);
-  sh.x=min(sh.x,max(da,0.05));
   return opU(res,sh);
 }
