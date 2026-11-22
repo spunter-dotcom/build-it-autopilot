@@ -30,18 +30,15 @@ vec2 longship(vec3 q, float keel, float stem, float planks, float riv, float rib
     if(riv>0.01 && n>0.5){
       float xr=q.x-0.3*floor(q.x/0.3+0.5);
       float yr=yy-0.125*floor(yy/0.125+0.5);
-      float d=max(length(vec2(xr,yr))-0.03, abs(solid)-0.085);
+      float d=max(length(vec2(xr,yr))-0.035, max(solid-0.09, -solid));
       d=max(d, max(q.x-mix(-12.0,12.0,riv), yy-n*0.125+0.03));
       res=opU(res,vec2(d,7.0));
     }
     if(ribs>0.01){
       float xr=q.x-1.0*clamp(floor(q.x+0.5),-10.0,10.0);
-      float d=max(abs(xr)-0.07, max(abs(solid+0.13)-0.08, q.y-1.05));
+      float d=max(abs(xr)-0.09, max(abs(solid+0.15)-0.11, q.y-1.1));
       d=max(d, q.x-mix(-11.0,11.0,ribs));
       res=opU(res,vec2(d,3.0));
-      // floor boards laid over the ribs
-      float fl=max(abs(q.y-0.25)-0.04, max(solid+0.2, abs(q.x)-9.5));
-      res=opU(res,vec2(max(fl, q.x-mix(-11.0,11.0,ribs)),3.0));
     }
     if(oars>0.01 && count(oars,16.0)>0.5){
       // oar ports along the top strake

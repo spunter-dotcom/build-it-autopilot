@@ -27,7 +27,7 @@ export default async ({ project }) => {
       {/* The need: a northern shore and open sea. */}
       <Scene t0={0} t1={c1} set={{ site: 0, ground: 0 }} anims={{ ang: [[0, 1.9], [c1, 1.35]], dist: [[0, 24], [c1, 17]], h: [[0, 4], [c1, 3]], tx: [[0, -12], [c1, -14]], ty: [[0, 1.5], [c1, 1.5]] }} />
       {/* Keel. */}
-      <Scene t0={c1} t1={c2} set={{ ...Y }} anims={{ keel: [[c1 + 0.3, 0], [c1 + 2.8, 1]], ang: [[c1, 0.7], [c2, 0.35]], dist: [[c1, 19], [c2, 15]], h: [[c1, 5], [c2, 3.5]], ty: [[c1, 0.6], [c2, 0.6]] }}>
+      <Scene t0={c1} t1={c2} set={{ ...Y }} anims={{ keel: [[c1 + 0.3, 0], [c1 + 2.8, 1]], ang: [[c1, 0.7], [c2, 0.35]], dist: [[c1, 19], [c2, 15]], h: [[c1, 6], [c2, 4.5]], ty: [[c1, 0.6], [c2, 0.6]] }}>
         <Label s={c1} t0={K("this is a keel") + 0.1} t1={c2} text="KEEL" y={1450} />
       </Scene>
       {/* Bow and stern posts. */}
@@ -37,7 +37,7 @@ export default async ({ project }) => {
       {/* First strakes, overlapping. */}
       <Scene t0={c4} t1={c5} set={{ ...H1 }} anims={{ planks: [[c4 + 0.3, 0], [c5 - 0.3, 0.19]], ang: [[c4, 0.35], [c5, 0.1]], dist: [[c4, 9], [c5, 7]], h: [[c4, 1.2], [c5, 0.8]], tx: [[c4, 1], [c5, 3]], ty: [[c4, 0.5], [c5, 0.5]], tz: [[c4, 2], [c5, 2]] }} />
       {/* Rivets: clinker building. */}
-      <Scene t0={c5} t1={c6} set={{ ...H1, lens: 1.3 }} anims={{ planks: [[c5, 0.19], [c6, 0.38]], riv: [[c5 + 0.4, 0], [c6 - 0.5, 1]], ang: [[c5, 0.25], [c6, 0.05]], dist: [[c5, 4], [c6, 3.2]], h: [[c5, 0.4], [c6, 0.2]], tx: [[c5, -1], [c6, 1]], ty: [[c5, 0.7], [c6, 0.75]], tz: [[c5, 2.4], [c6, 2.4]] }}>
+      <Scene t0={c5} t1={c6} set={{ ...H1, lens: 1.3 }} anims={{ planks: [[c5, 0.19], [c6, 0.38]], riv: [[c5 + 0.4, 0], [c6 - 0.5, 1]], ang: [[c5, 0.25], [c6, 0.05]], dist: [[c5, 4.5], [c6, 3.6]], h: [[c5, 1.0], [c6, 0.8]], tx: [[c5, -1], [c6, 1]], ty: [[c5, 0.55], [c6, 0.65]], tz: [[c5, 2.2], [c6, 2.2]] }}>
         <Card s={c5} t0={K("about every")} t1={K("this is clinker")} title="ABOUT 15 CM" sub="BETWEEN RIVETS" />
         <Label s={c5} t0={K("this is clinker") + 0.1} t1={c6} text="CLINKER BUILDING" y={1450} />
       </Scene>
@@ -57,7 +57,7 @@ export default async ({ project }) => {
         <Card s={c10} t0={K("32")} t1={c11} title="32" sub="OARS" />
       </Scene>
       {/* At sea: mast and sail. */}
-      <Scene t0={c11} t1={c12} set={{ ...SEA }} anims={{ mast: [[c11, 0], [c11 + 0.8, 1]], sail: [[c11 + 0.9, 0], [c12 - 0.6, 1]], ang: [[c11, 0.95], [c12, 0.55]], dist: [[c11, 30], [c12, 27]], h: [[c11, 4], [c12, 5]], ty: [[c11, 5], [c12, 5.5]] }}>
+      <Scene t0={c11} t1={c12} set={{ ...SEA }} anims={{ mast: [[c11, 0], [c11 + 0.8, 1]], sail: [[c11 + 0.9, 0], [c12 - 0.6, 1]], ang: [[c11, 0.95], [c12, 0.55]], dist: [[c11, 26], [c12, 23]], h: [[c11, 4], [c12, 5]], ty: [[c11, 5], [c12, 5.5]] }}>
         <Card s={c11} t0={K("110")} t1={c12} title="ABOUT 110 SQ M" sub="OF SAIL" />
       </Scene>
       {/* Shallow draft. */}
