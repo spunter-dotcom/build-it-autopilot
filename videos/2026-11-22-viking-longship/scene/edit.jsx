@@ -49,7 +49,7 @@ export default async ({ project }) => {
       <Scene t0={c7} t1={c8} set={{ ...H2 }} anims={{ ribs: [[K("so you fit"), 0], [c8 - 0.4, 1]], ang: [[c7, 0.25], [c8, 0.65]], dist: [[c7, 7], [c8, 9]], h: [[c7, 11], [c8, 10]], ty: [[c7, 0.8], [c8, 0.8]], tx: [[c7, 2], [c8, -1]] }} />
       {/* Steering board. */}
       <Scene t0={c8} t1={c9} set={{ ...H2, ribs: 1 }} anims={{ rud: [[K("so you hang"), 0], [K("so you hang") + 1.2, 1]], ang: [[c8, 0.55], [c9, 0.2]], dist: [[c8, 8], [c9, 6.5]], h: [[c8, 1.5], [c9, 1.2]], tx: [[c8, -8.5], [c8 + 0.01, -8.5]], ty: [[c8, 1.3], [c9, 1.3]], tz: [[c8, 1.2], [c9, 1.2]] }} />
-      <Scene t0={c9} t1={c10} set={{ ...H3 }} anims={{ ang: [[c9, -0.75], [c10, -0.4]], dist: [[c9, 15], [c10, 13]], h: [[c9, 3.5], [c10, 3]], tx: [[c9, -6], [c10, -5]], ty: [[c9, 1.5], [c10, 1.5]] }}>
+      <Scene t0={c9} t1={c10} set={{ ...H3 }} anims={{ ang: [[c9, -0.95], [c10, -0.65]], dist: [[c9, 14], [c10, 12.5]], h: [[c9, 3.5], [c10, 3]], tx: [[c9, -8], [c10, -7.5]], ty: [[c9, 1.5], [c10, 1.5]] }}>
         <Label s={c9} t0={K("this is the starboard") + 0.1} t1={c10} text="STARBOARD" y={1450} />
       </Scene>
       {/* Oar holes and oars. */}
@@ -61,13 +61,13 @@ export default async ({ project }) => {
         <Card s={c11} t0={K("110")} t1={c12} title="ABOUT 110 SQ M" sub="OF SAIL" />
       </Scene>
       {/* Shallow draft. */}
-      <Scene t0={c12} t1={c13} set={{ ...SEA, mast: 1, sail: 1, lens: 1.1 }} anims={{ go: [[c12, 0], [c13, 3]], ang: [[c12, 0.12], [c13, 0.3]], dist: [[c12, 17], [c13, 15]], h: [[c12, 0.4], [c13, 0.6]], tx: [[c12, 0], [c13, 3]], ty: [[c12, 1.5], [c13, 1.8]] }}>
+      <Scene t0={c12} t1={c13} set={{ ...SEA, mast: 1, sail: 1, lens: 1.1 }} anims={{ go: [[c12, 0], [c13, 3]], ang: [[c12, 0.75], [c13, 0.95]], dist: [[c12, 18], [c13, 16]], h: [[c12, 0.8], [c13, 1.0]], tx: [[c12, 0], [c13, 3]], ty: [[c12, 1.5], [c13, 1.8]] }}>
         <Card s={c12} t0={K("three feet") - 0.2} t1={c13} title="ABOUT 3 FEET" sub="OF WATER" />
       </Scene>
       {/* Row up onto the beach. */}
       <Scene t0={c13} t1={c14} set={{ ...SEA, mast: 1, sail: 1, row: 1 }} anims={{ go: [[c13, 3], [c14, 19]], ang: [[c13, 0.9], [c14, 1.35]], dist: [[c13, 26], [c14, 24]], h: [[c13, 4], [c14, 4]], tx: [[c13, 3], [c14, 19]], ty: [[c13, 3], [c14, 3]] }} />
       {/* Hero. */}
-      <Scene t0={c14} t1={DUR} set={{ ...SEA, mast: 1, sail: 1, go: 19 }} anims={{ ang: [[c14, -0.7], [DUR, 0.4]], dist: [[c14, 22], [DUR, 27]], h: [[c14, 4], [DUR, 6]], tx: [[c14, 19], [DUR, 19]], ty: [[c14, 3.5], [DUR, 3.5]] }} />
+      <Scene t0={c14} t1={DUR} set={{ ...SEA, mast: 1, sail: 1, go: 19 }} anims={{ ang: [[c14, 0.7], [DUR, 1.3]], dist: [[c14, 22], [DUR, 25]], h: [[c14, 4], [DUR, 5]], tx: [[c14, 19], [DUR, 19]], ty: [[c14, 3.5], [DUR, 3.5]] }} />
       <Captions />
     </frame>,
     { at: 0, dur: DUR }
