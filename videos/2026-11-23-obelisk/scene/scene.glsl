@@ -76,7 +76,7 @@ vec2 map(vec3 p){
     // ---- the Nile ----
     res=opU(res,pWater(p,0.1));
     res=opU(res,vec2(sdRoundBox(p-vec3(0.0,0.25,-32.0),vec3(200.0,0.3,30.0),0.2),0.0));
-    res=opU(res,pForest(p,4.5,40.0,-26.0,-10.0));
+    res=opU(res,pForest(p,5.0,30.0,-24.0,-10.0));
     // the barge
     vec3 b=p-vec3(u_bx,0.0,4.0);
     float bbx=sdRoundBox(b-vec3(0.0,1.0,0.0),vec3(9.5,1.6,2.8),0.0);
@@ -144,7 +144,9 @@ vec2 map(vec3 p){
         res=opU(res,pPerson(p-vec3(x-0.5,0.0,-1.0),1.0,0.4+0.15*float(i)));
       }
     }
-    if(u_clear<0.5){
+    float gb=sdRoundBox(p-vec3(11.8,2.6,0.0),vec3(14.4,2.7,2.4),0.0);
+    if(u_clear<0.5 && gb>0.5) res=opU(res,vec2(gb,5.0));
+    else if(u_clear<0.5){
       // sand pit: brick walls 5 high around the pedestal
       float wall=max(sdRoundBox(p-vec3(0.0,2.5,0.0),vec3(2.2,2.5,2.2),0.0),-sdRoundBox(p-vec3(0.0,2.5,0.0),vec3(1.8,3.0,1.8),0.0));
       if(u_cut>0.5) wall=max(wall,p.z-1.6);

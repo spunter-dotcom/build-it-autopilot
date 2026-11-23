@@ -53,7 +53,7 @@ export default async ({ project }) => {
       {/* How to stand it up? An empty pedestal at the temple. */}
       <Scene t0={c9} t1={c10} set={{ ...T, clear: 1, hide: 1 }} anims={{ ang: [[c9, 0.5], [c10, 0.2]], dist: [[c9, 9], [c10, 7]], h: [[c9, 3], [c10, 2]], tx: [[c9, 0], [c10, 0]], ty: [[c9, 1], [c10, 1]], tz: [[c9, 0], [c10, 0]], lens: [[c9, 1.2], [c10, 1.2]] }} />
       {/* A ramp ending in a pit of sand. */}
-      <Scene t0={c10} t1={c11} set={{ ...T, hide: 1 }} anims={{ ang: [[c10, 0.9], [c11, 0.6]], dist: [[c10, 26], [c11, 23]], h: [[c10, 10], [c11, 8]], tx: [[c10, 9], [c11, 8]], ty: [[c10, 3], [c11, 3]], tz: [[c10, 0], [c11, 0]] }} />
+      <Scene t0={c10} t1={c11} set={{ ...T, hide: 1 }} anims={{ ang: [[c10, 0.45], [c11, 0.3]], dist: [[c10, 28], [c11, 25]], h: [[c10, 9], [c11, 7]], tx: [[c10, 8], [c11, 7]], ty: [[c10, 3], [c11, 3]], tz: [[c10, 0], [c11, 0]] }} />
       {/* Haul it up, base first, over the pit. */}
       <Scene t0={c11} t1={c12} set={{ ...T }} anims={{ haul: [[c11 + 0.2, 0], [c12 - 0.2, 1]], ang: [[c11, 0.55], [c12, 0.4]], dist: [[c11, 20], [c12, 17]], h: [[c11, 4], [c12, 3]], tx: [[c11, 6], [c12, 3]], ty: [[c11, 5], [c12, 5]], tz: [[c11, 0], [c12, 0]] }} />
       {/* Cutaway: the sand pours out, the base sinks. */}
