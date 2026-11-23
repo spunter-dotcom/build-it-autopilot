@@ -19,7 +19,7 @@ vec2 pCrops(vec3 p, float s, float x0, float x1, float z0, float z1, float hk){
 
 vec2 map(vec3 p){
   // ground with the river cut: -6 < z < 14, floor at y = -2.6
-  float cut=sdRoundBox(p-vec3(0.0,-1.3,4.0),vec3(400.0,1.3,10.0),0.0);   // river from z=-6 to z=14
+  float cut=sdRoundBox(p-vec3(0.0,-0.3,4.0),vec3(400.0,2.3,10.0),0.0);   // box pokes above y=0 so the top really opens   // river from z=-6 to z=14
   vec2 res=vec2(max(p.y,-cut),0.0);
   res=opU(res,pWater(p,-1.2));
   // stone lining on the north bank face
