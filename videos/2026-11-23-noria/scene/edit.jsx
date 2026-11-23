@@ -29,7 +29,7 @@ export default async ({ project }) => {
       {/* Thirsty fields high above the river. */}
       <Scene t0={0} t1={c1} set={{ ...G }} anims={{ ang: [[0, 0.5], [c1, 0.25]], dist: [[0, 17], [c1, 14]], h: [[0, 6], [c1, 5]], tx: [[0, -4], [c1, -4]], ty: [[0, 0], [c1, 0]], tz: [[0, -11], [c1, -11]] }} />
       {/* Carrying a jar up the steps. */}
-      <Scene t0={c1} t1={c2} set={{ ...G, man: 1 }} anims={{ walk: [[c1, 0], [c2, 0.9]], ang: [[c1, 1.1], [c2, 0.9]], dist: [[c1, 8], [c2, 7]], h: [[c1, 2], [c2, 2.5]], tx: [[c1, 8], [c2, 8]], ty: [[c1, -1.4], [c2, -0.4]], tz: [[c1, -3], [c2, -5]], lens: [[c1, 1.2], [c2, 1.2]] }} />
+      <Scene t0={c1} t1={c2} set={{ ...G, man: 1 }} anims={{ walk: [[c1, 0.55], [c2, 1.0]], ang: [[c1, 1.1], [c2, 0.9]], dist: [[c1, 8], [c2, 7]], h: [[c1, 2], [c2, 2.5]], tx: [[c1, 8], [c2, 8]], ty: [[c1, -0.6], [c2, 0.2]], tz: [[c1, -4.5], [c2, -5.8]], lens: [[c1, 1.2], [c2, 1.2]] }} />
       {/* The crops still wilt. */}
       <Scene t0={c2} t1={c3} set={{ ...G }} anims={{ crop: [[c2, 0.5], [c3 - 0.3, 0]], ang: [[c2, 0.1], [c3, 0.35]], dist: [[c2, 6], [c3, 5]], h: [[c2, 1.5], [c3, 1.2]], tx: [[c2, -2], [c3, -2]], ty: [[c2, 0.3], [c3, 0.3]], tz: [[c2, -9], [c3, -9]], lens: [[c2, 1.3], [c3, 1.3]] }} />
       {/* A giant wooden wheel stands in the river. */}

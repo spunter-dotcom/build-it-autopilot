@@ -3,7 +3,6 @@
 ## Next (the producer takes the first unchecked one)
 Rewritten 2026-11-22 by the weekly analyst. No new Metricool numbers this week, so the leads are still last week's (ships, Roman building, water, ancient spectacle): 5 that resemble them and 2 experiments (new families, marked).
 
-- [ ] Noria (river-driven water-lifting wheel)
 - [ ] Lighthouse of Alexandria (Pharos)
 - [ ] Raising an Egyptian obelisk
 - [ ] Blacksmith forge with bellows (experiment: crafts family)
@@ -13,6 +12,7 @@ Rewritten 2026-11-22 by the weekly analyst. No new Metricool numbers this week, 
 castle drawbridge · portcullis · olive oil screw press · lime kiln · charcoal clamp · pottery kiln · saw pit · ropewalk · warp-weighted loom · straw beehive (skep) · bread oven · smokehouse · fire beacon tower · mangonel · weir · hand quern · horse-powered mill · rope-and-pulley hoist · wooden barrel · thatched roof · timber-frame house · stone fireplace and chimney · palisade fort
 
 ## Done
+- [x] 2026-11-23 Noria (river-driven water-lifting wheel)
 - [x] 2026-11-23 Roman bathhouse with hypocaust heating
 - [x] 2026-11-22 Viking longship
 - [x] 2026-11-21 Ice house (experiment: food-storage family)
