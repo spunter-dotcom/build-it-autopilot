@@ -66,11 +66,11 @@ vec2 map(vec3 p){
   // ---- hypocaust: tile stacks and the floor they carry (hot and warm rooms, x -8.85..2.85) ----
   float FH=0.9*clamp(u_pilae,0.0,1.0);
   {
-    vec2 cc; vec3 q=cellXZ(p-vec3(0.3,0.0,0.3),0.6,cc);
-    bool inz=cc.x>=-15.0 && cc.x<=4.0 && cc.y>=-5.0 && cc.y<=4.0;
+    vec2 cc; vec3 q=cellXZ(p-vec3(0.2,0.0,0.0),0.8,cc);
+    bool inz=cc.x>=-11.0 && cc.x<=3.0 && cc.y>=-3.0 && cc.y<=3.0;
     float d=1e3;
-    if(inz && p.y<1.3) d=cellBound(q,0.6);
-    if(inz) d=min(d,sdRoundBox(q-vec3(0.0,0.5*FH,0.0),vec3(0.13,0.5*FH+0.001,0.13),0.01));
+    if(inz && p.y<1.3) d=cellBound(q,0.8);
+    if(inz) d=min(d,sdRoundBox(q-vec3(0.0,0.5*FH,0.0),vec3(0.16,0.5*FH+0.001,0.16),0.01));
     res=opU(res,vec2(u_pilae>0.01 ? d : 1e3,5.0));
   }
   // First floor layer (tiles), lifted with the stacks.
@@ -92,7 +92,7 @@ vec2 map(vec3 p){
     float x1=-9.4+11.8*clamp(u_heat,0.0,1.0);
     float hs=1e3;
     for(int i=0;i<4;i++){
-      float z=-1.8+1.2*float(i);
+      float z=-1.2+0.8*float(i);
       hs=min(hs,sdCapsule(p,vec3(-9.4,0.42,z),vec3(x1,0.42+0.04*sin(p.x*2.0+float(i)),z),0.07));
     }
     res=opU(res,vec2(hs,14.0));
@@ -109,11 +109,17 @@ vec2 map(vec3 p){
     tb=min(tb,te);
     tb=max(tb,max(p.y-top,FT-p.y));
     res=opU(res,vec2(tb,6.0));
-    // chimneys on top of the back wall
-    vec3 ch=vec3(mod(p.x+1.5,3.0)-1.5,p.y,p.z+3.0);
-    float cd=sdRoundBox(ch-vec3(0.0,H+0.5,0.0),vec3(0.3,0.5*clamp(u_tubes*2.0-1.0,0.0,1.0)+0.01,0.3),0.02);
+  }
+  // ---- chimneys through the roof, with smoke (only with the roof on) ----
+  if(u_roof>0.5 && u_tubes>0.5){
+    vec3 ch=vec3(mod(p.x+1.5,3.0)-1.5,p.y,p.z+1.5);
+    float cd=sdRoundBox(ch-vec3(0.0,H+1.2,0.0),vec3(0.3,1.2,0.3),0.02);
     cd=max(cd,abs(p.x+3.0)-5.5);
     res=opU(res,vec2(cd,5.0));
+    float pf=sdEllipsoid(ch-vec3(0.25,H+3.1,0.0),vec3(0.55,0.4,0.5))+0.08*noise2(p.xz*3.0+p.y);
+    pf=min(pf,sdEllipsoid(ch-vec3(0.7,H+3.8,0.1),vec3(0.75,0.45,0.6)));
+    pf=max(pf,abs(p.x+3.0)-6.5);
+    res=opU(res,vec2(pf,12.0));
   }
   // ---- hot pool (caldarium) and warm-room bench ----
   if(u_hpool>0.01){

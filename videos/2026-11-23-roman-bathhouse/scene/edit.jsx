@@ -48,7 +48,7 @@ export default async ({ project }) => {
       <Scene t0={c7} t1={c8} set={{ ...FURN }} anims={{ ang: [[c7, 0.5], [c8, 0.2]], dist: [[c7, 13], [c8, 11]], h: [[c7, 4], [c8, 3]], tx: [[c7, -6], [c8, -5]], ty: [[c7, 1], [c8, 1]] }} />
       {/* Lift the floor on stacks of tiles. */}
       <Scene t0={c8} t1={k2} set={{ ...FURN }} anims={{ pilae: [[c8, 0], [c8 + 2.8, 1]], ang: [[c8, 0.35], [k2, 0.15]], dist: [[c8, 10], [k2, 8.5]], h: [[c8, 1.5], [k2, 1.0]], tx: [[c8, -4], [k2, -4]], ty: [[c8, 0.6], [k2, 0.6]] }} />
-      <Scene t0={k2} t1={c9} set={{ ...HYPO }} anims={{ ang: [[k2, 0.1], [c9, 0.35]], dist: [[k2, 5.5], [c9, 4.8]], h: [[k2, 0.35], [c9, 0.3]], tx: [[k2, -5], [c9, -5.5]], ty: [[k2, 0.5], [c9, 0.5]], tz: [[k2, 1.5], [c9, 1.5]] }}>
+      <Scene t0={k2} t1={c9} set={{ ...HYPO }} anims={{ ang: [[k2, 0.15], [c9, 0.4]], dist: [[k2, 7.5], [c9, 6.5]], h: [[k2, 0.6], [c9, 0.5]], tx: [[k2, -5], [c9, -5.5]], ty: [[k2, 0.6], [c9, 0.6]], tz: [[k2, 1.0], [c9, 1.0]] }}>
         <Label s={k2} t0={k2 + 0.1} t1={c9} text="HYPOCAUST" y={1500} />
       </Scene>
       {/* Hot air flows between the stacks. */}
