@@ -1,7 +1,7 @@
 // scene.glsl: raising an Egyptian obelisk. Three sets (u_site):
 // 0 quarry at Aswan: a bedrock shelf (top y=2) with an obelisk lying along x, freed by a trench that deepens
 //   with u_trench; workers pound with stone balls; red marks on the far trench wall (u_marks); a crack (u_crack).
-// 1 the Nile: river (z > -2) and a sandy bank; the obelisk on a wooden sledge moves along the bank (u_sx);
+// 1 the Nile: river (z > -2) and a sandy bank with four trees; the obelisk on a wooden sledge moves along the bank (u_sx);
 //   a barge (centre x = u_bx) carries it once u_load > 0.5.
 // 2 the temple: pylon behind (z=-9), pedestal at the origin inside a brick sand pit (walls 5 high), a brick ramp
 //   along +x. u_haul slides the obelisk (base first) along the ramp top to the pit; u_sand drains the pit so the
@@ -72,7 +72,13 @@ vec2 map(vec3 p){
     // ---- the Nile ----
     res=opU(res,pWater(p,0.1));
     res=opU(res,vec2(sdRoundBox(p-vec3(0.0,0.25,-32.0),vec3(200.0,0.3,30.0),0.2),0.0));
-    res=opU(res,pForest(p,5.0,30.0,-24.0,-10.0));
+    float fb=sdRoundBox(p-vec3(0.5,4.0,-15.0),vec3(14.5,4.0,3.0),0.0);
+    if(fb>0.5) res=opU(res,vec2(fb,11.0)); else {
+      res=opU(res,pTree(p-vec3(-12.0,0.55,-14.0),3.6));
+      res=opU(res,pTree(p-vec3(-4.0,0.55,-16.0),4.2));
+      res=opU(res,pTree(p-vec3(4.5,0.55,-13.5),3.4));
+      res=opU(res,pTree(p-vec3(13.0,0.55,-15.5),4.0));
+    }
     // the barge
     vec3 b=p-vec3(u_bx,0.0,4.0);
     float bbx=sdRoundBox(b-vec3(0.0,1.0,0.0),vec3(9.5,1.6,2.8),0.0);
