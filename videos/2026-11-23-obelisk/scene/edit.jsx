@@ -53,9 +53,9 @@ export default async ({ project }) => {
       {/* How to stand it up? An empty pedestal at the temple. */}
       <Scene t0={c9} t1={c10} set={{ ...T, clear: 1, hide: 1 }} anims={{ ang: [[c9, 0.5], [c10, 0.2]], dist: [[c9, 9], [c10, 7]], h: [[c9, 3], [c10, 2]], tx: [[c9, 0], [c10, 0]], ty: [[c9, 1], [c10, 1]], tz: [[c9, 0], [c10, 0]], lens: [[c9, 1.2], [c10, 1.2]] }} />
       {/* A ramp ending in a pit of sand. */}
-      <Scene t0={c10} t1={c11} set={{ ...T, hide: 1 }} anims={{ ang: [[c10, 0.45], [c11, 0.3]], dist: [[c10, 28], [c11, 25]], h: [[c10, 9], [c11, 7]], tx: [[c10, 8], [c11, 7]], ty: [[c10, 3], [c11, 3]], tz: [[c10, 0], [c11, 0]] }} />
+      <Scene t0={c10} t1={c11} set={{ ...T, hide: 1 }} anims={{ ang: [[c10, 0.45], [c11, 0.3]], dist: [[c10, 28], [c11, 25]], h: [[c10, 16], [c11, 14]], tx: [[c10, 8], [c11, 7]], ty: [[c10, 3], [c11, 3]], tz: [[c10, 0], [c11, 0]] }} />
       {/* Haul it up, base first, over the pit. */}
-      <Scene t0={c11} t1={c12} set={{ ...T }} anims={{ haul: [[c11 + 0.2, 0], [c12 - 0.2, 1]], ang: [[c11, 0.55], [c12, 0.4]], dist: [[c11, 20], [c12, 17]], h: [[c11, 4], [c12, 3]], tx: [[c11, 6], [c12, 3]], ty: [[c11, 5], [c12, 5]], tz: [[c11, 0], [c12, 0]] }} />
+      <Scene t0={c11} t1={c12} set={{ ...T }} anims={{ haul: [[c11 + 0.2, 0], [c12 - 0.2, 1]], ang: [[c11, 0.55], [c12, 0.4]], dist: [[c11, 20], [c12, 17]], h: [[c11, 10], [c12, 8]], tx: [[c11, 6], [c12, 3]], ty: [[c11, 5], [c12, 5]], tz: [[c11, 0], [c12, 0]] }} />
       {/* Cutaway: the sand pours out, the base sinks. */}
       <Scene t0={c12} t1={c13} set={{ ...T, haul: 1, cut: 1 }} anims={{ sand: [[c12 + 0.3, 0], [c13, 0.5]], ang: [[c12, 0.15], [c13, 0.3]], dist: [[c12, 14], [c13, 12]], h: [[c12, 1], [c13, 0.5]], tx: [[c12, 1.5], [c13, 1.5]], ty: [[c12, 3.5], [c13, 3]], tz: [[c12, 0], [c13, 0]] }} />
       <Scene t0={c13} t1={c14} set={{ ...T, haul: 1, cut: 1 }} anims={{ sand: [[c13, 0.5], [K("groove"), 1]], ang: [[c13, -0.1], [c14, 0.1]], dist: [[c13, 9], [c14, 7.5]], h: [[c13, 0.5], [c14, 0.2]], tx: [[c13, 0.8], [c14, 0.6]], ty: [[c13, 2], [c14, 1.6]], tz: [[c13, 0], [c14, 0]], lens: [[c13, 1.1], [c14, 1.2]] }} />
