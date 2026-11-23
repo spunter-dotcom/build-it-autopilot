@@ -48,8 +48,8 @@ vec2 map(vec3 p){
     vec3 w=drop(p,u_wheel)-vec3(0.0,y0,-3.5);
     // axle and its two stone piers
     res=opU(res,pLog(w,vec3(0.0,0.0,-1.1),vec3(0.0,0.0,1.2),0.22+0.02*R));
-    res=opU(res,pBlock(w-vec3(0.0,-0.5*(y0+2.6)-0.3,1.0),vec3(0.6,0.5*(y0+2.6),0.25),2.0));
-    res=opU(res,pBlock(w-vec3(0.0,-0.5*(y0+2.6)-0.3,-0.95),vec3(0.6,0.5*(y0+2.6),0.25),2.0));
+    res=opU(res,pBlock(w-vec3(0.0,-0.5*(y0+2.6)-0.3,1.0),vec3(0.35,0.5*(y0+2.6),0.25),2.0));
+    res=opU(res,pBlock(w-vec3(0.0,-0.5*(y0+2.6)-0.3,-0.95),vec3(0.35,0.5*(y0+2.6),0.25),2.0));
     vec3 q=w; q.xy=rot(-u_time*0.4*u_turn)*q.xy;
     res=opU(res,pWheel(q,R,0.06+0.03*R,1.0,12.0,3.0));
     float NB=floor(mix(16.0,120.0,clamp((R-3.0)/7.5,0.0,1.0))+0.5);

@@ -41,7 +41,7 @@ export default async ({ project }) => {
       {/* Boxes around the rim. */}
       <Scene t0={c6} t1={c7} set={{ ...TURN }} anims={{ box: [[c6 + 0.2, 0], [c7 - 0.2, 1]], ang: [[c6, 0.15], [c7, 0.4]], dist: [[c6, 10], [c7, 9]], h: [[c6, 2.5], [c7, 2]], ty: [[c6, 1.2], [c7, 1.2]], tz: [[c6, -3.5], [c7, -3.5]] }} />
       {/* A box dips, fills and rides to the top. */}
-      <Scene t0={c7} t1={k1} set={{ ...BOX }} anims={{ ang: [[c7, 0.4], [k1, 0.25]], dist: [[c7, 6], [k1, 7]], h: [[c7, 1.2], [k1, 1.0]], ty: [[c7, -0.6], [C("and rides"), -0.4], [k1, 3.2]], tz: [[c7, -3.5], [k1, -3.5]], lens: [[c7, 1.2], [k1, 1.2]] }} />
+      <Scene t0={c7} t1={k1} set={{ ...BOX }} anims={{ ang: [[c7, 1.0], [k1, 0.8]], dist: [[c7, 6], [k1, 7]], h: [[c7, 1.0], [k1, 1.0]], tx: [[c7, 1.6], [k1, 1.6]], ty: [[c7, -0.6], [C("and rides"), -0.4], [k1, 3.2]], tz: [[c7, -3.5], [k1, -3.5]], lens: [[c7, 1.2], [k1, 1.2]] }} />
       <Scene t0={k1} t1={c8} set={{ ...BOX }} anims={{ ang: [[k1, 0.1], [c8, 0.3]], dist: [[k1, 12], [c8, 11]], h: [[k1, 1.2], [c8, 1.5]], ty: [[k1, 1.2], [c8, 1.2]], tz: [[k1, -3.5], [c8, -3.5]] }}>
         <Label s={k1} t0={k1 + 0.1} t1={c8} text="NORIA" y={1500} />
       </Scene>
@@ -57,7 +57,7 @@ export default async ({ project }) => {
       {/* Too small to reach the highest fields. */}
       <Scene t0={c11} t1={c12} set={{ ...AQ }} anims={{ ang: [[c11, 0.75], [c12, 0.6]], dist: [[c11, 26], [c12, 24]], h: [[c11, 14], [c12, 12]], tx: [[c11, -6], [c12, -6]], ty: [[c11, 0], [c12, 0]], tz: [[c11, -8], [c12, -8]] }} />
       {/* Bigger. Much bigger. */}
-      <Scene t0={c12} t1={c13} set={{ ...AQ }} anims={{ R: [[c12 + 0.3, 3], [K("21") - 0.1, 10.5]], ang: [[c12, 0.45], [c13, 0.2]], dist: [[c12, 18], [K("21"), 38], [c13, 40]], h: [[c12, 4], [c13, 8]], tx: [[c12, -2], [c13, -5]], ty: [[c12, 3], [K("21"), 8], [c13, 8]], tz: [[c12, -4], [c13, -4]] }}>
+      <Scene t0={c12} t1={c13} set={{ ...AQ }} anims={{ R: [[c12 + 0.3, 3], [K("21") - 0.1, 10.5]], ang: [[c12, 0.45], [c13, 0.2]], dist: [[c12, 16], [K("21"), 30], [c13, 31]], h: [[c12, 4], [c13, 8]], tx: [[c12, -2], [c13, -5]], ty: [[c12, 3], [K("21"), 8], [c13, 8]], tz: [[c12, -4], [c13, -4]] }}>
         <Card s={c12} t0={K("21")} t1={K("with")} title="21 METRES" sub="ACROSS" />
         <Card s={c12} t0={K("with")} t1={c13} title="120 BOXES" sub="ON ONE RIM" />
       </Scene>
@@ -68,14 +68,14 @@ export default async ({ project }) => {
         <Card s={c14} t0={K("comes from")} t1={c15} title="NA'URA" sub="ARABIC: TO GROAN" />
       </Scene>
       {/* Hama, 1361. */}
-      <Scene t0={c15} t1={c16} set={{ ...BIG }} anims={{ ang: [[c15, 0.85], [c16, 0.5]], dist: [[c15, 36], [c16, 34]], h: [[c15, 6], [c16, 5]], tx: [[c15, -5], [c16, -5]], ty: [[c15, 8], [c16, 8]], tz: [[c15, -4], [c16, -4]] }}>
+      <Scene t0={c15} t1={c16} set={{ ...BIG }} anims={{ ang: [[c15, 0.85], [c16, 0.5]], dist: [[c15, 31], [c16, 29]], h: [[c15, 6], [c16, 5]], tx: [[c15, -5], [c16, -5]], ty: [[c15, 8], [c16, 8]], tz: [[c15, -4], [c16, -4]] }}>
         <Card s={c15} t0={c15 + 0.2} t1={c16} title="1361" sub="HAMA, SYRIA" />
       </Scene>
       {/* Water reaches the fields; the crops recover. */}
       <Scene t0={c16} t1={c17} set={{ ...BIG }} anims={{ crop: [[c16 + 0.5, 0], [c17 - 0.3, 1]], ang: [[c16, 0.5], [c17, 0.3]], dist: [[c16, 22], [c17, 20]], h: [[c16, 9], [c17, 8]], tx: [[c16, -14], [c17, -12]], ty: [[c16, 1], [c17, 1]], tz: [[c16, -10], [c17, -10]] }}>
         <Card s={c16} t0={K("lift")} t1={c17} title="200,000 LITRES" sub="EVERY HOUR" />
       </Scene>
-      <Scene t0={c17} t1={DUR} set={{ ...BIG, crop: 1 }} anims={{ ang: [[c17, 0.25], [DUR, -0.3]], dist: [[c17, 36], [DUR, 42]], h: [[c17, 7], [DUR, 9]], tx: [[c17, -5], [DUR, -5]], ty: [[c17, 7], [DUR, 7]], tz: [[c17, -4], [DUR, -4]] }} />
+      <Scene t0={c17} t1={DUR} set={{ ...BIG, crop: 1 }} anims={{ ang: [[c17, 0.25], [DUR, -0.3]], dist: [[c17, 29], [DUR, 33]], h: [[c17, 7], [DUR, 9]], tx: [[c17, -5], [DUR, -5]], ty: [[c17, 7], [DUR, 7]], tz: [[c17, -4], [DUR, -4]] }} />
       <Captions />
     </frame>,
     { at: 0, dur: DUR }
