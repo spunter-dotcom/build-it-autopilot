@@ -29,10 +29,11 @@ vec2 map(vec3 p){
     // ---- smithy ----
     res=opU(res,pWall(p-vec3(0.0,0.0,-1.9),vec3(4.0,1.6,0.25),12.0));            // back wall
     // hearth of brick rising with u_hearth
-    res=opU(res,vec2(rise(sdRoundBox(p-vec3(0.0,0.45,0.0),vec3(1.0,0.45,0.7),0.02),p,u_hearth,0.92),5.0));
+    res=opU(res,vec2(rise(sdRoundBox(p-vec3(0.0,0.45,-0.45),vec3(1.0,0.45,1.15),0.02),p,u_hearth,0.92),5.0));
     // hood and chimney (part of the back wall, only once the hearth is up)
     if(u_hearth>0.99){
-      res=opU(res,pBlock(p-vec3(0.0,2.4,-1.15),vec3(0.9,0.5,0.5),5.0));
+      res=opU(res,pBlock(p-vec3(0.0,1.5,-1.45),vec3(0.85,0.6,0.2),5.0));            // fireback
+      res=opU(res,pBlock(p-vec3(0.0,2.45,-1.2),vec3(0.95,0.38,0.45),5.0));          // hood
       res=opU(res,pBlock(p-vec3(0.0,3.6,-1.4),vec3(0.35,0.8,0.3),5.0));
     }
     if(u_smoke>0.01){
@@ -103,8 +104,8 @@ vec2 map(vec3 p){
     }
     if(u_steam>0.01){
       vec3 s=p-vec3(0.9,0.75+0.5*u_steam,1.6);
-      res=opU(res,vec2(sdSphere(s,0.3*u_steam),12.0));
-      res=opU(res,vec2(sdSphere(s-vec3(0.25,0.3*u_steam,0.05),0.22*u_steam),12.0));
+      res=opU(res,vec2(sdSphere(s-vec3(0.25,0.0,-0.05),0.13*u_steam),12.0));
+      res=opU(res,vec2(sdSphere(s-vec3(0.4,0.25*u_steam,-0.1),0.1*u_steam),12.0));
     }
     // a finished plough share leaning on the wall for the ending
     res=opU(res,vec2(sdRoundBox(p-vec3(-3.0,0.35,-1.5),vec3(0.25,0.35,0.03),0.01),7.0));

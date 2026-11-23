@@ -41,7 +41,7 @@ export default async ({ project }) => {
       {/* Squeeze: the fire roars. */}
       <Scene t0={c6} t1={k1} set={{ ...LIT, bel: 1, puff: 1 }} anims={{ fire: [[c6, 0.3], [c6 + 1.4, 1]], smoke: [[c6 + 0.8, 0], [k1, 1]], ang: [[c6, 0.3], [k1, 0.0]], dist: [[c6, 6], [k1, 7]], h: [[c6, 2], [k1, 2.8]], ty: [[c6, 1.4], [k1, 1.6]] }} />
       <Scene t0={k1} t1={c7} set={{ ...BEL }} anims={{ ang: [[k1, -1.1], [c7, -0.8]], dist: [[k1, 3.2], [c7, 2.8]], h: [[k1, 1.0], [c7, 0.9]], tx: [[k1, -1.8], [c7, -1.8]], ty: [[k1, 0.8], [c7, 0.8]], lens: [[k1, 1.3], [c7, 1.3]] }}>
-        <Label s={k1} t0={K("this is a bellows") + 0.1} t1={c7} text="BELLOWS" y={560} />
+        <Label s={k1} t0={K("this is a bellows") + 0.1} t1={c7} text="BELLOWS" y={380} />
       </Scene>
       {/* The bar goes in and heats: red, orange, nearly white. */}
       <Scene t0={c7} t1={c8} set={{ ...BEL, bar: 1 }} anims={{ hot: [[K("glows"), 0], [K("red"), 0.35], [K("orange"), 0.7], [K("white"), 1]], ang: [[c7, 0.5], [c8, 0.2]], dist: [[c7, 3.5], [c8, 2.6]], h: [[c7, 1.6], [c8, 1.1]], tx: [[c7, 0.5], [c8, 0.5]], ty: [[c7, 1.0], [c8, 1.0]], lens: [[c7, 1.3], [c8, 1.3]] }} />
@@ -50,8 +50,8 @@ export default async ({ project }) => {
       <Scene t0={c9} t1={c10} set={{ ...BEL, bar: 1, hot: 1 }} anims={{ ang: [[c9, 0.6], [c10, 0.4]], dist: [[c9, 6], [c10, 5]], h: [[c9, 2.2], [c10, 1.8]], tx: [[c9, 1.4], [c10, 1.6]], ty: [[c9, 0.8], [c10, 0.8]] }} />
       {/* The anvil drops onto its stump. */}
       <Scene t0={c10} t1={k2} set={{ ...BEL, bar: 1, hot: 1 }} anims={{ anvil: [[c10 + 0.6, 0], [c10 + 2.0, 1]], ang: [[c10, 0.9], [k2, 0.6]], dist: [[c10, 4.5], [k2, 3.6]], h: [[c10, 1.8], [k2, 1.3]], tx: [[c10, 2.0], [k2, 2.0]], ty: [[c10, 0.7], [k2, 0.7]] }} />
-      <Scene t0={k2} t1={c11} set={{ ...ANV, bar: 1, hot: 1 }} anims={{ ang: [[k2, 1.6], [c11, 1.3]], dist: [[k2, 2.6], [c11, 2.3]], h: [[k2, 0.6], [c11, 0.5]], tx: [[k2, 2.0], [c11, 2.0]], ty: [[k2, 0.75], [c11, 0.75]], lens: [[k2, 1.3], [c11, 1.3]] }}>
-        <Label s={k2} t0={K("this is an anvil") + 0.1} t1={c11} text="ANVIL" y={560} />
+      <Scene t0={k2} t1={c11} set={{ ...ANV, bar: 1, hot: 1 }} anims={{ ang: [[k2, 0.75], [c11, 0.95]], dist: [[k2, 3.2], [c11, 2.9]], h: [[k2, 1.1], [c11, 1.0]], tx: [[k2, 2.0], [c11, 2.0]], ty: [[k2, 0.75], [c11, 0.75]], lens: [[k2, 1.3], [c11, 1.3]] }}>
+        <Label s={k2} t0={K("this is an anvil") + 0.1} t1={c11} text="ANVIL" y={380} />
       </Scene>
       {/* Onto the anvil and hammered. */}
       <Scene t0={c11} t1={c12} set={{ ...ANV, bar: 1, hot: 1 }} anims={{ barx: [[c11 + 0.2, 0], [c11 + 1.0, 1]], ham: [[c11 + 1.2, 0], [c11 + 1.3, 1]], ang: [[c11, 0.4], [c12, 0.7]], dist: [[c11, 4.2], [c12, 3.4]], h: [[c11, 1.8], [c12, 1.4]], tx: [[c11, 1.4], [c12, 2.0]], ty: [[c11, 0.9], [c12, 0.9]] }} />
@@ -61,7 +61,7 @@ export default async ({ project }) => {
       {/* Two white-hot bars hammered into one. */}
       <Scene t0={c14} t1={k3} set={{ ...ANV, bar: 1, hot: 1, barx: 1 }} anims={{ weld: [[K("strike"), 0], [K("fuse"), 1]], ham: [[K("strike"), 0], [K("strike") + 0.1, 1]], ang: [[c14, -0.3], [k3, 0.1]], dist: [[c14, 3.0], [k3, 2.6]], h: [[c14, 1.2], [k3, 1.0]], tx: [[c14, 2.6], [k3, 2.6]], ty: [[c14, 0.9], [k3, 0.9]], lens: [[c14, 1.3], [k3, 1.3]] }} />
       <Scene t0={k3} t1={c15} set={{ ...ANV, bar: 1, hot: 1, barx: 1, weld: 1, ham: 1 }} anims={{ ang: [[k3, 0.9], [c15, 1.2]], dist: [[k3, 2.4], [c15, 2.2]], h: [[k3, 1.2], [c15, 1.0]], tx: [[k3, 2.7], [c15, 2.7]], ty: [[k3, 0.9], [c15, 0.9]], lens: [[k3, 1.3], [c15, 1.3]] }}>
-        <Label s={k3} t0={K("that is a forge") + 0.1} t1={c15} text="FORGE WELD" y={560} />
+        <Label s={k3} t0={K("that is a forge") + 0.1} t1={c15} text="FORGE WELD" y={380} />
       </Scene>
       {/* The trough, the blade, the hiss. */}
       <Scene t0={c15} t1={c16} set={{ ...ANV }} anims={{ trough: [[c15, 0], [c15 + 0.9, 1]], blade: [[K("plunge"), 0.01], [K("hiss") - 0.2, 1]], steam: [[K("hiss") - 0.3, 0], [K("hiss") + 0.4, 1], [c16, 0.6]], ang: [[c15, 0.5], [c16, 0.25]], dist: [[c15, 4.2], [c16, 3.2]], h: [[c15, 2.0], [c16, 1.6]], tx: [[c15, 0.9], [c16, 0.9]], ty: [[c15, 0.7], [c16, 0.8]], tz: [[c15, 1.4], [c16, 1.4]] }} />
