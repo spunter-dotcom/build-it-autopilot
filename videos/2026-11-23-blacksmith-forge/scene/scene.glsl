@@ -71,10 +71,10 @@ vec2 map(vec3 p){
     }
     // the smith; arms swing while hammering
     float pose=u_ham>0.01 ? 0.5+0.5*sin(u_time*7.0) : 0.0;
-    res=opU(res,pPerson(p-vec3(2.2,0.0,0.95),pose,0.55));
+    res=opU(res,pPerson(p-vec3(2.2,0.0,-0.6),pose,0.55));
     if(u_ham>0.01){
-      vec3 hp=mix(vec3(2.4,0.66,1.05),vec3(2.4,1.35,1.07),pose);
-      res=opU(res,vec2(sdRoundBox(p-hp-vec3(0.0,0.0,-0.25),vec3(0.06,0.06,0.1),0.01),7.0));
+      vec3 hp=mix(vec3(2.45,0.66,-0.5),vec3(2.45,1.35,-0.48),pose);
+      res=opU(res,vec2(sdRoundBox(p-hp-vec3(0.0,0.0,0.25),vec3(0.06,0.06,0.1),0.01),7.0));
     }
     // iron bar: in the coals (u_barx 0) or on the anvil (u_barx 1)
     float hid=hotId(u_hot);

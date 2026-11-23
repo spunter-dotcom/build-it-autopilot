@@ -40,7 +40,7 @@ export default async ({ project }) => {
       <Scene t0={c5} t1={c6} set={{ ...LIT }} anims={{ bel: [[c5 + 0.3, 0], [c5 + 1.8, 1]], ang: [[c5, -0.9], [c6, -0.6]], dist: [[c5, 5.5], [c6, 4.5]], h: [[c5, 2.2], [c6, 1.6]], tx: [[c5, -1.3], [c6, -1.3]], ty: [[c5, 0.8], [c6, 0.8]] }} />
       {/* Squeeze: the fire roars. */}
       <Scene t0={c6} t1={k1} set={{ ...LIT, bel: 1, puff: 1 }} anims={{ fire: [[c6, 0.3], [c6 + 1.4, 1]], smoke: [[c6 + 0.8, 0], [k1, 1]], ang: [[c6, 0.3], [k1, 0.0]], dist: [[c6, 6], [k1, 7]], h: [[c6, 2], [k1, 2.8]], ty: [[c6, 1.4], [k1, 1.6]] }} />
-      <Scene t0={k1} t1={c7} set={{ ...BEL }} anims={{ ang: [[k1, -1.1], [c7, -0.8]], dist: [[k1, 3.2], [c7, 2.8]], h: [[k1, 1.0], [c7, 0.9]], tx: [[k1, -1.8], [c7, -1.8]], ty: [[k1, 0.8], [c7, 0.8]], lens: [[k1, 1.3], [c7, 1.3]] }}>
+      <Scene t0={k1} t1={c7} set={{ ...BEL }} anims={{ ang: [[k1, -0.9], [c7, -0.6]], dist: [[k1, 5.0], [c7, 4.4]], h: [[k1, 1.8], [c7, 1.5]], tx: [[k1, -1.6], [c7, -1.6]], ty: [[k1, 0.8], [c7, 0.8]], lens: [[k1, 1.3], [c7, 1.3]] }}>
         <Label s={k1} t0={K("this is a bellows") + 0.1} t1={c7} text="BELLOWS" y={380} />
       </Scene>
       {/* The bar goes in and heats: red, orange, nearly white. */}
