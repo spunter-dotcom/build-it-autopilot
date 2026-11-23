@@ -14,6 +14,8 @@ const float OW=0.55;   // half width at the base
 
 // obelisk in its own frame: base centre at origin, axis +y
 float sdObelisk(vec3 q){
+  float bnd=sdCapsule(q,vec3(0.0),vec3(0.0,OL+0.6,0.0),0.85);
+  if(bnd>0.3) return bnd;
   float t=clamp(q.y/OL,0.0,1.0);
   float w=mix(OW,0.38,t);
   float m=max(abs(q.x),abs(q.z));
@@ -61,19 +63,24 @@ vec2 map(vec3 p){
     }
     // workers on the near edge of the trench
     float wy=2.0;
-    res=opU(res,pPounder(p-vec3(-3.5,wy,1.75),0.0));
-    res=opU(res,pPounder(p-vec3(-0.5,wy,1.75),1.0));
-    res=opU(res,pPounder(p-vec3(2.5,wy,1.75),2.0));
-    res=opU(res,pPounder(p-vec3(5.2,wy,1.75),3.0));
+    float wb=sdRoundBox(p-vec3(0.85,3.0,1.6),vec3(5.0,1.2,0.7),0.0);
+    if(wb>0.5) res=opU(res,vec2(wb,9.0)); else {
+      res=opU(res,pPounder(p-vec3(-3.5,wy,1.75),0.0));
+      res=opU(res,pPounder(p-vec3(-0.5,wy,1.75),1.0));
+      res=opU(res,pPounder(p-vec3(2.5,wy,1.75),2.0));
+      res=opU(res,pPounder(p-vec3(5.2,wy,1.75),3.0));
+    }
     res=opU(res,pRock(p-vec3(-14.0,0.0,-6.0),2.5));
     res=opU(res,pRock(p-vec3(13.0,0.0,-5.0),2.0));
   } else if(u_site<1.5){
     // ---- the Nile ----
     res=opU(res,pWater(p,0.1));
     res=opU(res,vec2(sdRoundBox(p-vec3(0.0,0.25,-32.0),vec3(200.0,0.3,30.0),0.2),0.0));
-    res=opU(res,pForest(p,4.5,60.0,-30.0,-10.0));
+    res=opU(res,pForest(p,4.5,40.0,-26.0,-10.0));
     // the barge
     vec3 b=p-vec3(u_bx,0.0,4.0);
+    float bbx=sdRoundBox(b-vec3(0.0,1.0,0.0),vec3(9.5,1.6,2.8),0.0);
+    if(bbx>0.5) res=opU(res,vec2(bbx,3.0)); else {
     float hull=max(sdEllipsoid(b-vec3(0.0,0.2,0.0),vec3(9.0,1.0,2.4)),b.y-0.6);
     res=opU(res,vec2(hull,3.0));
     res=opU(res,pBeam(b-vec3(-7.6,1.2,0.0),vec3(0.08,0.9,0.08)));
@@ -83,9 +90,13 @@ vec2 map(vec3 p){
     if(u_load>0.5){
       vec3 o=b-vec3(-4.6,0.6+OW,0.0); o=vec3(-o.y,o.x,o.z);
       res=opU(res,vec2(sdObelisk(o),4.0));
-    } else {
+    }
+    }
+    if(u_load<0.5){
       // on a sledge on the bank, haulers ahead with ropes
       vec3 s=p-vec3(u_sx,0.55,-4.0);
+      float sb=sdRoundBox(s-vec3(1.1,0.5,0.0),vec3(9.5,1.2,1.4),0.0);
+      if(sb>0.5) res=opU(res,vec2(sb,3.0)); else {
       res=opU(res,pBeam(s-vec3(5.0,0.12,0.45),vec3(5.6,0.12,0.12)));
       res=opU(res,pBeam(s-vec3(5.0,0.12,-0.45),vec3(5.6,0.12,0.12)));
       vec3 o=s-vec3(0.0,0.24+OW,0.0); o=vec3(-o.y,o.x,o.z);
@@ -97,6 +108,7 @@ vec2 map(vec3 p){
       }
       res=opU(res,pRope(s,vec3(0.0,0.3,0.4),vec3(-7.0,1.0,0.9)));
       res=opU(res,pRope(s,vec3(0.0,0.3,-0.4),vec3(-7.6,1.0,-0.9)));
+      }
     }
   } else {
     // ---- the temple ----
@@ -124,6 +136,8 @@ vec2 map(vec3 p){
       vec3 top=vec3(bb+n*OW+d*7.0,0.0);
       res=opU(res,pRope(p,top+vec3(0.0,0.0,0.3),vec3(-9.0,1.0,1.0)));
       res=opU(res,pRope(p,top-vec3(0.0,0.0,0.3),vec3(-9.0,1.0,-1.0)));
+      float tb=sdRoundBox(p-vec3(-11.0,0.8,0.0),vec3(2.8,0.9,1.4),0.0);
+      if(tb>0.5) res=opU(res,vec2(tb,9.0)); else
       for(int i=0;i<4;i++){
         float x=-9.0-1.2*float(i);
         res=opU(res,pPerson(p-vec3(x,0.0,1.0),1.0,0.15*float(i)));
@@ -133,7 +147,7 @@ vec2 map(vec3 p){
     if(u_clear<0.5){
       // sand pit: brick walls 5 high around the pedestal
       float wall=max(sdRoundBox(p-vec3(0.0,2.5,0.0),vec3(2.2,2.5,2.2),0.0),-sdRoundBox(p-vec3(0.0,2.5,0.0),vec3(1.8,3.0,1.8),0.0));
-      if(u_cut>0.5) wall=max(wall,1.6-p.z);
+      if(u_cut>0.5) wall=max(wall,p.z-1.6);
       res=opU(res,vec2(wall,5.0));
       float sl=mix(4.95,0.3,clamp(u_sand,0.0,1.0));
       float sand=sdRoundBox(p-vec3(0.0,0.5*sl,0.0),vec3(1.79,0.5*sl,1.79),0.0);
