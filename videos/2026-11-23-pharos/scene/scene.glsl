@@ -110,8 +110,8 @@ vec2 map(vec3 p){
   }
   if(u_fire>0.01) res=opU(res,vec2(sdEllipsoid(o4-vec3(0.0,0.4+0.55*u_fire,0.0),vec3(0.45,0.7,0.45)*u_fire),14.0));
   if(u_mir>0.01){
-    vec3 m=o4-vec3(0.0,1.1,-0.75); m.yz=rot(0.35)*m.yz;
-    res=opU(res,vec2(sdCylinder(m.xzy,0.04,0.75*u_mir),14.0));
+    vec3 m=o4-vec3(0.0,1.1,0.85); m.yz=rot(-0.3)*m.yz;
+    res=opU(res,vec2(sdCylinder(m.xzy,0.04,0.6*u_mir),14.0));
   }
   if(u_zeus>0.01){
     vec3 z=drop(o4-vec3(0.0,2.5,0.0),u_zeus);
