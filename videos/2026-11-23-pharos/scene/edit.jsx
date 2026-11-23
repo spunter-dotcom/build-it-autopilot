@@ -74,10 +74,10 @@ export default async ({ project }) => {
         <Card s={c15} t0={K("100")} t1={c16} title="100+ M" sub="TALL" />
       </Scene>
       {/* A ship passes safely; the name lives on. */}
-      <Scene t0={c16} t1={c17} set={{ ...ALL, ship: 1, night: 0.6 }} anims={{ shipx: [[c16, -22], [c17, -14]], ang: [[c16, 0.7], [c17, 0.5]], dist: [[c16, 34], [c17, 31]], h: [[c16, 4], [c17, 4]], tx: [[c16, -8], [c17, -6]], ty: [[c16, 9], [c17, 9]], tz: [[c16, 9], [c17, 9]] }}>
+      <Scene t0={c16} t1={c17} set={{ ...ALL, ship: 1, night: 0.6 }} anims={{ shipx: [[c16, -22], [c17, -14]], ang: [[c16, 0.7], [c17, 0.5]], dist: [[c16, 34], [c17, 31]], h: [[c16, 4], [c17, 4]], tx: [[c16, -6], [c17, -4]], ty: [[c16, 10], [c17, 10]], tz: [[c16, 6], [c17, 6]] }}>
         <Card s={c16} t0={K("french")} t1={c17} title="PHARE · FARO" sub="FRENCH · ITALIAN · SPANISH" />
       </Scene>
-      <Scene t0={c17} t1={DUR} set={{ ...ALL, night: 0.6 }} anims={{ ang: [[c17, 0.4], [DUR, -0.3]], dist: [[c17, 50], [DUR, 54]], h: [[c17, 8], [DUR, 10]], tx: [[c17, -10], [DUR, -10]], ty: [[c17, 11], [DUR, 11]] }} />
+      <Scene t0={c17} t1={DUR} set={{ ...ALL, night: 0.6 }} anims={{ ang: [[c17, 0.4], [DUR, -0.3]], dist: [[c17, 50], [DUR, 54]], h: [[c17, 8], [DUR, 10]], tx: [[c17, -4], [DUR, -3]], ty: [[c17, 13], [DUR, 13]] }} />
       <Captions />
     </frame>,
     { at: 0, dur: DUR }
