@@ -1,0 +1,8 @@
+# Sources: Raising an Egyptian obelisk
+
+- The unfinished obelisk lies in the northern granite quarries at Aswan, still attached to the bedrock; 41.75 m (137 ft) long, about 1,168 tons ("the largest known ancient obelisk"); abandoned after cracks/fissures appeared in the granite, one near the bottom separating that part completely. — https://en.wikipedia.org/wiki/Unfinished_obelisk
+- Quarrying: trenches cut on the open sides by pounding the granite with balls of harder stone (diorite/dolerite "pounders", about 9–15 lb, 8–13 in across); red marker lines every 75 cm tracked progress. — https://en.wikipedia.org/wiki/Unfinished_obelisk
+- Probably 18th Dynasty, possibly under Hatshepsut (1479–1458 BCE), i.e. about 3,500 years ago (Engelbach's guess; patron unknown). — https://en.wikipedia.org/wiki/Unfinished_obelisk
+- Obelisks went from the quarry by ship down the Nile; Ineni's inscription (Thutmose I) gives an obelisk ship 120 by 40 cubits, about 63 m long and 21 m wide; a relief at Hatshepsut's temple at Deir el-Bahari shows a barge carrying two obelisks to the temple of Amun at Karnak. — https://en.wikipedia.org/wiki/Obelisk_ship
+- How obelisks were raised is not recorded; the sand-pit idea (lower the base into a turning groove on the pedestal by draining sand, then pull upright with ropes) is a modern theory, tested by NOVA in 1999. Script says "One idea". — https://www.pbs.org/wgbh/nova/lostempires/obelisk/raises06.html ; https://www.pbs.org/wgbh/nova/lostempires/obelisk/raises12.html
+- Lateran obelisk (from Karnak) about 500 tons. — https://en.wikipedia.org/wiki/Obelisk_ship
