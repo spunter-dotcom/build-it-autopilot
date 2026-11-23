@@ -1,1 +1,1 @@
-{"status": "built", "mode": "manual", "title": "You built an obelisk", "dur": 72, "voice_job": "1c7408f2-b1c9-4982-bf40-32bc82848b86", "credits": 5.29}
+{"status": "failed", "mode": "manual", "title": "You built an obelisk", "dur": 72, "voice_job": "1c7408f2-b1c9-4982-bf40-32bc82848b86", "credits": 5.29, "reason": "Render part 2 of 5 failed twice (1st: XL sandbox recycled mid-render; 2nd: not finished after ~18 min). Part 1 rendered OK (869s). Nothing uploaded or posted."}
