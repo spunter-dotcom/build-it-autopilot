@@ -41,7 +41,7 @@ export default async ({ project }) => {
       {/* Boxes around the rim. */}
       <Scene t0={c6} t1={c7} set={{ ...TURN }} anims={{ box: [[c6 + 0.2, 0], [c7 - 0.2, 1]], ang: [[c6, 0.15], [c7, 0.4]], dist: [[c6, 10], [c7, 9]], h: [[c6, 2.5], [c7, 2]], ty: [[c6, 1.2], [c7, 1.2]], tz: [[c6, -3.5], [c7, -3.5]] }} />
       {/* A box dips, fills and rides to the top. */}
-      <Scene t0={c7} t1={k1} set={{ ...BOX }} anims={{ ang: [[c7, 0.4], [k1, 0.25]], dist: [[c7, 5.5], [k1, 6.5]], h: [[c7, 0.4], [k1, 0.4]], ty: [[c7, -0.8], [C("and rides"), -0.5], [k1, 3.4]], tz: [[c7, -3.5], [k1, -3.5]], lens: [[c7, 1.2], [k1, 1.2]] }} />
+      <Scene t0={c7} t1={k1} set={{ ...BOX }} anims={{ ang: [[c7, 0.4], [k1, 0.25]], dist: [[c7, 6], [k1, 7]], h: [[c7, 1.2], [k1, 1.0]], ty: [[c7, -0.6], [C("and rides"), -0.4], [k1, 3.2]], tz: [[c7, -3.5], [k1, -3.5]], lens: [[c7, 1.2], [k1, 1.2]] }} />
       <Scene t0={k1} t1={c8} set={{ ...BOX }} anims={{ ang: [[k1, 0.1], [c8, 0.3]], dist: [[k1, 12], [c8, 11]], h: [[k1, 1.2], [c8, 1.5]], ty: [[k1, 1.2], [c8, 1.2]], tz: [[k1, -3.5], [c8, -3.5]] }}>
         <Label s={k1} t0={k1 + 0.1} t1={c8} text="NORIA" y={1500} />
       </Scene>
@@ -50,7 +50,7 @@ export default async ({ project }) => {
       {/* A stone channel on tall arches rises beside the wheel. */}
       <Scene t0={c9} t1={c10} set={{ ...BOX, spill: 1 }} anims={{ aq: [[c9 + 0.4, 0], [c10 - 0.3, 1]], ang: [[c9, 0.6], [c10, 0.35]], dist: [[c9, 19], [c10, 17]], h: [[c9, 5], [c10, 4.5]], tx: [[c9, -6], [c10, -5]], ty: [[c9, 1.5], [c10, 1.5]], tz: [[c9, -5], [c10, -5]] }} />
       {/* The boxes tip into it. */}
-      <Scene t0={c10} t1={k2} set={{ ...AQ }} anims={{ ang: [[c10, 0.95], [k2, 0.75]], dist: [[c10, 5.5], [k2, 5]], h: [[c10, 1.6], [k2, 1.4]], tx: [[c10, 0], [k2, -0.3]], ty: [[c10, 3.4], [k2, 3.4]], tz: [[c10, -4.3], [k2, -4.3]], lens: [[c10, 1.2], [k2, 1.2]] }} />
+      <Scene t0={c10} t1={k2} set={{ ...AQ }} anims={{ ang: [[c10, 0.95], [k2, 0.75]], dist: [[c10, 7], [k2, 6.5]], h: [[c10, 1.6], [k2, 1.4]], tx: [[c10, 0], [k2, -0.3]], ty: [[c10, 3.4], [k2, 3.4]], tz: [[c10, -4.3], [k2, -4.3]], lens: [[c10, 1.2], [k2, 1.2]] }} />
       <Scene t0={k2} t1={c11} set={{ ...AQ }} anims={{ ang: [[k2, 0.55], [c11, 0.35]], dist: [[k2, 17], [c11, 16]], h: [[k2, 2], [c11, 2.5]], tx: [[k2, -11], [c11, -10]], ty: [[k2, 1.2], [c11, 1.2]], tz: [[k2, -5.3], [c11, -5.3]] }}>
         <Label s={k2} t0={k2 + 0.1} t1={c11} text="AQUEDUCT" y={1500} />
       </Scene>

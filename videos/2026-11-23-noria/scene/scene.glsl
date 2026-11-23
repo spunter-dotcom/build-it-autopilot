@@ -18,15 +18,15 @@ vec2 pCrops(vec3 p, float s, float x0, float x1, float z0, float z1, float hk){
 }
 
 vec2 map(vec3 p){
-  // ground with the river cut: |z| < 6, floor at y = -2.6
-  float cut=sdRoundBox(p-vec3(0.0,-1.3,0.0),vec3(400.0,1.3,6.0),0.0);
+  // ground with the river cut: -6 < z < 14, floor at y = -2.6
+  float cut=sdRoundBox(p-vec3(0.0,-1.3,4.0),vec3(400.0,1.3,10.0),0.0);   // river from z=-6 to z=14
   vec2 res=vec2(max(p.y,-cut),0.0);
   res=opU(res,pWater(p,-1.2));
   // stone lining on the north bank face
   res=opU(res,pBlock(p-vec3(-4.0,-1.3,-6.15),vec3(30.0,1.3,0.15),2.0));
 
-  // far bank trees and the fields
-  res=opU(res,pForest(p,3.6,30.0,10.0,22.0));
+  // woods and the fields on the north bank
+  res=opU(res,pForest(p,3.6,30.0,-32.0,-20.0));   // woods behind the fields
   res=opU(res,pCrops(p,1.2,-24.0,14.0,-16.0,-7.5,u_crop));
 
   // steps from the river up to the field (x = 8)
