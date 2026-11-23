@@ -6,3 +6,5 @@
 - Obelisks went from the quarry by ship down the Nile; Ineni's inscription (Thutmose I) gives an obelisk ship 120 by 40 cubits, about 63 m long and 21 m wide; a relief at Hatshepsut's temple at Deir el-Bahari shows a barge carrying two obelisks to the temple of Amun at Karnak. — https://en.wikipedia.org/wiki/Obelisk_ship
 - How obelisks were raised is not recorded; the sand-pit idea (lower the base into a turning groove on the pedestal by draining sand, then pull upright with ropes) is a modern theory, tested by NOVA in 1999. Script says "One idea". — https://www.pbs.org/wgbh/nova/lostempires/obelisk/raises06.html ; https://www.pbs.org/wgbh/nova/lostempires/obelisk/raises12.html
 - Lateran obelisk (from Karnak) about 500 tons. — https://en.wikipedia.org/wiki/Obelisk_ship
+
+Caption numbers: 42 m (41.75 m rounded), over 1,000 tons (1,168 tons), 63 m (Ineni's obelisk ship) all come from the lines above.
