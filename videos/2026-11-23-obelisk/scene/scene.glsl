@@ -56,19 +56,15 @@ vec2 map(vec3 p){
       res=opU(res,vec2(sdRoundBox(c,vec3(0.035*u_crack,0.62,0.75),0.0),15.0));
     }
     if(u_marks>0.01){
-      for(int i=0;i<5;i++){
-        float x=-4.5+2.4*float(i);
-        res=opU(res,vec2(sdRoundBox(p-vec3(x,2.0-0.7*u_marks,-1.21),vec3(0.05,0.7*u_marks,0.02),0.0),5.0));
-      }
+      float mi=clamp(floor((p.x+4.5)/2.4+0.5),0.0,4.0);
+      res=opU(res,vec2(sdRoundBox(p-vec3(-4.5+2.4*mi,2.0-0.7*u_marks,-1.21),vec3(0.05,0.7*u_marks,0.02),0.0),5.0));
     }
     // workers on the near edge of the trench
     float wy=2.0;
     float wb=sdRoundBox(p-vec3(0.85,3.0,1.6),vec3(5.0,1.2,0.7),0.0);
     if(wb>0.5) res=opU(res,vec2(wb,9.0)); else {
-      res=opU(res,pPounder(p-vec3(-3.5,wy,1.75),0.0));
-      res=opU(res,pPounder(p-vec3(-0.5,wy,1.75),1.0));
-      res=opU(res,pPounder(p-vec3(2.5,wy,1.75),2.0));
-      res=opU(res,pPounder(p-vec3(5.2,wy,1.75),3.0));
+      float wi=clamp(floor((p.x+3.5)/3.0+0.5),0.0,3.0);
+      res=opU(res,pPounder(p-vec3(-3.5+3.0*wi,wy,1.75),wi));
     }
     res=opU(res,pRock(p-vec3(-14.0,0.0,-6.0),2.5));
     res=opU(res,pRock(p-vec3(13.0,0.0,-5.0),2.0));
@@ -101,11 +97,9 @@ vec2 map(vec3 p){
       res=opU(res,pBeam(s-vec3(5.0,0.12,-0.45),vec3(5.6,0.12,0.12)));
       vec3 o=s-vec3(0.0,0.24+OW,0.0); o=vec3(-o.y,o.x,o.z);
       res=opU(res,vec2(sdObelisk(o),4.0));
-      for(int i=0;i<4;i++){
-        float x=-2.0-1.3*float(i);
-        res=opU(res,pPerson(s-vec3(x,-0.55,0.9),1.0,0.1*float(i)));
-        res=opU(res,pPerson(s-vec3(x-0.6,-0.55,-0.9),1.0,0.5+0.1*float(i)));
-      }
+      float si=clamp(floor((-s.x-2.0)/1.3+0.5),0.0,3.0);
+      float sz=s.z>0.0 ? 0.0 : 0.6;
+      res=opU(res,pPerson(s-vec3(-2.0-1.3*si-sz,-0.55,sign(s.z)*0.9),1.0,0.1*si+sz));
       res=opU(res,pRope(s,vec3(0.0,0.3,0.4),vec3(-7.0,1.0,0.9)));
       res=opU(res,pRope(s,vec3(0.0,0.3,-0.4),vec3(-7.6,1.0,-0.9)));
       }
@@ -138,10 +132,10 @@ vec2 map(vec3 p){
       res=opU(res,pRope(p,top-vec3(0.0,0.0,0.3),vec3(-9.0,1.0,-1.0)));
       float tb=sdRoundBox(p-vec3(-11.0,0.8,0.0),vec3(2.8,0.9,1.4),0.0);
       if(tb>0.5) res=opU(res,vec2(tb,9.0)); else
-      for(int i=0;i<4;i++){
-        float x=-9.0-1.2*float(i);
-        res=opU(res,pPerson(p-vec3(x,0.0,1.0),1.0,0.15*float(i)));
-        res=opU(res,pPerson(p-vec3(x-0.5,0.0,-1.0),1.0,0.4+0.15*float(i)));
+      {
+        float ti=clamp(floor((-p.x-9.0)/1.2+0.5),0.0,3.0);
+        float tz=p.z>0.0 ? 0.0 : 0.5;
+        res=opU(res,pPerson(p-vec3(-9.0-1.2*ti-tz,0.0,sign(p.z)*1.0),1.0,0.15*ti+tz));
       }
     }
     float gb=sdRoundBox(p-vec3(11.8,2.6,0.0),vec3(14.4,2.7,2.4),0.0);
