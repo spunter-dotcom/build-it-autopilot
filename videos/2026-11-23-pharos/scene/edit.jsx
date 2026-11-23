@@ -42,7 +42,7 @@ export default async ({ project }) => {
         <Card s={c5} t0={K("island")} t1={c6} title="PHAROS" sub="THE ISLAND" />
       </Scene>
       {/* The causeway grows from the city to the island. */}
-      <Scene t0={c6} t1={k1} set={{ ...G }} anims={{ cw: [[K("stone"), 0], [K("long"), 1]], ang: [[c6, 0.9], [k1, 0.7]], dist: [[c6, 34], [k1, 30]], h: [[c6, 14], [k1, 12]], tx: [[c6, -20], [k1, -20]], ty: [[c6, 1], [k1, 1]], tz: [[c6, 0], [k1, 0]] }}>
+      <Scene t0={c6} t1={k1} set={{ ...G }} anims={{ cw: [[K("stone"), 0], [K("long"), 1]], ang: [[c6, 0.9], [k1, 0.75]], dist: [[c6, 42], [k1, 38]], h: [[c6, 16], [k1, 14]], tx: [[c6, -15], [k1, -15]], ty: [[c6, 1], [k1, 1]], tz: [[c6, 0], [k1, 0]] }}>
         <Card s={c6} t0={K("kilometre")} t1={k1} title="1.2 KM" sub="STONE CAUSEWAY" />
       </Scene>
       <Scene t0={k1} t1={c7} set={{ ...G, cw: 1 }} anims={{ ang: [[k1, 0.45], [c7, 0.25]], dist: [[k1, 20], [c7, 18]], h: [[k1, 3.5], [c7, 3]], tx: [[k1, -22], [c7, -20]], ty: [[k1, 1], [c7, 1]], tz: [[k1, 0], [c7, 0]] }}>
