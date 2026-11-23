@@ -61,7 +61,7 @@ vec2 map(vec3 p){
     res=opU(res,pLog(q,vec3(-2.3,0.12,1.5),vec3(-2.3,0.12,2.5),0.12));
     res=opU(res,pLog(q,vec3(-2.6,0.12,1.5),vec3(-2.6,0.12,2.5),0.12));
     res=opU(res,pLog(q,vec3(-2.45,0.33,1.5),vec3(-2.45,0.33,2.5),0.12));
-    res=opU(res,pPerson(q-vec3(-2.0,0.0,0.6),u_work,0.2));
+    res=opU(res,pPerson(q-vec3(-1.9,0.0,-1.2),u_work,0.2));
   }
   // ---- hypocaust: tile stacks and the floor they carry (hot and warm rooms, x -8.85..2.85) ----
   float FH=0.9*clamp(u_pilae,0.0,1.0);
@@ -69,7 +69,7 @@ vec2 map(vec3 p){
     vec2 cc; vec3 q=cellXZ(p-vec3(0.2,0.0,0.0),0.8,cc);
     bool inz=cc.x>=-11.0 && cc.x<=3.0 && cc.y>=-3.0 && cc.y<=3.0;
     float d=1e3;
-    if(inz && p.y<1.3) d=cellBound(q,0.8);
+    if(inz && p.y<1.3) d=max(0.4-max(abs(q.x),abs(q.z)),0.0)+0.05; // safe step for shadow rays too
     if(inz) d=min(d,sdRoundBox(q-vec3(0.0,0.5*FH,0.0),vec3(0.16,0.5*FH+0.001,0.16),0.01));
     res=opU(res,vec2(u_pilae>0.01 ? d : 1e3,5.0));
   }
