@@ -164,7 +164,7 @@ vec2 map(vec3 p){
         res=opU(res,pBlock(p-vec3(2.0,1.95,0.0),vec3(0.08,1.95,0.08),12.0));
         vec3 m=p-vec3(1.92,0.0,0.0);
         float my=clamp(floor((m.y-2.0)/0.16+0.5),0.0,11.0);
-        res=opU(res,vec2(sdRoundBox(m-vec3(0.0,2.0+my*0.16,0.0),vec3(0.02,0.012,0.07),0.002),15.0));
+        res=opU(res,vec2(sdRoundBox(m-vec3(0.08,2.0+my*0.16,0.08),vec3(0.07,0.012,0.02),0.002),15.0));
       }
     }
     res=opU(res,pPerson(p-vec3(-2.4,0.0,0.9),u_work,0.7));
