@@ -34,9 +34,9 @@ vec2 pBowl(vec3 p, float sl, float lv, float mk, float cl, float cut){
     float r=length(p.xz);
     vec3 q=vec3(r, p.y, aa*r);
     float n=count(mk,11.0);
-    float yi=clamp(floor((p.y-0.08)/0.08+0.5),1.0,n);
+    float yi=clamp(floor((1.02-p.y)/0.08+0.5),1.0,n);
     float rr=mix(rb,rt,clamp(p.y/H,0.0,1.0))-w;
-    float tk=sdRoundBox(q-vec3(rr,0.08+yi*0.08,0.0),vec3(0.02,0.008,0.06),0.002);
+    float tk=sdRoundBox(q-vec3(rr,1.02-yi*0.08,0.0),vec3(0.02,0.008,0.06),0.002);
     if(n<0.5) tk=1e3;
     if(cut>0.5) tk=cutQ(tk,p);
     res=opU(res,vec2(tk,15.0));
@@ -79,7 +79,6 @@ vec2 map(vec3 p){
     res=opU(res,vec2(sdCylinder(p-vec3(0.95,0.1,-0.25),0.08,0.22),8.0));
     // priest carving / watching
     res=opU(res,pPerson(p-vec3(-1.0,0.0,0.35),u_work,0.1));
-    if(u_tool>0.01) res=opU(res,pBeam(p-vec3(-0.7,1.05+0.1*sin(u_time*12.0)*u_work,0.25),vec3(0.03,0.15,0.03)));
   } else if(u_site<1.5){
     // ---- Athens: a court. Speaker, bowl on a stand, rows of jurors ----
     res=opU(res,pStairs(p-vec3(0.0,0.0,-4.5),3.0,0.25,0.6,8.0,4.0));
@@ -104,9 +103,9 @@ vec2 map(vec3 p){
     // ---- Alexandria: Ctesibius's inflow clock ----
     res=opU(res,pWall(p-vec3(0.0,0.0,-6.0),vec3(6.0,2.2,0.4),12.0));
     // tank on a pillar
-    res=opU(res,pBlock(p-vec3(-1.3,1.25,0.0),vec3(0.3,1.25,0.3),2.0));
+    res=opU(res,pBlock(p-vec3(-0.3,1.5,0.0),vec3(0.3,1.5,0.3),2.0));
     if(u_tank>0.01){
-      vec3 t=drop(p-vec3(-1.3,2.5,0.0),u_tank);
+      vec3 t=drop(p-vec3(-0.3,3.0,0.0),u_tank);
       float tb=sdRoundBox(t-vec3(0.0,0.4,0.0),vec3(0.55,0.4,0.55),0.02);
       float ti=sdRoundBox(t-vec3(0.0,0.48,0.0),vec3(0.48,0.4,0.48),0.0);
       float tk=cutQ(max(tb,-ti),t);
@@ -122,17 +121,17 @@ vec2 map(vec3 p){
         res=opU(res,vec2(sdCapsule(t,vec3(-0.85,0.66,0.0),vec3(-0.85,-2.45,0.0),0.025*u_over),8.0));
       }
       // outlet: spout to the jar and the steady stream
-      res=opU(res,vec2(sdCapsule(t,vec3(0.5,0.1,0.0),vec3(1.05,0.1,0.0),0.04),14.0));
+      res=opU(res,vec2(sdCapsule(t,vec3(0.5,0.1,0.0),vec3(1.45,0.1,0.0),0.04),14.0));
     }
     if(u_jar>0.01){
       vec3 j=p-vec3(1.1,0.0,0.0);
       // stream from the tank spout into the jar
-      if(u_tank>0.99) res=opU(res,vec2(sdCapsule(j,vec3(0.0,0.08,0.0),vec3(0.0,2.55,0.0),0.018),8.0));
       float hj=2.2;
       float jo=sdCylinder(j-vec3(0.0,0.5*hj*u_jar,0.0),0.5*hj*u_jar,0.42);
       float ji=sdCylinder(j-vec3(0.0,0.5*hj+0.08,0.0),0.5*hj,0.35);
       res=opU(res,vec2(cutQ(max(jo,-ji),j),5.0));
       float wl=0.08+u_flt*1.75;
+      if(u_tank>0.99) res=opU(res,vec2(sdCapsule(j,vec3(0.0,wl,0.0),vec3(0.0,3.05,0.0),0.018),8.0));
       if(u_flt>0.0){
         res=opU(res,vec2(cutQ(max(ji+0.005,j.y-wl),j),8.0));
       }

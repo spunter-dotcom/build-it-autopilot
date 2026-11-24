@@ -34,16 +34,16 @@ export default async ({ project }) => {
       {/* No sun, no stars: look up the columns. */}
       <Scene t0={c1} t1={c2} set={{ ...E, night: 0.6 }} anims={{ ang: [[c1, -0.5], [c2, -0.2]], dist: [[c1, 6], [c2, 5]], h: [[c1, -0.6], [c2, -0.4]], ty: [[c1, 3.5], [c2, 4]], tz: [[c1, -6.5], [c2, -6.5]] }} />
       {/* The bowl arrives and fills. */}
-      <Scene t0={c2} t1={c3} set={{ ...E, work: 1, tool: 1 }} anims={{ bowl: [[c2 + 0.3, 0], [c2 + 1.3, 1]], fill: [[K("fill"), 0.02], [c3 - 0.2, 1]], ang: [[c2, 0.3], [c3, 0.6]], dist: [[c2, 5.5], [c3, 4.2]], h: [[c2, 2.2], [c3, 1.8]], ty: [[c2, 1.2], [c3, 1.3]] }} />
+      <Scene t0={c2} t1={c3} set={{ ...E, work: 1 }} anims={{ bowl: [[c2 + 0.3, 0], [c2 + 1.3, 1]], fill: [[K("fill"), 0.02], [c3 - 0.2, 1]], ang: [[c2, 0.3], [c3, 0.6]], dist: [[c2, 5.5], [c3, 4.2]], h: [[c2, 2.2], [c3, 1.8]], ty: [[c2, 1.2], [c3, 1.3]] }} />
       {/* A tiny hole, the drip starts. */}
       <Scene t0={c3} t1={c4} set={{ ...B }} anims={{ hole: [[K("hole"), 0], [K("hole") + 0.3, 1]], drip: [[K("starts"), 0], [K("drip"), 1]], ...close(c3, c4, 1.3, 1.0, { dist: [[c3, 2.8], [c4, 2.4]], h: [[c3, 0.2], [c4, 0.1]], tx: [[c3, 0.6], [c4, 0.6]], ty: [[c3, 0.8], [c4, 0.8]] }) }} />
       {/* It empties; a mark for each hour (cutaway). */}
-      <Scene t0={c4} t1={k1} set={{ ...BD }} anims={{ lvl: [[c4, 0.95], [k1, 0.7]], marks: [[K("scratch"), 0], [k1 - 0.2, 0.55]], ...close(c4, k1, 0.6, 0.85, { dist: [[c4, 3.2], [k1, 2.8]], h: [[c4, 1.6], [k1, 1.3]], ty: [[c4, 1.3], [k1, 1.3]] }) }} />
-      <Scene t0={k1} t1={c5} set={{ ...BD, marks: 0.55 }} anims={{ lvl: [[k1, 0.7], [c5, 0.62]], ang: [[k1, 0.4], [c5, 0.9]], dist: [[k1, 4.8], [c5, 4.4]], h: [[k1, 1.4], [c5, 1.2]], ty: [[k1, 1.2], [c5, 1.2]] }}>
+      <Scene t0={c4} t1={k1} set={{ ...BD }} anims={{ lvl: [[c4, 0.95], [k1, 0.45]], marks: [[K("scratch"), 0], [k1 - 0.2, 0.55]], ...close(c4, k1, 0.6, 0.85, { dist: [[c4, 3.2], [k1, 2.8]], h: [[c4, 1.6], [k1, 1.3]], ty: [[c4, 1.3], [k1, 1.3]] }) }} />
+      <Scene t0={k1} t1={c5} set={{ ...BD, marks: 0.55 }} anims={{ lvl: [[k1, 0.45], [c5, 0.4]], ang: [[k1, 0.4], [c5, 0.9]], dist: [[k1, 4.8], [c5, 4.4]], h: [[k1, 1.4], [c5, 1.2]], ty: [[k1, 1.2], [c5, 1.2]] }}>
         <Label s={k1} t0={K("this is") + 0.1} t1={c5} text="CLEPSYDRA" y={380} />
       </Scene>
       {/* Pressure drops, the drip slows. */}
-      <Scene t0={c5} t1={c6} set={{ ...BD, marks: 0.55 }} anims={{ lvl: [[c5, 0.62], [c6, 0.3]], drip: [[c5, 1], [K("slows"), 0.15]], ...close(c5, c6, 1.0, 1.2, { dist: [[c5, 3.0], [c6, 2.6]], h: [[c5, 0.9], [c6, 0.6]], tx: [[c5, 0.4], [c6, 0.5]], ty: [[c5, 0.9], [c6, 0.9]] }) }} />
+      <Scene t0={c5} t1={c6} set={{ ...BD, marks: 0.55 }} anims={{ lvl: [[c5, 0.4], [c6, 0.25]], drip: [[c5, 1], [K("slows"), 0.15]], ...close(c5, c6, 1.0, 1.2, { dist: [[c5, 3.0], [c6, 2.6]], h: [[c5, 0.9], [c6, 0.6]], tx: [[c5, 0.4], [c6, 0.5]], ty: [[c5, 0.9], [c6, 0.9]] }) }} />
       {/* Sloped sides: wide top, narrow bottom. */}
       <Scene t0={c6} t1={c7} set={{ ...BD, marks: 0.55 }} anims={{ slope: [[K("slope") + 0.2, 0], [K("bottom", 1), 1]], lvl: [[c6, 1], [c7, 0.8]], ang: [[c6, 0.5], [c7, 0.95]], dist: [[c6, 4.2], [c7, 3.6]], h: [[c6, 1.0], [c7, 1.2]], ty: [[c6, 1.3], [c7, 1.3]] }} />
       {/* Hours stretch and shrink with the seasons: wide temple, day to night. */}
@@ -65,7 +65,7 @@ export default async ({ project }) => {
       {/* Water flows in: tank and jar arrive. */}
       <Scene t0={c13} t1={c14} set={{ ...X }} anims={{ tank: [[c13 + 0.1, 0], [c13 + 1.0, 1]], jar: [[c13 + 0.9, 0], [c14 - 0.1, 1]], ang: [[c13, 0.5], [c14, 0.7]], dist: [[c13, 8], [c14, 7.4]], h: [[c13, 2.2], [c14, 2.0]], tx: [[c13, 0], [c14, 0]], ty: [[c13, 1.8], [c14, 1.8]] }} />
       {/* Tank stays full, overflow spills. */}
-      <Scene t0={c14} t1={c15} set={{ ...X, tank: 1, jar: 1 }} anims={{ over: [[K("overflow"), 0], [K("spills"), 1]], ...close(c14, c15, 0.4, 0.75, { dist: [[c14, 3.6], [c15, 3.2]], h: [[c14, 1.2], [c15, 0.9]], tx: [[c14, -1.4], [c15, -1.4]], ty: [[c14, 2.9], [c15, 2.8]] }) }} />
+      <Scene t0={c14} t1={c15} set={{ ...X, tank: 1, jar: 1 }} anims={{ over: [[K("overflow"), 0], [K("spills"), 1]], ...close(c14, c15, 0.4, 0.75, { dist: [[c14, 3.6], [c15, 3.2]], h: [[c14, 1.2], [c15, 0.9]], tx: [[c14, -0.4], [c15, -0.4]], ty: [[c14, 3.3], [c15, 3.2]] }) }} />
       {/* Stream fills the jar, float rises. */}
       <Scene t0={c15} t1={c16} set={{ ...XJ }} anims={{ flt: [[K("fills"), 0.02], [c16, 0.3]], ...close(c15, c16, 0.65, 0.9, { dist: [[c15, 4.0], [c16, 3.6]], h: [[c15, 1.0], [c16, 1.0]], tx: [[c15, 1.1], [c16, 1.1]], ty: [[c15, 1.3], [c16, 1.3]] }) }} />
       {/* A pointer climbs past the hours. */}
