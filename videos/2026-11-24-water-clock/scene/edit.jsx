@@ -28,11 +28,11 @@ export default async ({ project }) => {
   p.compose(
     <frame width={1080} height={1920} layout="none">
       {/* Hook: a temple at night, an empty stand. */}
-      <Scene t0={0} t1={c1} set={{ ...E, night: 0.6 }} anims={{ ang: [[0, 0.35], [c1, 0.15]], dist: [[0, 16], [c1, 12]], h: [[0, 3.5], [c1, 2.5]], ty: [[0, 2.5], [c1, 2.2]], tz: [[0, -3], [c1, -3]] }}>
+      <Scene t0={0} t1={c1} set={{ ...E, night: 0.9 }} anims={{ ang: [[0, 0.35], [c1, 0.15]], dist: [[0, 16], [c1, 12]], h: [[0, 3.5], [c1, 2.5]], ty: [[0, 2.5], [c1, 2.2]], tz: [[0, -3], [c1, -3]] }}>
         <Card s={0} t0={0.4} t1={c1} title="ABOUT 1400 BC" sub="KARNAK, EGYPT" />
       </Scene>
       {/* No sun, no stars: look up the columns. */}
-      <Scene t0={c1} t1={c2} set={{ ...E, night: 0.6 }} anims={{ ang: [[c1, -0.5], [c2, -0.2]], dist: [[c1, 6], [c2, 5]], h: [[c1, -0.6], [c2, -0.4]], ty: [[c1, 3.5], [c2, 4]], tz: [[c1, -6.5], [c2, -6.5]] }} />
+      <Scene t0={c1} t1={c2} set={{ ...E, night: 0.9 }} anims={{ ang: [[c1, -0.5], [c2, -0.2]], dist: [[c1, 6], [c2, 5]], h: [[c1, -0.6], [c2, -0.4]], ty: [[c1, 3.5], [c2, 4]], tz: [[c1, -6.5], [c2, -6.5]] }} />
       {/* The bowl arrives and fills. */}
       <Scene t0={c2} t1={c3} set={{ ...E, work: 1 }} anims={{ bowl: [[c2 + 0.3, 0], [c2 + 1.3, 1]], fill: [[K("fill"), 0.02], [c3 - 0.2, 1]], ang: [[c2, 0.3], [c3, 0.6]], dist: [[c2, 5.5], [c3, 4.2]], h: [[c2, 2.2], [c3, 1.8]], ty: [[c2, 1.2], [c3, 1.3]] }} />
       {/* A tiny hole, the drip starts. */}
