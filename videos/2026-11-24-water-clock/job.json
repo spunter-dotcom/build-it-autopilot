@@ -1,1 +1,1 @@
-{"status": "built", "mode": "schedule", "title": "You built a water clock", "dur": 75, "voice_job": "44aa9b74-f4ad-4ba5-8129-ae15e7ea58d4", "credits": 5.52}
+{"status": "failed", "mode": "schedule", "title": "You built a water clock", "dur": 75, "voice_job": "44aa9b74-f4ad-4ba5-8129-ae15e7ea58d4", "credits": 5.52, "failure": "Render part 3 of 5 failed twice (process died after shard 2/3 at 35-40s, no r3.status; likely 15-min background limit). Parts 1-2 rendered fine. Not posted."}
