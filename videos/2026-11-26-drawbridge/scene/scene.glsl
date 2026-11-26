@@ -94,13 +94,14 @@ vec2 map(vec3 p){
     res=opU(res,vec2(sdCapsule(pc,vec3(0.0,0.0,1.3),vec3(0.0,cy,u_drum>0.5 ? -0.3 : 0.6),0.05),7.0));
     // counterweights: stone blocks hung on chains near the front, they sink as the bridge rises
     if(u_cw>0.01){
-      vec3 w=drop(p,u_cw); vec3 wc=vec3(abs(w.x)-3.2,w.y-(1.4-0.9*u_raise),w.z-0.8);
+      vec3 w=drop(p,u_cw); vec3 wc=vec3(abs(w.x)-0.55,w.y-(1.4-0.9*u_raise),w.z-0.9);
       res=opU(res,pBlock(wc,vec3(0.35,0.4,0.35),2.0));
       res=opU(res,vec2(sdCapsule(wc,vec3(0.0,0.4,0.0),vec3(0.0,3.0,0.0),0.05),7.0));
     }
     // guards at the handles
-    res=opU(res,pPerson(p-vec3(-2.1,0.0,0.6),1.0,0.25));
-    res=opU(res,pPerson(p-vec3(2.1,0.0,0.6),1.0,0.45));
+    float gx=u_drum>0.5 ? 2.1 : 1.2; float gz=u_drum>0.5 ? 0.6 : 0.85;
+    res=opU(res,pPerson(p-vec3(-gx,0.0,gz),1.0,0.25));
+    res=opU(res,pPerson(p-vec3(gx,0.0,gz),1.0,0.45));
   }
   return res;
 }
