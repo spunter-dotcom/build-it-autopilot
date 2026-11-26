@@ -17,8 +17,6 @@ vec2 castle(vec3 p){
   vec3 tm=t-vec3(0.0,12.4,0.0); float ta=atan(tm.z,tm.x); float sec=6.2832/8.0;
   float aa=mod(ta+0.5*sec,sec)-0.5*sec; vec2 tq=length(tm.xz)*vec2(cos(aa),sin(aa));
   r=opU(r,vec2(max(max(abs(tq.x-1.6)-0.3,abs(tq.y)-0.35),abs(tm.y)-0.45),2.0));
-  // dark gate passage back
-  r=opU(r,vec2(sdBoxK(p-vec3(0.0,1.8,-3.05),vec3(1.3,1.8,0.02)),15.0));
   // chain holes / gaff slots above the gate
   r=opU(r,vec2(sdBoxK(vec3(abs(p.x)-1.2,p.y-6.6,p.z-0.02),vec3(0.18,0.25,0.03)),15.0));
   return r;
