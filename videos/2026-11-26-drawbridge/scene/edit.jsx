@@ -23,7 +23,7 @@ export default async ({ project }) => {
       {/* hook: castle, no moat, soldiers and villagers on the field */}
       <Scene t0={0} t1={c1} set={{ ...W, dig: 0, moat: 0, deck: 0 }} anims={{ ang: [[0, 0.5], [c1, 0.25]], dist: [[0, 26], [c1, 21]], h: [[0, 6], [c1, 4]], ty: [[0, 4], [c1, 4]], tz: [[0, 4], [c1, 3]], march: [[0, 0], [c1, 0.25]] }} />
       {/* dig and fill the moat */}
-      <Scene t0={c1} t1={c2} set={{ ...W, deck: 0 }} anims={{ dig: [[c1, 0], [c1 + 2.2, 1]], moat: [[c1 + 2.0, 0], [K("this is a moat") , 1]], ang: [[c1, -0.7], [c2, -0.35]], dist: [[c1, 14], [c2, 12]], h: [[c1, 6], [c2, 4]], ty: [[c1, 0], [c2, 0]], tz: [[c1, 3], [c2, 3]] }}>
+      <Scene t0={c1} t1={c2} set={{ ...W, deck: 0 }} anims={{ dig: [[c1, 0], [c1 + 2.2, 1]], moat: [[c1 + 2.0, 0], [K("this is a moat") , 1]], ang: [[c1, -0.6], [c2, -0.35]], dist: [[c1, 19], [c2, 16]], h: [[c1, 9], [c2, 6]], ty: [[c1, 0], [c2, 0]], tz: [[c1, 3], [c2, 3]] }}>
         <Label s={c1} t0={K("this is a moat") + 0.1} t1={c2} text="MOAT" />
       </Scene>
       {/* villagers stuck on the far bank */}
@@ -35,15 +35,15 @@ export default async ({ project }) => {
       {/* chains up to the room above the gate */}
       <Scene t0={c5} t1={c6} set={{ ...W }} anims={{ chain: [[c5 + 0.3, 0], [c5 + 1.8, 1]], ang: [[c5, 0.6], [c6, 0.35]], dist: [[c5, 13], [c6, 15]], h: [[c5, 0], [c6, 1.5]], ty: [[c5, 3], [c6, 4.5]], tz: [[c5, 2], [c6, 1.5]] }} />
       {/* too heavy: guards haul on the chains */}
-      <Scene t0={c6} t1={c7} set={{ site: 1, drum: 0, ground: 4 }} anims={{ ang: [[c6, -0.4], [c7, -0.15]], dist: [[c6, 6], [c7, 5]], h: [[c6, 1.2], [c7, 1.0]], ty: [[c6, 1.0], [c7, 1.0]], tz: [[c6, 0.5], [c7, 0.5]] }} />
+      <Scene t0={c6} t1={c7} set={{ site: 1, drum: 0, ground: 4 }} anims={{ lens: [[c6, 1.0], [c7, 1.0]], ang: [[c6, -0.4], [c7, -0.15]], dist: [[c6, 9], [c7, 8]], h: [[c6, 1.2], [c7, 1.0]], ty: [[c6, 1.0], [c7, 1.0]], tz: [[c6, 0.5], [c7, 0.5]] }} />
       {/* windlass */}
-      <Scene t0={c7} t1={c8} set={{ site: 1, ground: 4 }} anims={{ drum: [[c7 + 0.2, 0], [c7 + 1.4, 1]], turn: [[c7 + 1.4, 0], [c8, 3]], ang: [[c7, 0.5], [c8, 0.15]], dist: [[c7, 7], [c8, 6]], h: [[c7, 2], [c8, 1.5]], ty: [[c7, 1], [c8, 1]] }}>
+      <Scene t0={c7} t1={c8} set={{ site: 1, ground: 4 }} anims={{ drum: [[c7 + 0.2, 0], [c7 + 1.4, 1]], turn: [[c7 + 1.4, 0], [c8, 3]], lens: [[c7, 1.0], [c8, 1.0]], ang: [[c7, 0.5], [c8, 0.15]], dist: [[c7, 10], [c8, 8.5]], h: [[c7, 2], [c8, 1.5]], ty: [[c7, 1], [c8, 1]] }}>
         <Label s={c7} t0={K("this is a windlass") + 0.1} t1={c8} text="WINDLASS" />
       </Scene>
       {/* still slow: bridge creeps up */}
       <Scene t0={c8} t1={c9} set={{ ...W, chain: 1 }} anims={{ raise: [[c8, 0], [c9, 0.2]], ang: [[c8, -0.55], [c9, -0.4]], dist: [[c8, 14], [c9, 13]], h: [[c8, 2], [c9, 2.5]], ty: [[c8, 2], [c9, 2]], tz: [[c8, 2], [c9, 2]] }} />
       {/* counterweights in the room */}
-      <Scene t0={c9} t1={c10} set={{ site: 1, ground: 4, drum: 1 }} anims={{ cw: [[c9 + 0.3, 0], [c9 + 1.4, 1]], raise: [[c9 + 1.5, 0], [c10, 1]], turn: [[c9 + 1.5, 0], [c10, 8]], ang: [[c9, -0.6], [c10, -0.2]], dist: [[c9, 7.5], [c10, 6.5]], h: [[c9, 1.8], [c10, 1.4]], ty: [[c9, 1], [c10, 1]] }} />
+      <Scene t0={c9} t1={c10} set={{ site: 1, ground: 4, drum: 1 }} anims={{ cw: [[c9 + 0.3, 0], [c9 + 1.4, 1]], raise: [[c9 + 1.5, 0], [c10, 1]], turn: [[c9 + 1.5, 0], [c10, 8]], lens: [[c9, 1.0], [c10, 1.0]], ang: [[c9, -0.6], [c10, -0.2]], dist: [[c9, 10], [c10, 9]], h: [[c9, 1.8], [c10, 1.4]], ty: [[c9, 1], [c10, 1]] }} />
       {/* 14th century lifting arms */}
       <Scene t0={c10} t1={c11} set={{ ...W, chain: 1 }} anims={{ gaff: [[c10 + 0.2, 0], [c10 + 1.4, 1]], raise: [[c10 + 1.6, 0], [c11 - 0.3, 0.45], [c11, 0.45]], ang: [[c10, 0.75], [c11, 0.5]], dist: [[c10, 18], [c11, 16]], h: [[c10, 2], [c11, 3]], ty: [[c10, 5], [c11, 5]], tz: [[c10, 2], [c11, 2]] }}>
         <Card s={c10} t0={c10 + 0.3} t1={c11} title="1300s" sub="LIFTING ARMS" />
