@@ -53,7 +53,7 @@ export default async ({ project }) => {
         <Card s={c12} t0={c12 + 0.3} t1={c13} title="12 M" sub="THE BIGGEST PRESSES" />
       </Scene>
       {/* hero: the whole press yard */}
-      <Scene t0={c13} t1={DUR} set={{ ...Y, screw: 1, lift: 1, sink: 0.9, fill: 0.9, settle: 1, flow: 1, work: 1 }} anims={{ spin: [[c13, 0], [DUR, 3]], turn: [[c13, 1], [DUR, 2]], ang: [[c13, -0.4], [DUR, 0.3]], dist: [[c13, 17], [DUR, 15]], h: [[c13, 4], [DUR, 3.5]], tx: [[c13, 2.5], [DUR, 2.5]], ty: [[c13, 1.2], [DUR, 1.2]], tz: [[c13, -1.5], [DUR, -1.5]] }} />
+      <Scene t0={c13} t1={DUR} set={{ ...Y, screw: 1, lift: 1, sink: 0.9, fill: 0.9, settle: 1, flow: 1, work: 1 }} anims={{ spin: [[c13, 0], [DUR, 3]], turn: [[c13, 1], [DUR, 2]], ang: [[c13, -0.4], [DUR, 0.3]], dist: [[c13, 17], [DUR, 15]], h: [[c13, 4], [DUR, 3.5]], tx: [[c13, 3.0], [DUR, 3.0]], ty: [[c13, 1.2], [DUR, 1.2]], tz: [[c13, -1.5], [DUR, -1.5]] }} />
       <Captions />
     </frame>,
     { at: 0, dur: DUR }

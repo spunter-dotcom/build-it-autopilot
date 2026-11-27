@@ -6,9 +6,10 @@ Rewritten 2026-11-22 by the weekly analyst. No new Metricool numbers this week, 
 
 
 ## Ideas (the analyst promotes them to Next)
-portcullis · olive oil screw press · lime kiln · charcoal clamp · pottery kiln · saw pit · ropewalk · warp-weighted loom · straw beehive (skep) · bread oven · smokehouse · fire beacon tower · mangonel · weir · hand quern · horse-powered mill · rope-and-pulley hoist · wooden barrel · thatched roof · timber-frame house · stone fireplace and chimney · palisade fort
+portcullis · lime kiln · charcoal clamp · pottery kiln · saw pit · ropewalk · warp-weighted loom · straw beehive (skep) · bread oven · smokehouse · fire beacon tower · mangonel · weir · hand quern · horse-powered mill · rope-and-pulley hoist · wooden barrel · thatched roof · timber-frame house · stone fireplace and chimney · palisade fort
 
 ## Done
+- [x] 2026-11-27 Olive oil screw press (Next was empty; taken from Ideas)
 - [x] 2026-11-26 Castle drawbridge (Next was empty; taken from Ideas)
 - [x] 2026-11-24 Water clock (clepsydra) (experiment: timekeeping family)
 - [x] 2026-11-23 Blacksmith forge with bellows (experiment: crafts family)
