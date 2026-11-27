@@ -35,9 +35,9 @@ export default async ({ project }) => {
       {/* need weight: low angle on the stack */}
       <Scene t0={c5} t1={c6} set={{ ...Y, beam: 0, stone: 0 }} anims={{ ang: [[c5, -0.3], [c6, -0.6]], dist: [[c5, 3.2], [c6, 3.8]], h: [[c5, -0.2], [c6, 0.2]], tx: [[c5, 1.5], [c6, 1.5]], ty: [[c5, 1.0], [c6, 1.0]], tz: [[c5, 0], [c6, 0]], lens: [[c5, 1.2], [c6, 1.2]] }} />
       {/* lever beam fixed in the wall */}
-      <Scene t0={c6} t1={c7} set={{ ...Y, stone: 0 }} anims={{ beam: [[c6 + 0.4, 0], [c6 + 1.8, 1]], ang: [[c6, 0.45], [c7, 0.3]], dist: [[c6, 13], [c7, 11.5]], h: [[c6, 3], [c7, 2.5]], tx: [[c6, 2.8], [c7, 2.8]], ty: [[c6, 1.3], [c7, 1.3]], tz: [[c6, 0], [c7, 0]] }} />
+      <Scene t0={c6} t1={c7} set={{ ...Y, stone: 0 }} anims={{ beam: [[c6 + 0.4, 0], [c6 + 1.8, 1]], ang: [[c6, 0.45], [c7, 0.3]], dist: [[c6, 16], [c7, 15]], h: [[c6, 3], [c7, 2.5]], tx: [[c6, 3.0], [c7, 3.0]], lens: [[c6, 1.0], [c7, 1.0]], ty: [[c6, 1.3], [c7, 1.3]], tz: [[c6, 0], [c7, 0]] }} />
       {/* weight stone: beam sinks, oil runs */}
-      <Scene t0={c7} t1={c8} set={{ ...Y }} anims={{ stone: [[c7 + 0.6, 0], [c7 + 1.8, 1]], sink: [[K("the beam sinks"), 0], [K("this is a lever") - 0.3, 1]], flow: [[K("oil starts"), 0], [K("oil starts") + 0.05, 1]], fill: [[K("oil starts"), 0], [c8, 0.3]], ang: [[c7, -0.35], [c8, -0.2]], dist: [[c7, 12], [c8, 10.5]], h: [[c7, 1.6], [c8, 1.8]], tx: [[c7, 3.0], [c8, 3.0]], ty: [[c7, 1.2], [c8, 1.2]], tz: [[c7, 0.5], [c8, 0.5]] }}>
+      <Scene t0={c7} t1={c8} set={{ ...Y }} anims={{ stone: [[c7 + 0.6, 0], [c7 + 1.8, 1]], sink: [[K("the beam sinks"), 0], [K("this is a lever") - 0.3, 1]], flow: [[K("oil starts"), 0], [K("oil starts") + 0.05, 1]], fill: [[K("oil starts"), 0], [c8, 0.3]], ang: [[c7, 0.05], [c8, 0.2]], dist: [[c7, 16], [c8, 14.5]], h: [[c7, 1.2], [c8, 1.5]], tx: [[c7, 3.4], [c8, 3.4]], lens: [[c7, 1.0], [c8, 1.0]], ty: [[c7, 1.2], [c8, 1.2]], tz: [[c7, 0.5], [c8, 0.5]] }}>
         <Label s={c7} t0={K("this is a lever") + 0.1} t1={c8} text="LEVER PRESS" />
       </Scene>
       {/* lifting the stone back up by hand */}
