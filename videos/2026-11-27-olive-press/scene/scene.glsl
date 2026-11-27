@@ -2,7 +2,7 @@
 vec2 map(vec3 p){
   vec2 res=vec2(p.y,0.0);
   if(u_site<0.5){
-    res=opU(res,pForest(p,4.0,24.0,-26.0,-5.0));                 // olive grove (never inside an if of its own)
+    res=opU(res,pForest(p,4.0,16.0,-20.0,-5.0));                 // olive grove (never inside an if of its own)
     res=opU(res,pWall(p-vec3(-5.0,0.0,2.5),vec3(1.6,1.1,1.3),12.0));
     res=opU(res,pRoof(p-vec3(-5.0,2.2,2.5),3.6,1.6,1.1,6.0));
     res=opU(res,pWall(p-vec3(5.5,0.0,3.0),vec3(1.4,1.0,1.2),12.0));

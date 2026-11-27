@@ -23,7 +23,7 @@ export default async ({ project }) => {
       {/* hook: village among olive trees */}
       <Scene t0={0} t1={c1} set={{ site: 0 }} anims={{ ang: [[0, 0.5], [c1, 0.15]], dist: [[0, 18], [c1, 14]], h: [[0, 5], [c1, 3.5]], ty: [[0, 1.5], [c1, 1.5]], tz: [[0, -2], [c1, -1]] }} />
       {/* squeezing by hand */}
-      <Scene t0={c1} t1={c2} set={{ site: 0 }} anims={{ squeeze: [[c1, 0], [c1 + 0.8, 1], [c1 + 1.6, 0.6], [c1 + 2.4, 1]], ang: [[c1, 0.7], [c2, 0.4]], dist: [[c1, 3.5], [c2, 3.0]], h: [[c1, 0.4], [c2, 0.3]], ty: [[c1, 0.9], [c2, 0.9]], tx: [[c1, 0.4], [c2, 0.4]], tz: [[c1, 0.7], [c2, 0.7]], lens: [[c1, 1.3], [c2, 1.3]] }} />
+      <Scene t0={c1} t1={c2} set={{ site: 0 }} anims={{ squeeze: [[c1, 0], [c1 + 0.8, 1], [c1 + 1.6, 0.6], [c1 + 2.4, 1]], ang: [[c1, 0.1], [c2, -0.2]], dist: [[c1, 3.5], [c2, 3.0]], h: [[c1, 0.4], [c2, 0.3]], ty: [[c1, 0.9], [c2, 0.9]], tx: [[c1, 0.4], [c2, 0.4]], tz: [[c1, 0.7], [c2, 0.7]], lens: [[c1, 1.3], [c2, 1.3]] }} />
       {/* trapetum arrives */}
       <Scene t0={c2} t1={c3} set={{ ...Y, ...EMPTY, paste: 0 }} anims={{ tra: [[c2 + 0.3, 0], [c2 + 1.8, 1]], ang: [[c2, 0.6], [c3, 0.2]], dist: [[c2, 9], [c3, 7]], h: [[c2, 3.5], [c3, 2.8]], tx: [[c2, 3.8], [c3, 3.8]], ty: [[c2, 0.6], [c3, 0.6]], tz: [[c2, -4.5], [c3, -4.5]] }} />
       {/* crushing to paste */}
