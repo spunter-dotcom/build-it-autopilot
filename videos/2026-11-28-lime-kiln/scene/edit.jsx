@@ -70,7 +70,7 @@ export default async ({ project }) => {
       {/* whitewash and lime the field */}
       <Scene t0={c18} t1={c19} set={{ ...Y, slake: 1, wall: 1 }} anims={{ white: [[K("paint"), 0], [K("paint") + 0.4, 1]], spread: [[K("spread some"), 0], [c19, 1]], ang: [[c18, 0.9], [c19, 1.1]], dist: [[c18, 14], [c19, 13]], h: [[c18, 4], [c19, 3.5]], tx: [[c18, 3.0], [c19, 3.5]], ty: [[c18, 0.8], [c19, 0.8]], tz: [[c18, -0.8], [c19, -0.5]] }} />
       {/* hero: the white barn, kiln smoking on the hill */}
-      <Scene t0={c19} t1={DUR} set={{ site: 0, white: 1, smoke: 1, wash: 1 }} anims={{ ang: [[c19, -0.45], [DUR, 0.05]], dist: [[c19, 21], [DUR, 18]], h: [[c19, 5], [DUR, 4]], tx: [[c19, -4.5], [DUR, -4.5]], ty: [[c19, 1.5], [DUR, 1.5]], tz: [[c19, -5.5], [DUR, -5.5]] }} />
+      <Scene t0={c19} t1={DUR} set={{ site: 0, white: 1, smoke: 1, wash: 1 }} anims={{ ang: [[c19, -0.45], [DUR, 0.05]], dist: [[c19, 19], [DUR, 16.5]], h: [[c19, 5], [DUR, 4]], tx: [[c19, -3.5], [DUR, -3.5]], ty: [[c19, 1.5], [DUR, 1.5]], tz: [[c19, -5.5], [DUR, -5.5]] }} />
       <Captions />
     </frame>,
     { at: 0, dur: DUR }

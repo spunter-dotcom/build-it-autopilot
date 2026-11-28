@@ -14,7 +14,7 @@ vec2 map(vec3 p){
   vec2 res=vec2(p.y,0.0);
   float sw=u_work*(0.5+0.5*sin(u_time*8.0));
   if(u_site<0.5){
-    res=opU(res,pForest(p,4.0,12.0,-20.0,-9.0));
+    res=opU(res,pForest(p,4.0,10.0,-17.0,-9.0));
     float wid=u_white>0.5?12.0:2.0;
     // barn of stacked stones
     res=opU(res,pWall(p-vec3(0.0,0.0,-2.0),vec3(3.3,1.3,0.3),wid));
