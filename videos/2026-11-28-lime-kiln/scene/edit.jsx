@@ -35,7 +35,7 @@ export default async ({ project }) => {
         <Label s={c4} t0={K("limestone")} t1={c5} text="LIMESTONE" />
       </Scene>
       {/* break into lumps */}
-      <Scene t0={c5} t1={c6} set={{ site: 0, fall: 1, wash: 1, work: 1 }} anims={{ lumps: [[c5 + 0.3, 0.2], [c6 - 0.3, 1]], ang: [[c5, 0.2], [c6, 0.5]], dist: [[c5, 4.5], [c6, 4.0]], h: [[c5, 1.2], [c6, 1.0]], tx: [[c5, 7.3], [c6, 7.3]], ty: [[c5, 0.7], [c6, 0.7]], tz: [[c5, 3.3], [c6, 3.3]], lens: [[c5, 1.3], [c6, 1.3]] }} />
+      <Scene t0={c5} t1={c6} set={{ site: 0, fall: 1, wash: 1, work: 1 }} anims={{ lumps: [[c5 + 0.3, 0.3], [c6 - 0.3, 1]], ang: [[c5, 1.0], [c6, 1.3]], dist: [[c5, 5], [c6, 4.4]], h: [[c5, 1.2], [c6, 1.0]], tx: [[c5, 7.5], [c6, 7.5]], ty: [[c5, 0.6], [c6, 0.6]], tz: [[c5, 3.4], [c6, 3.4]], lens: [[c5, 1.3], [c6, 1.3]] }} />
       {/* dig into the hill, kiln rises */}
       <Scene t0={c6} t1={c7} set={{ ...KS, ...KC }} anims={{ kiln: [[K("build a"), 0], [c7 - 0.2, 1]], ang: [[c6, 0.8], [c7, 0.45]], dist: [[c6, 15], [c7, 12]], h: [[c6, 4], [c7, 3]] }} />
       {/* LIME KILN hero */}
@@ -70,7 +70,7 @@ export default async ({ project }) => {
       {/* whitewash and lime the field */}
       <Scene t0={c18} t1={c19} set={{ ...Y, slake: 1, wall: 1 }} anims={{ white: [[K("paint"), 0], [K("paint") + 0.4, 1]], spread: [[K("spread some"), 0], [c19, 1]], ang: [[c18, 0.9], [c19, 1.1]], dist: [[c18, 14], [c19, 13]], h: [[c18, 4], [c19, 3.5]], tx: [[c18, 3.0], [c19, 3.5]], ty: [[c18, 0.8], [c19, 0.8]], tz: [[c18, -0.8], [c19, -0.5]] }} />
       {/* hero: the white barn, kiln smoking on the hill */}
-      <Scene t0={c19} t1={DUR} set={{ site: 0, white: 1, smoke: 1 }} anims={{ ang: [[c19, -0.25], [DUR, 0.25]], dist: [[c19, 18], [DUR, 16]], h: [[c19, 4.5], [DUR, 3.5]], tx: [[c19, -3], [DUR, -3]], ty: [[c19, 1.5], [DUR, 1.5]], tz: [[c19, -4], [DUR, -4]] }} />
+      <Scene t0={c19} t1={DUR} set={{ site: 0, white: 1, smoke: 1, wash: 1 }} anims={{ ang: [[c19, -0.45], [DUR, 0.05]], dist: [[c19, 21], [DUR, 18]], h: [[c19, 5], [DUR, 4]], tx: [[c19, -4.5], [DUR, -4.5]], ty: [[c19, 1.5], [DUR, 1.5]], tz: [[c19, -5.5], [DUR, -5.5]] }} />
       <Captions />
     </frame>,
     { at: 0, dur: DUR }

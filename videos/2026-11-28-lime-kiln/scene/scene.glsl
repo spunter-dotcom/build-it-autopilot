@@ -14,7 +14,7 @@ vec2 map(vec3 p){
   vec2 res=vec2(p.y,0.0);
   float sw=u_work*(0.5+0.5*sin(u_time*8.0));
   if(u_site<0.5){
-    res=opU(res,pForest(p,4.0,18.0,-24.0,-8.0));
+    res=opU(res,pForest(p,4.0,12.0,-20.0,-9.0));
     float wid=u_white>0.5?12.0:2.0;
     // barn of stacked stones
     res=opU(res,pWall(p-vec3(0.0,0.0,-2.0),vec3(3.3,1.3,0.3),wid));
@@ -42,7 +42,7 @@ vec2 map(vec3 p){
     res=opU(res,vec2(pRock(p-vec3(7.6,0.0,0.4),0.7).x,4.0));
     res=opU(res,pMan(p-vec3(7.0,0.0,3.0),sw,0.3));
     if(u_lumps>0.01){
-      res=opU(res,vec2(sdEllipsoid(p-vec3(7.9,0.0,3.5),vec3(0.6,0.35,0.5)*u_lumps)+0.03*noise2(p.xz*9.0),4.0));
+      res=opU(res,vec2(sdEllipsoid(p-vec3(7.9,0.0,3.7),vec3(0.8,0.45,0.65)*u_lumps)+0.03*noise2(p.xz*9.0),4.0));
       res=opU(res,vec2(sdEllipsoid(p-vec3(6.2,0.0,3.8),vec3(0.35,0.12,0.3)*u_lumps),1.0));
     }
     // small kiln on a hill far behind
