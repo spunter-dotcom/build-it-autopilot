@@ -1,0 +1,10 @@
+# Sources: lime kiln
+
+- Lime is made by heating limestone (calcium carbonate) so it gives off carbon dioxide and leaves quicklime (calcium oxide): CaCO3 + heat -> CaO + CO2. The reaction is generally considered to occur at 900 °C; about 1,000 °C makes it proceed quickly. https://en.wikipedia.org/wiki/Lime_kiln
+- Early kilns: an egg-cup shaped chamber with an air inlet at the base (the "eye"); limestone broken to 20-60 mm lumps, fine stone rejected because the charge had to breathe; successive layers of limestone and wood or coal built up; kindled at the bottom, the fire spread upward; lime raked out through the base. https://en.wikipedia.org/wiki/Lime_kiln
+- A batch took a day to load, three days to fire, two days to cool and a day to unload, about a week in all; batches were 25-30 tonnes of lime. https://en.wikipedia.org/wiki/Lime_kiln
+- Lime use goes back to 7500-6000 BC ('Ain Ghazal, Yiftahel, Abu Hureyra). https://en.wikipedia.org/wiki/Lime_kiln
+- Mortar re-absorbs the carbon dioxide (785 kg per tonne of calcium oxide) as it sets. https://en.wikipedia.org/wiki/Lime_kiln
+- Lake District kilns: stack limestone and fuel in alternate layers, heat to 1100 °C, leave four or five days, then cool; two tons of limestone and half a ton of coal give a ton of lime; just over half the burnt limestone becomes lime, the rest escapes as gas. Many kilns were built into a bank or slope, loaded from a ramp at the back. Adding water makes the quicklime fizz, give off heat and become lime putty (slaked lime). Uses: sweetening acid soils for farming, whitewashing houses, binding and rendering stonework. https://lakedistrict.gov.uk/learning/learning-resources/history-resources/history-case-studies/lime-kilns/
+- Tumacácori (Arizona): kilns kept extremely hot for days; lime slaked in water, made into a paste and mixed with sand for plaster and whitewash; one part slaked lime to four parts sand. https://www.nps.gov/tuma/learn/historyculture/lime-kiln.htm
+- Not used: who invented the kiln, exact Roman kiln dimensions.
