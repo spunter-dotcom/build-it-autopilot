@@ -63,7 +63,7 @@ vec2 map(vec3 p){
     hill=max(hill,-sdRoundBox(k-vec3(0.0,1.8,0.0),vec3(1.95,1.85,1.85),0.0));   // the dug-out hollow
     kiln=max(kiln,-pot);
     kiln=max(kiln,-tunnel);
-    res=opU(res,vec2(max(hill,cut),0.0));
+    res=opU(res,vec2(max(hill,cut),11.0));
     if(u_kiln>0.01) res=opU(res,vec2(max(kiln,cut),2.0));
     // dark back of the draw arch, or fire there
     if(u_kiln>0.99){
@@ -116,11 +116,10 @@ vec2 map(vec3 p){
     }
     res=opU(res,pPerson(p-vec3(1.9,0.0,0.5),u_pour>0.5?1.0:sw,0.2));
     if(u_steam>0.01){
-      vec3 q=p-vec3(0.0,0.9,0.0);
-      float r=0.3*u_steam;
-      res=opU(res,vec2(sdSphere(q-vec3(-0.4,0.2+0.3*fract(u_time*0.6),0.1),r),12.0));
-      res=opU(res,vec2(sdSphere(q-vec3(0.3,0.5+0.3*fract(u_time*0.6+0.5),-0.1),r*1.3),12.0));
-      res=opU(res,vec2(sdSphere(q-vec3(0.0,0.9+0.3*fract(u_time*0.6+0.25),0.0),r*1.6),12.0));
+      vec3 q=p-vec3(-0.3,0.75,0.0);
+      float r=0.16*u_steam;
+      res=opU(res,vec2(sdSphere(q-vec3(0.0,0.1+0.35*fract(u_time*0.7),0.1),r),12.0));
+      res=opU(res,vec2(sdSphere(q-vec3(-0.35,0.35+0.35*fract(u_time*0.7+0.5),-0.1),r*1.3),12.0));
     }
     // sand heap
     res=opU(res,vec2(sdEllipsoid(p-vec3(-2.4,0.0,0.6),vec3(0.8,0.5,0.7)),13.0));

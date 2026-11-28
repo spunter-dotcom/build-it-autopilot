@@ -48,7 +48,7 @@ export default async ({ project }) => {
       <Scene t0={c9} t1={c10} set={{ ...KS, ...KC, cut: 1, fill: 1 }} anims={{ fire: [[K("light it"), 0.01], [c10, 1]], ang: [[c9, -0.15], [c10, 0.1]], dist: [[c9, 6], [c10, 6.5]], h: [[c9, 0.2], [c10, 0.8]], ty: [[c9, 1.4], [c10, 2.0]] }} />
       {/* 900 degrees, three days: smoking kiln */}
       <Scene t0={c10} t1={c11} set={{ ...KS, ...KC, fill: 1, fire: 1 }} anims={{ smoke: [[c10, 0.6], [c11, 1]], ang: [[c10, 0.6], [c11, 0.9]], dist: [[c10, 12], [c11, 13]], h: [[c10, 2.5], [c11, 3.5]], ty: [[c10, 2.5], [c11, 2.8]] }}>
-        <Card s={c10} t0={K("hotter") } t1={K("three days")} title="900 °C" sub="HOTTER THAN" />
+        <Card s={c10} t0={K("hotter") } t1={K("three days")} title="900 °C+" sub="INSIDE THE KILN" />
         <Card s={c10} t0={K("three days")} t1={c11} title="3 DAYS" sub="OF FIRING" />
       </Scene>
       {/* feed it day and night */}
