@@ -16,7 +16,9 @@ vec2 map(vec3 p){
   if(u_site<0.5){
     res=opU(res,pForest(p,4.0,10.0,-17.0,-9.0));
     float wid=u_white>0.5?12.0:2.0;
-    // barn of stacked stones
+    // barn of stacked stones (skipped while far away, for speed)
+    float bb=sdRoundBox(p-vec3(0.0,2.15,0.9),vec3(3.9,2.2,3.7),0.0);
+    if(bb>0.5) res=opU(res,vec2(bb,2.0)); else {
     res=opU(res,pWall(p-vec3(0.0,0.0,-2.0),vec3(3.3,1.3,0.3),wid));
     res=opU(res,pWall(p-vec3(-3.0,0.0,0.0),vec3(0.3,1.3,2.0),wid));
     res=opU(res,pWall(p-vec3(3.0,0.0,0.0),vec3(0.3,1.3,2.0),wid));
@@ -36,7 +38,10 @@ vec2 map(vec3 p){
       float yy=p.y-0.65; yy=yy-0.6*clamp(floor(yy/0.6+0.5),0.0,2.0);
       res=opU(res,vec2(sdRoundBox(vec3(p.x+1.95,yy,p.z-2.32),vec3(1.0*mw,0.05,0.04),0.02),1.0));
     }
-    // limestone outcrop, worker, lumps and dust
+    }
+    // limestone outcrop, worker, lumps and dust (skipped while far away)
+    float rb=sdRoundBox(p-vec3(8.4,1.0,2.0),vec3(2.9,1.2,2.6),0.0);
+    if(rb>0.5) res=opU(res,vec2(rb,4.0)); else {
     res=opU(res,vec2(pRock(p-vec3(8.6,0.0,1.6),1.2).x,4.0));
     res=opU(res,vec2(pRock(p-vec3(9.8,0.0,0.6),0.9).x,4.0));
     res=opU(res,vec2(pRock(p-vec3(7.6,0.0,0.4),0.7).x,4.0));
@@ -44,6 +49,7 @@ vec2 map(vec3 p){
     if(u_lumps>0.01){
       res=opU(res,vec2(sdEllipsoid(p-vec3(7.9,0.0,3.7),vec3(0.8,0.45,0.65)*u_lumps)+0.03*noise2(p.xz*9.0),4.0));
       res=opU(res,vec2(sdEllipsoid(p-vec3(6.2,0.0,3.8),vec3(0.35,0.12,0.3)*u_lumps),1.0));
+    }
     }
     // small kiln on a hill far behind
     res=opU(res,vec2(sdRoundBox(p-vec3(-9.0,1.2,-14.0),vec3(5.0,1.2,3.0),0.8),0.0));
