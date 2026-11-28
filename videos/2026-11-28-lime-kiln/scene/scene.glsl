@@ -5,6 +5,11 @@
 // u_kiln (kiln rises), u_cut (cutaway), u_fill (layers 0..1), u_fire (fire climbs 0..1), u_burnt (stone turned white),
 // u_smoke, u_heap (quicklime heap), u_load (loader on top), u_pour, u_slake (lumps -> putty), u_steam,
 // u_wall (courses rebuilt), u_white (whitewash), u_spread (lime on the field).
+vec2 pMan(vec3 p, float pose, float seed){
+  float b=sdRoundBox(p-vec3(0.0,0.75,0.0),vec3(0.45,0.8,0.45),0.0);
+  if(b>0.25) return vec2(b,9.0);
+  return pPerson(p,pose,seed);
+}
 vec2 map(vec3 p){
   vec2 res=vec2(p.y,0.0);
   float sw=u_work*(0.5+0.5*sin(u_time*8.0));
@@ -35,7 +40,7 @@ vec2 map(vec3 p){
     res=opU(res,vec2(pRock(p-vec3(8.6,0.0,1.6),1.2).x,4.0));
     res=opU(res,vec2(pRock(p-vec3(9.8,0.0,0.6),0.9).x,4.0));
     res=opU(res,vec2(pRock(p-vec3(7.6,0.0,0.4),0.7).x,4.0));
-    res=opU(res,pPerson(p-vec3(7.0,0.0,3.0),sw,0.3));
+    res=opU(res,pMan(p-vec3(7.0,0.0,3.0),sw,0.3));
     if(u_lumps>0.01){
       res=opU(res,vec2(sdEllipsoid(p-vec3(7.9,0.0,3.5),vec3(0.6,0.35,0.5)*u_lumps)+0.03*noise2(p.xz*9.0),4.0));
       res=opU(res,vec2(sdEllipsoid(p-vec3(6.2,0.0,3.8),vec3(0.35,0.12,0.3)*u_lumps),1.0));
@@ -92,8 +97,8 @@ vec2 map(vec3 p){
       res=opU(res,vec2(sdSphere(q-vec3(0.7,1.4+0.25*sin(u_time*1.3),-0.3),0.85*u_smoke),12.0));
     }
     // loader on top of the hill, stoker at the arch
-    if(u_load>0.5) res=opU(res,pPerson(p-vec3(2.4,3.2,-1.4),sw,0.6));
-    res=opU(res,pPerson(p-vec3(1.0,0.0,1.4),sw,0.4));
+    if(u_load>0.5) res=opU(res,pMan(p-vec3(2.4,3.2,-1.4),sw,0.6));
+    res=opU(res,pMan(p-vec3(1.0,0.0,1.4),sw,0.4));
     // quicklime heap raked out, with the rake
     if(u_heap>0.01){
       res=opU(res,vec2(sdEllipsoid(p-vec3(-0.6,0.0,2.0),vec3(0.8,0.45,0.6)*u_heap)+0.03*noise2(p.xz*8.0),12.0));
@@ -114,7 +119,7 @@ vec2 map(vec3 p){
       res=opU(res,vec2(sdCapsule(p,vec3(1.1,1.25,0.2),vec3(0.6,0.5,0.1),0.06),8.0));
       res=opU(res,pBarrel(p-vec3(1.3,1.1,0.25),0.25,0.5));
     }
-    res=opU(res,pPerson(p-vec3(1.9,0.0,0.5),u_pour>0.5?1.0:sw,0.2));
+    res=opU(res,pMan(p-vec3(1.9,0.0,0.5),u_pour>0.5?1.0:sw,0.2));
     if(u_steam>0.01){
       vec3 q=p-vec3(-0.3,0.75,0.0);
       float r=0.16*u_steam;
@@ -135,12 +140,12 @@ vec2 map(vec3 p){
       if(u_white>0.5) wid=12.0;
       res=opU(res,vec2(wd,wid));
     }
-    res=opU(res,pPerson(p-vec3(-1.2,0.0,-1.8),sw,0.7));
+    res=opU(res,pMan(p-vec3(-1.2,0.0,-1.8),sw,0.7));
     // field with lime spread on it
     vec3 f=p-vec3(7.0,0.0,0.0);
     res=opU(res,vec2(sdRoundBox(f-vec3(0.0,0.02,0.0),vec3(2.5,0.03,3.0),0.0),11.0));
     if(u_spread>0.01) res=opU(res,vec2(sdRoundBox(f-vec3(-2.5+2.5*u_spread,0.04,0.0),vec3(2.5*u_spread,0.03,3.0),0.0),12.0));
-    res=opU(res,pPerson(p-vec3(4.2+5.0*clamp(u_spread,0.0,1.0),0.0,1.0),u_spread>0.01?sw:0.0,0.9));
+    res=opU(res,pMan(p-vec3(4.2+5.0*clamp(u_spread,0.0,1.0),0.0,1.0),u_spread>0.01?sw:0.0,0.9));
   }
   return res;
 }

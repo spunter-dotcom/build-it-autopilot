@@ -39,7 +39,7 @@ export default async ({ project }) => {
       {/* dig into the hill, kiln rises */}
       <Scene t0={c6} t1={c7} set={{ ...KS, ...KC }} anims={{ kiln: [[K("build a"), 0], [c7 - 0.2, 1]], ang: [[c6, 0.8], [c7, 0.45]], dist: [[c6, 15], [c7, 12]], h: [[c6, 4], [c7, 3]] }} />
       {/* LIME KILN hero */}
-      <Scene t0={c7} t1={c8} set={{ ...KS, ...KC }} anims={{ ang: [[c7, -0.35], [c8, -0.15]], dist: [[c7, 9], [c8, 8]], h: [[c7, 1.2], [c8, 1.6]] }}>
+      <Scene t0={c7} t1={c8} set={{ ...KS, ...KC }} anims={{ ang: [[c7, -0.35], [c8, -0.15]], dist: [[c7, 13], [c8, 11.5]], h: [[c7, 3.5], [c8, 3.0]], ty: [[c7, 2.2], [c8, 2.2]] }}>
         <Label s={c7} t0={K("lime kiln") + 0.1} t1={c8} text="LIME KILN" />
       </Scene>
       {/* cutaway: layers of wood and limestone */}
